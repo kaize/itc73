@@ -5,7 +5,7 @@ Configus.build Rails.env do
       password 'fPl7d9'
     end
 
-    page_slugs [:index, :about]
+    page_slugs [:index, :about, :contacts]
   end
 
   env :development, parent: :production do
