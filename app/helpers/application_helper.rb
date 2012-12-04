@@ -5,6 +5,6 @@ module ApplicationHelper
   end
 
   def system_pages
-    Page.where(slug: configus.page_slugs).send("asc_by_name")
+    Page.where(slug: configus.page_slugs).asc_by_name
   end
 end
