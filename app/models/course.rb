@@ -6,14 +6,14 @@ class Course < ActiveRecord::Base
   state_machine :state, initial: :new do
     state :new
     state :published
-    state :hidden
+    state :unpublished
 
     event :publish do
       transition any - [:published] => :published
     end
 
     event :unpublish do
-      transition published: :hidden
+      transition published: :unpublished
     end
   end
 
