@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'airbrake'
 gem 'bcrypt-ruby'
 gem 'carrierwave'
 gem 'configus'
