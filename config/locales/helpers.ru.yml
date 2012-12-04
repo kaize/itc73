@@ -1,0 +1,14 @@
+ru:
+  helpers:
+    submit:
+      news:
+        create: "Создать"
+        update: "Сохранить"
+      user:
+        create: "Создать"
+        update: "Сохранить"
+      session:
+        submit: "Войти"
+      page:
+        create: "Создать"
+        update: "Сохранить"

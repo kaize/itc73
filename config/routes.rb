@@ -9,6 +9,8 @@ Itc73::Application.routes.draw do
       end
     end
 
+    resources :news, only: [:index]
+
     resource :user, only: [:new, :create] do
       scope module: :user do
         resource :session, only: [:new, :create, :destroy]
@@ -19,6 +21,7 @@ Itc73::Application.routes.draw do
       root to: 'welcome#show'
 
       resources :pages
+      resources :news
       resources :users do
         member do
           put :trigger_state_event

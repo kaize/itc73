@@ -1,0 +1,34 @@
+%table.table.table-striped
+  %thead
+    %tr
+      %th= sort_link @q, :email
+      %th= sort_link @q, :first_name
+      %th= sort_link @q, :last_name
+      %th= sort_link @q, :state
+      %th= sort_link @q, :created_at
+      %th
+  %tbody
+    - @users.each do |u|
+      %tr
+        %td= u.email
+        %td= u.first_name
+        %td= u.last_name
+        %td= user_state_label(u)
+        %td= l u.created_at, format: :only_date
+        %td
+          .pull-right
+            = link_to edit_admin_news_path(u), class: 'btn btn-mini btn-primary' do
+              %i.icon-pencil
+            - if u.can_activate?
+              = link_to trigger_state_event_admin_user_path(u, event: :activate),
+                data: { method: :put, confirm: t('.activate_confirm') },
+                title: User.human_state_event_name(:activate),
+                class: 'btn btn-mini btn-notice' do
+                %i.icon-repeat
+            - if u.can_deactivate?
+              = link_to trigger_state_event_admin_user_path(u, event: :deactivate),
+                data: { method: :put, confirm: t('.delete_confirm') },
+                title: User.human_state_event_name(:deactivate),
+                class: 'btn btn-mini btn-danger' do
+                %i.icon-remove
+= render 'sidebar'

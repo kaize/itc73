@@ -1,16 +1,16 @@
 class Page < ActiveRecord::Base
   include PageRepository
 
-  attr_accessible :content, :slug, :title
+  attr_accessible :body, :slug, :name
 
-  validates :title, presence: true, length: { maximum: 255 }
+  validates :name, presence: true, length: { maximum: 255 }
 
-  def configured_slug?
+  def system_slug?
     configus.page_slugs.include? slug
   end
 
   def can_destroy?
-    persisted? && !configured_slug?
+    persisted? && !system_slug?
   end
 
   class << self

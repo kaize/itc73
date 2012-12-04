@@ -1,0 +1,8 @@
+.row
+  .span4
+    = simple_form_for :session, url: user_session_path do |f|
+      = f.input :email, input_html: { class: 'span4', value: @email }
+      = f.input :password, input_html: { class: 'span4' }
+      .form-actions
+        = f.button :submit, class: 'btn-primary pull-right'
+

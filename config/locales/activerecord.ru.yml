@@ -1,0 +1,43 @@
+ru:
+  activerecord:
+    attributes:
+      news:
+        title: "Заголовок"
+        content: "Содержание"
+        state: "Состояние"
+        state_event: "Изменить состояние"
+        image: "Изображение"
+        published_at: "Дата публикации"
+      page:
+        title: "Заголовок"
+        slug: "Алиас"
+        content: "Содержание"
+      user:
+        first_name: 'Имя'
+        last_name: 'Фамилия'
+        password: 'Пароль'
+        password_confirmation: 'Подтверждение пароля'
+        state: 'Запись'
+        state_event: 'Действие'
+        created_at: 'Дата создания'
+        updated_at: 'Дата обновления'
+    state_machines:
+      user:
+        state:
+          states:
+            new: 'Новый'
+            active: 'Активный'
+            deactivated: 'Неактивный'
+          events:
+            confirm: 'Подтвердить'
+            activate: 'Активировать'
+            deactivate: 'Дизактивировать'
+      news:
+        state:
+          states:
+            new: "Новая"
+            published: "Опубликована"
+            hidden: "Скрыта"
+          events:
+            publish: "Опубликовать"
+            unpublish: "Скрыть"

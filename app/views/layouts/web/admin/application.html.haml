@@ -1,0 +1,39 @@
+!!! 5
+%html(lang = "ru")
+  %head
+    = render 'layouts/web/shared/head'
+    = stylesheet_link_tag 'admin/application'
+    = javascript_include_tag 'admin/application'
+  %body
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          %a.btn.btn-navbar(data-target = ".nav-collapse" data-toggle = "collapse")
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          = link_to t('.title'), root_path, class: 'brand'
+          - if signed_in?
+            .container.nav-collapse
+              %ul.nav
+                %li= link_to t('.pages'), admin_pages_path
+                %li= link_to t('.news'), admin_news_index_path
+                %li= link_to t('.users'), admin_users_path
+              .btn-group.pull-right
+                = link_to t('.sign_out'), user_session_path, class: 'btn', method: :delete
+              %ul.nav.pull-right
+                %li= link_to t('.index'), root_path
+                %li
+                  = link_to edit_admin_user_path(current_user) do
+                    %i.icon-user
+                    = current_user.full_name
+    .container
+      .row
+        %div{class: "span#{content_for?(:sidebar) ? 9 : 12}"}
+          = flash_block
+          = render_breadcrumbs
+          = yield
+        - if content_for? :sidebar
+          .span3
+            = yield :sidebar
+

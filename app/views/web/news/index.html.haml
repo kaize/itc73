@@ -1,19 +1,9 @@
-%h3= t('.news')
+%h1= t('.news')
 
-.content
-  .container
-    .bord
-      .news
-        %ul
-          - @news.each do |n|
-            %li
-              .foto
-                %p.date= l n.published_at, format: :only_date
-                - if n.image.url
-                  = image_tag n.image.url
-              .text
-                %h4= n.title
-                %p= n.content
-      .archive_news
-
+%ul.news
+  - @news.each do |n|
+    %li
+      %h4= n.name
+      %time{datetime: n.date}= n.date
+      %p= n.body
 

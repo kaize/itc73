@@ -1,9 +1,9 @@
 class CreateNews < ActiveRecord::Migration
   def change
     create_table :news do |t|
-      t.string :title
+      t.string :name
       t.string :image
-      t.text :content
+      t.text :body
       t.datetime :published_at
       t.string :state
 

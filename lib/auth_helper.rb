@@ -9,7 +9,7 @@ module AuthHelper
   end
 
   def signed_in?
-    !current_user.guest?
+    session[:user_id] && current_user
   end
 
   def authenticate_admin!
@@ -20,8 +20,7 @@ module AuthHelper
 
   def current_user
     @current_user ||=
-      session[:user_id] && ::User.active.find_by_id(session[:user_id]).decorate ||
-      User::Guest.new
+      session[:user_id] && User.active.find_by_id(session[:user_id]).decorate
   end
 
   def basic_auth

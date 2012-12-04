@@ -1,9 +1,9 @@
 class News < ActiveRecord::Base
   include NewsRepository
 
-  attr_accessible :content, :image, :title, :published_at, :state, :state_event
+  attr_accessible :body, :image, :name, :published_at, :state, :state_event
 
-  validates :title, presence: true, length: { maximum: 255 }
+  validates :name, presence: true, length: { maximum: 255 }
   validates :published_at, presence: true
 
   mount_uploader :image, NewsImageUploader

@@ -1,0 +1,22 @@
+ru:
+  breadcrumbs:
+    web:
+      admin:
+        application:
+          index: "Админка"
+        news:
+          index: "Новости"
+          new: "Добавление новости"
+          edit: "Редактирование новости"
+        pages:
+          index: "Страницы сайта"
+          edit: "Редактирование страницы"
+          new: "Новая страница"
+        participants:
+          index: "Участники"
+          new: "Новый участник"
+        projects:
+          index: "Проекты"
+          new: "Новый проект"
+        users:
+          index: "Пользователи"

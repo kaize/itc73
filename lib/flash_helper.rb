@@ -1,10 +1,9 @@
 module FlashHelper
-  class << self
-    [:success, :info].each do |kind|
-      define_method "flash_#{kind}" do |options|
-        msg = options[:message] || kind
-        flash_notice message: msg, kind: kind, now: options[:now]
-      end
+
+  [:success, :info].each do |kind|
+    define_method "flash_#{kind}" do |options = {}|
+      msg = options[:message] || kind
+      flash_notice message: msg, kind: kind, now: options[:now]
     end
   end
 
@@ -16,7 +15,7 @@ module FlashHelper
 
   def flash_notice(options = {})
     msg = options[:message] || :notice
-    msg = flash_translate msg if msg.is_a(Symbol)
+    msg = flash_translate msg if msg.is_a?(Symbol)
     kind = options[:kind] || :notice
 
     if options[:now]
@@ -26,14 +25,12 @@ module FlashHelper
     end
   end
 
-  private
+  def flash_translate(key)
+    scope = [:flash, :controllers]
+    scope += params[:controller].split('/')
+    scope << params[:action]
 
-    def flash_translate(key)
-      scope = [:flash, :controllers]
-      scope += params[:controller].split('/')
-      scope << params[:action]
-
-      t(key, scope: scope)
-    end
+    t(key, scope: scope)
+  end
 
 end

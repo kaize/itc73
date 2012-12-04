@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :news do
-    title { generate :name }
-    content { generate :text }
+    name
+    body
     published_at { generate :date }
   end
 end

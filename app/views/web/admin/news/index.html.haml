@@ -1,0 +1,22 @@
+%table.table.table-striped
+  %thead
+    %tr
+      %th= sort_link @q, :title
+      %th= sort_link @q, :published_at
+      %th= sort_link @q, :state
+
+  %tbody
+  - @news.each do |n|
+    %tr
+      %td= n.name
+      %td= l n.published_at, format: :short
+      %td= n.human_state_name
+      %td
+        .pull-right
+          = link_to edit_admin_news_path(n), class: 'btn btn-mini btn-primary' do
+            %i.icon-pencil
+
+.pagination
+  = paginate @news
+
+= render 'sidebar'

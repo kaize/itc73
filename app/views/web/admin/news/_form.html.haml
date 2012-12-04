@@ -1,0 +1,12 @@
+= simple_form_for @news, url: url do |f|
+  = f.input :name, input_html: { class: 'span5' }
+  = f.input :body, input_html: { class: 'span8', rows: 3 }
+  = f.input :published_at, as: :datepicker
+  = f.input :state_event, as: :state_event
+  = f.input :image, as: :image_preview
+  .form-actions
+    = f.button :submit, class: 'btn btn-primary'
+    = link_to t('.cancel'), admin_news_index_path, class: 'btn'
+    - if @news.can_destroy?
+      = link_to t('.delete'), admin_news_path(@news), method: :delete, class: 'btn btn-danger pull-right',
+        data: { confirm: t('.delete_confirm') }

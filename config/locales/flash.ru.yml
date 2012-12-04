@@ -1,0 +1,27 @@
+ru:
+  flash:
+    controllers:
+      web:
+        admin:
+          news:
+            create:
+              success: "Новость добавлена"
+            update:
+              success: "Новость обновлена"
+          pages:
+            create:
+              success: "Страница добавлена"
+            update:
+              success: "Страница обновлена"
+          users:
+            create:
+              success: 'Пользователь был успешно создан.'
+            update:
+              success: 'Данные пользователя были успешно обновлены.'
+        user:
+          sessions:
+            create:
+              error: 'Неправильный email или пароль.'
+        users:
+          create:
+            success: 'Письмо со ссылкой для подтверждения email успешно отправлено на указанный адрес.'

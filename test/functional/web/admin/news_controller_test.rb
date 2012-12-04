@@ -2,7 +2,7 @@ require 'test_helper'
 
 class Web::Admin::NewsControllerTest < ActionController::TestCase
   setup do
-    admin = create :admin_user
+    admin = create :user, :admin
     sign_in admin
 
     @news = create :news
@@ -28,14 +28,14 @@ class Web::Admin::NewsControllerTest < ActionController::TestCase
     post :create, news: @attrs
     assert_response :redirect
 
-    assert News.find_by_title(@attrs[:title])
+    assert News.find_by_name(@attrs[:name])
   end
 
   test "should put update" do
     put :update, id: @news.id, news: @attrs
     assert_response :redirect
 
-    assert News.find_by_title(@attrs[:title])
+    assert News.find_by_name(@attrs[:name])
   end
 
   test "should delete destroy" do

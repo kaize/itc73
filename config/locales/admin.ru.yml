@@ -1,0 +1,41 @@
+ru:
+  layouts:
+    web:
+      admin:
+        application:
+          title: "Админка"
+          pages: "Страницы сайта"
+          users: "Пользователи"
+          news: "Новости"
+          index: "На главную"
+          sign_out: "Выйти"
+  web:
+    admin:
+      news:
+        form:
+          delete: "Удалить"
+          cancel: "Отмена"
+          delete_confirm: "Вы уверены, что хотите удалить новость?"
+        index:
+          delete: "Удалить"
+          delete_confirm: "Вы уверены, что хотите удалить новость?"
+        sidebar:
+          new_news: "Добавить новость"
+      pages:
+        sidebar:
+          new_page: "Добавить страницу"
+          edit_page: "Редактировать"
+        form:
+          delete: "Удалить"
+          cancel: "Отмена"
+          delete_confirm: "Вы уверены, что хотите удалить страницу?"
+      users:
+        index:
+          edit: "Редактировать"
+          deactivate: "Дизактивировать"
+          activate: "Активировать"
+          deactivate_confirm: "Вы уверены, что хотите дизактивировать пользователя?"
+          activate_confirm: "Вы уверены, что хотите активировать пользователя?"
+        sidebar:
+          new_user: "Добавить пользователя"
+

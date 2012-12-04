@@ -1,0 +1,19 @@
+ru:
+  base_title: "ITC"
+  layouts:
+    web:
+      shared:
+        footer:
+          copyright: "2012 ITC"
+        nav:
+          news: "Новости"
+          contacts: "Контакты"
+  time:
+    formats:
+      only_date: "%d.%m.%Y"
+  web:
+    welcome:
+      show:
+    news:
+      index:
+        news: "Новости"
