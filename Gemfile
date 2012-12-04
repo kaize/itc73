@@ -33,6 +33,7 @@ end
 group :development do
   gem 'capi'
   gem 'capistrano'
+  gem 'capistrano_colors'
   gem 'capistrano-ext'
   gem 'rvm-capistrano'
 end
