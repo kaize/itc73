@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
     state :inactive
 
     event :activate do
-      transition any => :active
+      transition any - :active => :active
     end
 
     event :deactivate do

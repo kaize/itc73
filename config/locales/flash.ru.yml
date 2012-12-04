@@ -3,6 +3,13 @@ ru:
     controllers:
       web:
         admin:
+          courses:
+            create:
+              success: "Курс добавлен"
+              error: "При добавлении курса возникли ошибки"
+            update:
+              success: "Курс обновлен"
+              error: "При обновлении курса возникли ошибки"
           news:
             create:
               success: "Новость добавлена"

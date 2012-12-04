@@ -20,6 +20,7 @@ Itc73::Application.routes.draw do
     namespace :admin do
       root to: 'welcome#show'
 
+      resources :courses
       resources :pages
       resources :news
       resources :users do

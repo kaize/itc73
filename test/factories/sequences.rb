@@ -23,6 +23,10 @@ FactoryGirl.define do
     FactoryGirl.generate(:string) * 100
   end
 
+  sequence :description do |n|
+    FactoryGirl.generate(:string) * 100
+  end
+
   sequence :email do |n|
     "email-#{n}@example.com"
   end

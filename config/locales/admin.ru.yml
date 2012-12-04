@@ -4,6 +4,7 @@ ru:
       admin:
         application:
           title: "Админка"
+          courses: "Курсы"
           pages: "Страницы сайта"
           users: "Пользователи"
           news: "Новости"
@@ -11,6 +12,16 @@ ru:
           sign_out: "Выйти"
   web:
     admin:
+      courses:
+        form:
+          delete: "Удалить"
+          cancel: "Отмена"
+          delete_confirm: "Вы уверены, что хотите удалить курс?"
+        index:
+          delete: "Удалить"
+          delete_confirm: "Вы уверены, что хотите удалить курс?"
+        sidebar:
+          new_course: "Добавить курс"
       news:
         form:
           delete: "Удалить"

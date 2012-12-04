@@ -2,6 +2,8 @@ ru:
   base_title: "ITC"
   layouts:
     web:
+      application:
+        title: "ITC"
       shared:
         footer:
           copyright: "2012 ITC"

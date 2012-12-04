@@ -4,6 +4,10 @@ ru:
       admin:
         application:
           index: "Админка"
+        courses:
+          index: "Курсы"
+          new: "Добавление курса"
+          edit: "Редактирование курса"
         news:
           index: "Новости"
           new: "Добавление новости"

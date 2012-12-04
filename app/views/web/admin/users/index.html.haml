@@ -17,7 +17,7 @@
         %td= l u.created_at, format: :only_date
         %td
           .pull-right
-            = link_to edit_admin_news_path(u), class: 'btn btn-mini btn-primary' do
+            = link_to edit_admin_user_path(u), class: 'btn btn-mini btn-primary' do
               %i.icon-pencil
             - if u.can_activate?
               = link_to trigger_state_event_admin_user_path(u, event: :activate),

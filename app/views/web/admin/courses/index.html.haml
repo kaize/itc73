@@ -1,0 +1,24 @@
+%table.table.table-striped
+  %thead
+    %tr
+      %th= sort_link @q, :name
+      %th= sort_link @q, :kind
+      %th= sort_link @q, :level
+      %th= sort_link @q, :state
+
+  %tbody
+  - @courses.each do |n|
+    %tr
+      %td= n.name
+      %td= n.kind
+      %td= n.level
+      %td= n.human_state_name
+      %td
+        .pull-right
+          = link_to edit_admin_course_path(n), class: 'btn btn-mini btn-primary' do
+            %i.icon-pencil
+
+.pagination
+  = paginate @courses
+
+= render 'sidebar'

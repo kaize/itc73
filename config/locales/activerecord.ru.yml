@@ -1,8 +1,14 @@
 ru:
   activerecord:
     attributes:
+      course:
+        name: "Название"
+        description: "Описание"
+        kind: "Тип"
+        level: "Уровень"
+        state: "Состояние"
       news:
-        title: "Заголовок"
+        name: "Заголовок"
         content: "Содержание"
         state: "Состояние"
         state_event: "Изменить состояние"
@@ -17,11 +23,29 @@ ru:
         last_name: 'Фамилия'
         password: 'Пароль'
         password_confirmation: 'Подтверждение пароля'
-        state: 'Запись'
+        state: 'Состояние'
         state_event: 'Действие'
         created_at: 'Дата создания'
         updated_at: 'Дата обновления'
     state_machines:
+      course:
+        state:
+          states:
+            new: "Новый"
+            published: "Опубликован"
+            hidden: "Скрыт"
+          events:
+            publish: "Опубликовать"
+            unpublish: "Скрыть"
+      news:
+        state:
+          states:
+            new: "Новая"
+            published: "Опубликована"
+            hidden: "Скрыта"
+          events:
+            publish: "Опубликовать"
+            unpublish: "Скрыть"
       user:
         state:
           states:
@@ -32,12 +56,3 @@ ru:
             confirm: 'Подтвердить'
             activate: 'Активировать'
             deactivate: 'Дизактивировать'
-      news:
-        state:
-          states:
-            new: "Новая"
-            published: "Опубликована"
-            hidden: "Скрыта"
-          events:
-            publish: "Опубликовать"
-            unpublish: "Скрыть"

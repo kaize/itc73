@@ -1,0 +1,12 @@
+= simple_form_for @course, url: url do |f|
+  = f.input :name, input_html: { class: 'span5' }
+  = f.input :description, input_html: { class: 'span8', rows: 3 }
+  = f.input :kind
+  = f.input :level
+  = f.input :state_event, as: :state_event
+  .form-actions
+    = f.button :submit, class: 'btn btn-primary'
+    = link_to t('.cancel'), admin_courses_path, class: 'btn'
+    - if @course.can_destroy?
+      = link_to t('.delete'), admin_course_path(@course), method: :delete, class: 'btn btn-danger pull-right',
+        data: { confirm: t('.delete_confirm') }
