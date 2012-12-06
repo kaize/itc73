@@ -42,6 +42,6 @@ class Web::Admin::PagesControllerTest < ActionController::TestCase
     delete :destroy, id: @page.slug
     assert_response :redirect
 
-    assert_nil Page.find_by_id @page
+    assert !Page.exists?(@page)
   end
 end
