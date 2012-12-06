@@ -18,7 +18,7 @@
       - if @user.can_activate?
         = link_to User.human_state_event_name(:activate),
           trigger_state_event_admin_user_path(@user, event: :activate),
-          method: :put, confirm: t('.activate_confirm'), class: 'btn btn-success'
+          method: :put, confirm: t('.activate_confirm'), class: 'btn btn-success pull-right'
       - if @user.can_deactivate?
         = link_to User.human_state_event_name(:deactivate),
           trigger_state_event_admin_user_path(@user, event: :deactivate),
