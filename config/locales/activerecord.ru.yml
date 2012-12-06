@@ -41,6 +41,12 @@ ru:
         state_event: 'Действие'
         created_at: 'Дата создания'
         updated_at: 'Дата обновления'
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              email: "некорректный адрес"
     state_machines:
       course:
         state:
@@ -65,8 +71,8 @@ ru:
           states:
             new: 'Новый'
             active: 'Активный'
-            deactivated: 'Неактивный'
+            inactive: 'Неактивный'
           events:
             confirm: 'Подтвердить'
             activate: 'Активировать'
-            deactivate: 'Дизактивировать'
+            deactivate: 'Деактивировать'
