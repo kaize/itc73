@@ -27,14 +27,21 @@ class Web::Admin::PagesControllerTest < ActionController::TestCase
   end
 
   test "should get edit" do
-    get :edit, id: @page.id
+    get :edit, id: @page.slug
     assert_response :success
   end
 
   test "should put update" do
-    put :update, id: @page.id, page: @attrs
+    put :update, id: @page.slug, page: @attrs
     assert_response :redirect
 
     assert Page.find_by_name @attrs[:name]
+  end
+
+  test "should delete destroy" do
+    delete :destroy, id: @page.slug
+    assert_response :redirect
+
+    assert_nil Page.find_by_id @page
   end
 end

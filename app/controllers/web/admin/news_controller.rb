@@ -45,9 +45,11 @@ class Web::Admin::NewsController < Web::Admin::ApplicationController
   end
 
   def destroy
-    @news = News.find(params[:id])
-    @news.destroy
-    redirect_to admin_news_index_path
+    news = News.find(params[:id])
+    news.destroy
+
+    flash_success
+    redirect_to action: :index
   end
 
 end

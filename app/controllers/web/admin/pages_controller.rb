@@ -26,12 +26,12 @@ class Web::Admin::PagesController < Web::Admin::ApplicationController
   end
 
   def edit
-    @page = Page.find params[:id]
+    @page = Page.find_by_slug! params[:id]
     breadcrumb @page.name, edit_admin_page_path(@page)
   end
 
   def update
-    @page = Page.find params[:id]
+    @page = Page.find_by_slug! params[:id]
     if @page.update_attributes params[:page]
       flash_success
       redirect_to action: :index
@@ -42,4 +42,19 @@ class Web::Admin::PagesController < Web::Admin::ApplicationController
       render :edit
     end
   end
+
+  def destroy
+    @page = Page.find_by_slug params[:id]
+
+    if @page.can_destroy?
+      @page.destroy
+      flash_success
+      redirect_to admin_pages_path
+    else
+      flash_error now: false
+      redirect_to :back
+    end
+
+  end
+
 end
