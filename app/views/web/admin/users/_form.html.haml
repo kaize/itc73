@@ -1,22 +1,25 @@
 = simple_form_for @user, url: url do |f|
-  - if @user.persisted?
-    .control-group.state
-      = f.label :state
-      .controls
-        = user_state_label(@user)
-  = f.input :first_name
-  = f.input :last_name
-  = f.input :email
-  = f.input :password
+  .row
+    .span4
+      = f.input :first_name
+      = f.input :last_name
+      - if @user.persisted?
+        .control-group.state
+          = f.label :state
+          .controls
+            = user_state_label(@user)
+    .span4
+      = f.input :email
+      = f.input :password
   .form-actions
-    = f.button :submit, :class => 'btn btn-primary'
-    = link_to t(:cancel), admin_users_path, :class => 'btn'
+    = f.button :submit, class: 'btn btn-primary'
+    = link_to t('.cancel'), admin_users_path, class: 'btn'
     - if @user.persisted?
       - if @user.can_activate?
         = link_to User.human_state_event_name(:activate),
-          trigger_state_event_admin_user_path(@user, {event: :activate}),
-          :method => :put, :confirm => t(:sure), :class => "btn btn-success"
+          trigger_state_event_admin_user_path(@user, event: :activate),
+          method: :put, confirm: t('.activate_confirm'), class: 'btn btn-success'
       - if @user.can_deactivate?
         = link_to User.human_state_event_name(:deactivate),
-          trigger_state_event_admin_user_path(@user, {event: :deactivate}),
-          :method => :put, :confirm => t(:sure), :class => "btn btn-danger"
+          trigger_state_event_admin_user_path(@user, event: :deactivate),
+          method: :put, confirm: t('.delete_confirm'), class: 'btn btn-danger pull-right'

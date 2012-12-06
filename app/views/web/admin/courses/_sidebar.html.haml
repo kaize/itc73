@@ -4,4 +4,13 @@
       %i.icon-plus
       = t('.new_course')
 
+  %ul.nav.nav-tabs.nav-stacked
+    %li
+      = link_to new_admin_course_kind_path, class: 'close' do
+        %i.icon-plus
+      = link_to t('.kinds'), admin_course_kinds_path
+    %li
+      = link_to new_admin_course_level_path, class: 'close' do
+        %i.icon-plus
+      = link_to t('.levels'), admin_course_levels_path
 

@@ -1,5 +1,5 @@
 class Web::Admin::CoursesController < Web::Admin::ApplicationController
-  add_breadcrumb :index, :admin_courses_path
+  breadcrumb :index, :admin_courses_path
 
   def index
     query = params[:q] || { s: 'created_at desc' }

@@ -1,6 +1,11 @@
 = simple_form_for @page, url: url do |f|
-  = f.input :name
-  = f.input :body, input_html: { class: 'span8', rows: 7 }
+  = f.input :name, input_html: { class: 'input-xxlarge' }
+  = f.input :slug do
+    - if @page.system_slug?
+      %span.input-xxlarge.uneditable-input= @page.slug
+    -else
+      = f.input_field :slug, class: 'input-xxlarge'
+  = f.input :body, input_html: { class: 'input-block-level', rows: 7 }
   .form-actions
     = f.button :submit, class: 'btn-primary'
     = link_to t('.cancel'), admin_pages_path, class: 'btn'

@@ -1,0 +1,20 @@
+%table.table.table-striped
+  %thead
+    %tr
+      %th= sort_link @q, :name
+      %th= sort_link @q, :url
+
+  %tbody
+  - @materials.each do |n|
+    %tr
+      %td= n.name
+      %td= n.url
+      %td
+        .pull-right
+          = link_to edit_admin_material_path(n), class: 'btn btn-mini btn-primary' do
+            %i.icon-pencil
+
+.pagination
+  = paginate @materials
+
+= render 'sidebar'

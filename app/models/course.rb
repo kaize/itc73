@@ -1,7 +1,11 @@
 class Course < ActiveRecord::Base
   include CourseRepository
 
-  attr_accessible :description, :kind, :level, :name, :state, :state_event
+  belongs_to :kind, class_name: Course::Kind
+  belongs_to :level, class_name: Course::Level
+
+  attr_accessible :description, :kind, :kind_id, :level, :level_id, :name, 
+    :state, :state_event
 
   validates :name, presence: true, length: { maximum: 255 }
 

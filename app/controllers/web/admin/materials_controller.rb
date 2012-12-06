@@ -1,4 +1,4 @@
-class Web::Admin::MaterialsController < Web::ApplicationController
+class Web::Admin::MaterialsController < Web::Admin::ApplicationController
   breadcrumb :index, :admin_materials_path
 
   def index

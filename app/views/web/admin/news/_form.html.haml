@@ -1,6 +1,6 @@
 = simple_form_for @news, url: url do |f|
-  = f.input :name, input_html: { class: 'span5' }
-  = f.input :body, input_html: { class: 'span8', rows: 3 }
+  = f.input :name, input_html: { class: 'input-xxlarge' }
+  = f.input :body, input_html: { class: 'input-block-level', rows: 3 }
   = f.input :published_at, as: :datepicker
   = f.input :state_event, as: :state_event
   = f.input :image, as: :image_preview

@@ -4,9 +4,10 @@ class Page < ActiveRecord::Base
   attr_accessible :body, :slug, :name
 
   validates :name, presence: true, length: { maximum: 255 }
+  validates :slug, slug: true, uniqueness: true, length: { maximum: 255 }
 
   def system_slug?
-    configus.page_slugs.include? slug
+    slug && configus.page_slugs.include?(slug.to_sym)
   end
 
   def can_destroy?
@@ -19,6 +20,15 @@ class Page < ActiveRecord::Base
         find_by_slug slug
       end
     end
+  end
+
+  def slug=(value)
+    value = Support::SlugGenerator.generate(name) unless value.present?
+    write_attribute(:slug, value)
+  end
+
+  def to_param
+    slug
   end
 
 end

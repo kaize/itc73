@@ -7,17 +7,31 @@ ru:
         kind: "Тип"
         level: "Уровень"
         state: "Состояние"
+        state_event: "Изменить состояние"
+      course/kind:
+        name: "Тип"
+      course/level:
+        name: "Уровень"
+      material:
+        name: "Название"
+        description: "Описание"
+        url: "URL"
+        file: "Файл"
       news:
         name: "Заголовок"
-        content: "Содержание"
+        body: "Содержание"
         state: "Состояние"
         state_event: "Изменить состояние"
         image: "Изображение"
         published_at: "Дата публикации"
       page:
-        title: "Заголовок"
+        name: "Заголовок"
         slug: "Алиас"
-        content: "Содержание"
+        body: "Содержание"
+      task:
+        name: "Название"
+        description: "Описание"
+        url: "URL"
       user:
         first_name: 'Имя'
         last_name: 'Фамилия'

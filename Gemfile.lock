@@ -246,7 +246,7 @@ DEPENDENCIES
   simplecov
   state_machine
   tconsole
-  therubyracer
+  therubyracer (= 0.10.2)
   turn
   twitter-bootstrap-rails
   uglifier (>= 1.0.3)

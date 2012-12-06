@@ -4,14 +4,26 @@ ru:
       course:
         create: "Создать"
         update: "Сохранить"
+      course_kind:
+        create: "Создать"
+        update: "Сохранить"
+      course_level:
+        create: "Создать"
+        update: "Сохранить"
+      material:
+        create: "Создать"
+        update: "Сохранить"
       news:
         create: "Создать"
         update: "Сохранить"
-      user:
+      task:
+        create: "Создать"
+        update: "Сохранить"
+      page:
         create: "Создать"
         update: "Сохранить"
       session:
         submit: "Войти"
-      page:
+      user:
         create: "Создать"
         update: "Сохранить"

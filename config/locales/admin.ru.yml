@@ -5,7 +5,9 @@ ru:
         application:
           title: "Админка"
           courses: "Курсы"
+          materials: "Материалы"
           pages: "Страницы сайта"
+          tasks: "Задания"
           users: "Пользователи"
           news: "Новости"
           index: "На главную"
@@ -22,6 +24,38 @@ ru:
           delete_confirm: "Вы уверены, что хотите удалить курс?"
         sidebar:
           new_course: "Добавить курс"
+          kinds: "Типы курсов"
+          levels: "Уровни сложности"
+      course_kinds:
+        form:
+          delete: "Удалить"
+          cancel: "Отмена"
+          delete_confirm: "Вы уверены, что хотите удалить тип?"
+        index:
+          delete: "Удалить"
+          delete_confirm: "Вы уверены, что хотите удалить тип?"
+        sidebar:
+          new: "Добавить тип курса"
+      course_levels:
+        form:
+          delete: "Удалить"
+          cancel: "Отмена"
+          delete_confirm: "Вы уверены, что хотите удалить уровень сложности?"
+        index:
+          delete: "Удалить"
+          delete_confirm: "Вы уверены, что хотите удалить уровень сложности?"
+        sidebar:
+          new: "Добавить уровень"
+      materials:
+        form:
+          delete: "Удалить"
+          cancel: "Отмена"
+          delete_confirm: "Вы уверены, что хотите удалить материал?"
+        index:
+          delete: "Удалить"
+          delete_confirm: "Вы уверены, что хотите удалить материал?"
+        sidebar:
+          new: "Добавить материал"
       news:
         form:
           delete: "Удалить"
@@ -40,13 +74,25 @@ ru:
           delete: "Удалить"
           cancel: "Отмена"
           delete_confirm: "Вы уверены, что хотите удалить страницу?"
+      tasks:
+        form:
+          delete: "Удалить"
+          cancel: "Отмена"
+          delete_confirm: "Вы уверены, что хотите удалить задание?"
+        index:
+          delete: "Удалить"
+          delete_confirm: "Вы уверены, что хотите удалить задание?"
+        sidebar:
+          new: "Добавить задание"
       users:
         index:
-          edit: "Редактировать"
-          deactivate: "Дизактивировать"
-          activate: "Активировать"
-          deactivate_confirm: "Вы уверены, что хотите дизактивировать пользователя?"
           activate_confirm: "Вы уверены, что хотите активировать пользователя?"
+          delete_confirm: "Вы уверены, что хотите дизактивировать пользователя?"
+          edit: "Редактировать"
+        form:
+          activate_confirm: "Вы уверены, что хотите активировать пользователя?"
+          cancel: "Отмена"
+          delete_confirm: "Вы уверены, что хотите дизактивировать пользователя?"
         sidebar:
           new_user: "Добавить пользователя"
 

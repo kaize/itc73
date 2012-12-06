@@ -5,4 +5,8 @@ class Material < ActiveRecord::Base
 
   validates :name, presence: true, length: { maximum: 255 }
   validates :url, url: true
+
+  def can_destroy?
+    persisted?
+  end
 end

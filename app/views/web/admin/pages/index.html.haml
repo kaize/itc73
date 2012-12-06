@@ -8,13 +8,9 @@
   - @pages.each do |page|
     %tr
       %td
-        = link_to page.slug,
-          page.system_slug? ? send("#{page.slug}_path") : page_path(page),
-          target: :_blank
+        = link_to page.slug, page_path(page), target: :_blank
       %td
-        = link_to page.name,
-          page.system_slug? ? send("#{page.slug}_path") : page_path(page),
-          target: :_blank
+        = link_to page.name, page_path(page), target: :_blank
 
       %td
         .pull-right

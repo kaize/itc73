@@ -10,3 +10,7 @@
  *
  *= require bootstrap_and_overrides
  */
+
+ul.nav.nav-stacked > li > a.close {
+  border: none;
+}

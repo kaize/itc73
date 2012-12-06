@@ -1,9 +1,16 @@
 = simple_form_for @course, url: url do |f|
-  = f.input :name, input_html: { class: 'span5' }
-  = f.input :description, input_html: { class: 'span8', rows: 3 }
-  = f.input :kind
-  = f.input :level
-  = f.input :state_event, as: :state_event
+  = f.input :name, input_html: { class: 'input-xxlarge' }
+  = f.input :description, input_html: { class: 'input-block-level', rows: 5 }
+  .row
+    .span3
+      = f.association :kind, collection: Course::Kind.asc_by_name, include_blank: false
+    .span3
+      = f.association :level, collection: Course::Level.asc_by_name, include_blank: false
+    .span2
+      = f.input :state do
+        %span.label= @course.human_state_name
+    .span3
+      = f.input :state_event, as: :state_event
   .form-actions
     = f.button :submit, class: 'btn btn-primary'
     = link_to t('.cancel'), admin_courses_path, class: 'btn'

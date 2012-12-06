@@ -1,0 +1,10 @@
+= simple_form_for @task, url: url do |f|
+  = f.input :name, input_html: { class: 'input-xxlarge' }
+  = f.input :url, input_html: { class: 'input-xxlarge' }
+  = f.input :description, input_html: { class: 'input-block-level', rows: 3 }
+  .form-actions
+    = f.button :submit, class: 'btn btn-primary'
+    = link_to t('.cancel'), admin_tasks_path, class: 'btn'
+    - if @task.can_destroy?
+      = link_to t('.delete'), admin_task_path(@task), method: :delete, class: 'btn btn-danger pull-right',
+        data: { confirm: t('.delete_confirm') }

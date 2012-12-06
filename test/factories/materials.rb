@@ -3,6 +3,5 @@ FactoryGirl.define do
     name
     description
     url
-    course
   end
 end

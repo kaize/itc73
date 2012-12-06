@@ -21,6 +21,10 @@ Itc73::Application.routes.draw do
       root to: 'welcome#show'
 
       resources :courses
+      resources :course_kinds
+      resources :course_levels
+      resources :tasks
+      resources :materials
       resources :pages
       resources :news
       resources :users do
