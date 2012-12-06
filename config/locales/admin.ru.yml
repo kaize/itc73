@@ -1,4 +1,5 @@
 ru:
+  edit: "Редактировать"
   layouts:
     web:
       admin:
@@ -73,6 +74,8 @@ ru:
         form:
           delete: "Удалить"
           cancel: "Отмена"
+          delete_confirm: "Вы уверены, что хотите удалить страницу?"
+        index:
           delete_confirm: "Вы уверены, что хотите удалить страницу?"
       tasks:
         form:

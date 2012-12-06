@@ -14,9 +14,14 @@
       %td= n.level
       %td= n.human_state_name
       %td
-        .pull-right
+        .pull-right.btn-group
           = link_to edit_admin_course_path(n), class: 'btn btn-mini btn-primary' do
             %i.icon-pencil
+            = t(:edit)
+          = link_to admin_course_path(n), method: :delete,
+            class: 'btn btn-mini btn-danger',
+            data: { confirm: t('.delete_confirm') } do
+            %i.icon-trash
 
 .pagination
   = paginate @courses
