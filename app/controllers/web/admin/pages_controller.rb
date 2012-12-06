@@ -44,17 +44,16 @@ class Web::Admin::PagesController < Web::Admin::ApplicationController
   end
 
   def destroy
-    @page = Page.find_by_slug params[:id]
+    @page = Page.find_by_slug! params[:id]
 
     if @page.can_destroy?
       @page.destroy
       flash_success
-      redirect_to admin_pages_path
+      redirect_to action: :index
     else
       flash_error now: false
       redirect_to :back
     end
-
   end
 
 end

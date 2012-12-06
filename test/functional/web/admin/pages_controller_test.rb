@@ -2,6 +2,8 @@ require 'test_helper'
 
 class Web::Admin::PagesControllerTest < ActionController::TestCase
   setup do
+    set_http_referer
+
     admin = create :user, :admin
     sign_in admin
 
@@ -43,5 +45,13 @@ class Web::Admin::PagesControllerTest < ActionController::TestCase
     assert_response :redirect
 
     assert !Page.exists?(@page)
+  end
+
+  test "should not delete page with system slug" do
+    page = Page.find_by_slug! configus.page_slugs.first
+    delete :destroy, id: page.slug
+    assert_response :redirect
+
+    assert Page.exists?(page)
   end
 end
