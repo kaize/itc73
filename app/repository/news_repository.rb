@@ -1,8 +1,8 @@
 module NewsRepository
   extend ActiveSupport::Concern
+  include BaseRepository
 
   included do
-    include BaseRepository
     scope :published, where(state: :published)
   end
 end

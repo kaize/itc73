@@ -1,7 +1,4 @@
 module BaseRepository
   extend ActiveSupport::Concern
-
-  included do
-    include UsefullScopes
-  end
+  include UsefullScopes
 end

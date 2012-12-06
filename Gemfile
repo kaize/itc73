@@ -17,7 +17,7 @@ gem 'ransack'
 gem 'russian'
 gem 'simple_form'
 gem 'state_machine'
-gem 'twitter-bootstrap-rails'
+gem 'twitter-bootstrap-rails', git: 'git@github.com:kosmatov/twitter-bootstrap-rails.git', branch: :static
 gem 'unicorn'
 gem 'usefull_scopes', git: 'git@github.com:kaize/usefull_scopes.git'
 gem 'validates'

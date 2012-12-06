@@ -1,9 +1,6 @@
-module PageRepository
+module MaterialRepository
   extend ActiveSupport::Concern
   include BaseRepository
-
-  included do
-  end
 end
 
 

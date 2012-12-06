@@ -1,4 +1,6 @@
 class Course < ActiveRecord::Base
+  include CourseRepository
+
   attr_accessible :description, :kind, :level, :name, :state, :state_event
 
   validates :name, presence: true, length: { maximum: 255 }

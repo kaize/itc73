@@ -1,5 +1,5 @@
 class Web::Admin::CoursesController < Web::Admin::ApplicationController
-  breadcrumb :index, :admin_courses_path
+  add_breadcrumb :index, :admin_courses_path
 
   def index
     query = params[:q] || { s: 'created_at desc' }
@@ -41,5 +41,13 @@ class Web::Admin::CoursesController < Web::Admin::ApplicationController
 
       render :edit
     end
+  end
+
+  def destroy
+    course = Course.find params[:id]
+    course.destroy
+
+    flash_success
+    redirect_to action: :index
   end
 end

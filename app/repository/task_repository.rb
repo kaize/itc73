@@ -1,4 +1,4 @@
-module PageRepository
+module TaskRepository
   extend ActiveSupport::Concern
   include BaseRepository
 

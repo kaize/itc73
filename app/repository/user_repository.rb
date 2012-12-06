@@ -1,9 +1,8 @@
 module UserRepository
   extend ActiveSupport::Concern
+  include BaseRepository
 
   included do
-    include BaseRepository
-
     scope :active, where(state: :active)
   end
 end
