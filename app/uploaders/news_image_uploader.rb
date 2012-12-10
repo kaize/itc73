@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class NewsImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 

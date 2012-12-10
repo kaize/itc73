@@ -1,5 +1,5 @@
 class Web::Admin::MaterialsController < Web::Admin::ApplicationController
-  breadcrumb :index, :admin_materials_path
+  add_breadcrumb :index, :admin_materials_path
 
   def index
     query = params[:q] || { s: 'created_at desc' }
@@ -9,7 +9,7 @@ class Web::Admin::MaterialsController < Web::Admin::ApplicationController
 
   def new
     @material = Material.new
-    breadcrumb :new, new_admin_material_path
+    add_breadcrumb :new, new_admin_material_path
   end
 
   def create
@@ -19,7 +19,7 @@ class Web::Admin::MaterialsController < Web::Admin::ApplicationController
       redirect_to action: :index
     else
       flash_error
-      breadcrumb :new, new_admin_material_path
+      add_breadcrumb :new, new_admin_material_path
 
       render :new
     end
@@ -27,7 +27,7 @@ class Web::Admin::MaterialsController < Web::Admin::ApplicationController
 
   def edit
     @material = Material.find params[:id]
-    breadcrumb @material.name, edit_admin_material_path(@material)
+    add_breadcrumb @material.name, edit_admin_material_path(@material)
   end
 
   def update
@@ -37,7 +37,7 @@ class Web::Admin::MaterialsController < Web::Admin::ApplicationController
       redirect_to action: :index
     else
       flash_error
-      breadcrumb @material.name, edit_admin_material_path(@material)
+      add_breadcrumb @material.name, edit_admin_material_path(@material)
 
       render :edit
     end

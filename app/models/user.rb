@@ -6,7 +6,9 @@ class User < ActiveRecord::Base
   attr_accessible :birthday, :education, :email, :first_name, :last_name,
     :password, :phone, :state, :admin
 
-  validates :email, email: true
+  validates :email, presence: true, email: true, uniqueness: { case_sensitive: false }
+  validates :password, length: { minimum: 6 }, allow_blank: true
+  validates :password, presence: true, on: :create
   validates :first_name, length: { maximum: 255 }
   validates :last_name, length: { maximum: 255 }
   validates :education, length: { maximum: 255 }

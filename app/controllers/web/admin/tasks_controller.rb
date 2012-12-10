@@ -1,5 +1,5 @@
 class Web::Admin::TasksController < Web::Admin::ApplicationController
-  breadcrumb :index, :admin_tasks_path
+  add_breadcrumb :index, :admin_tasks_path
 
   def index
     query = params[:q] || { s: 'created_at desc' }
@@ -9,7 +9,7 @@ class Web::Admin::TasksController < Web::Admin::ApplicationController
 
   def new
     @task = Task.new
-    breadcrumb :new, new_admin_task_path
+    add_breadcrumb :new, new_admin_task_path
   end
 
   def create
@@ -19,7 +19,7 @@ class Web::Admin::TasksController < Web::Admin::ApplicationController
       redirect_to action: :index
     else
       flash_error
-      breadcrumb :new, new_admin_task_path
+      add_breadcrumb :new, new_admin_task_path
 
       render :new
     end
@@ -27,7 +27,7 @@ class Web::Admin::TasksController < Web::Admin::ApplicationController
 
   def edit
     @task = Task.find params[:id]
-    breadcrumb @task.name, edit_admin_task_path(@task)
+    add_breadcrumb @task.name, edit_admin_task_path(@task)
   end
 
   def update
@@ -37,7 +37,7 @@ class Web::Admin::TasksController < Web::Admin::ApplicationController
       redirect_to action: :index
     else
       flash_error
-      breadcrumb @task.name, edit_admin_task_path(@task)
+      add_breadcrumb @task.name, edit_admin_task_path(@task)
 
       render :edit
     end

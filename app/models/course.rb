@@ -4,6 +4,9 @@ class Course < ActiveRecord::Base
   belongs_to :kind
   belongs_to :level
 
+  has_many :materials, inverse_of: :course
+  has_many :tasks, inverse_of: :course
+
   attr_accessible :description, :kind, :kind_id, :level, :level_id, :name, 
     :state, :state_event
 

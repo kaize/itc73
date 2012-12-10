@@ -13,10 +13,12 @@ ru:
       course/level:
         name: "Уровень"
       material:
-        name: "Название"
         description: "Описание"
-        url: "URL"
         file: "Файл"
+        name: "Название"
+        state: "Состояние"
+        state_event: "Изменить состояние"
+        url: "URL"
       news:
         name: "Заголовок"
         body: "Содержание"
@@ -29,8 +31,11 @@ ru:
         slug: "Алиас"
         body: "Содержание"
       task:
-        name: "Название"
         description: "Описание"
+        file: "Файл"
+        name: "Название"
+        state: "Состояние"
+        state_event: "Изменить состояние"
         url: "URL"
       user:
         first_name: 'Имя'
@@ -43,12 +48,38 @@ ru:
         updated_at: 'Дата обновления'
     errors:
       models:
+        material:
+          attributes:
+            url:
+              url: "некорректный адрес"
+        task:
+          attributes:
+            url:
+              url: "некорректный адрес"
         user:
           attributes:
             email:
               email: "некорректный адрес"
     state_machines:
       course:
+        state:
+          states:
+            new: "Новый"
+            published: "Опубликован"
+            unpublished: "Скрыт"
+          events:
+            publish: "Опубликовать"
+            unpublish: "Скрыть"
+      material:
+        state:
+          states:
+            new: "Новый"
+            published: "Опубликован"
+            unpublished: "Скрыт"
+          events:
+            publish: "Опубликовать"
+            unpublish: "Скрыть"
+      task:
         state:
           states:
             new: "Новый"

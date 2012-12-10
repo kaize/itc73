@@ -5,8 +5,8 @@
       = t('.new_page')
   %ul.nav.nav-tabs.nav-stacked
     - system_pages.each do |page|
-        = link_to edit_admin_page_path(page) do
       %li
+        = link_to edit_admin_page_path(page) do
           = page.name
           .close
             %i.icon-pencil

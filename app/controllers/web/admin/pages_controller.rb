@@ -1,5 +1,5 @@
 class Web::Admin::PagesController < Web::Admin::ApplicationController
-  breadcrumb :index, :admin_pages_path
+  add_breadcrumb :index, :admin_pages_path
 
   def index
     query = params[:q] || { s: 'slug' }
@@ -9,7 +9,7 @@ class Web::Admin::PagesController < Web::Admin::ApplicationController
 
   def new
     @page = Page.new
-    breadcrumb :new, new_admin_page_path
+    add_breadcrumb :new, new_admin_page_path
   end
 
   def create
@@ -19,7 +19,7 @@ class Web::Admin::PagesController < Web::Admin::ApplicationController
       redirect_to action: :index
     else
       flash_error
-      breadcrumb :new, new_admin_page_path
+      add_breadcrumb :new, new_admin_page_path
 
       render :new
     end
@@ -27,7 +27,7 @@ class Web::Admin::PagesController < Web::Admin::ApplicationController
 
   def edit
     @page = Page.find_by_slug! params[:id]
-    breadcrumb @page.name, edit_admin_page_path(@page)
+    add_breadcrumb @page.name, edit_admin_page_path(@page)
   end
 
   def update
@@ -37,7 +37,7 @@ class Web::Admin::PagesController < Web::Admin::ApplicationController
       redirect_to action: :index
     else
       flash_error
-      breadcrumb @page.name, edit_admin_page_path(@page)
+      add_breadcrumb @page.name, edit_admin_page_path(@page)
 
       render :edit
     end

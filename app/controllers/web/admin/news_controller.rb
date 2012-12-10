@@ -1,5 +1,5 @@
 class Web::Admin::NewsController < Web::Admin::ApplicationController
-  breadcrumb :index, :admin_news_index_path
+  add_breadcrumb :index, :admin_news_index_path
 
   def index
     @q = News.ransack(params[:q])
@@ -8,12 +8,12 @@ class Web::Admin::NewsController < Web::Admin::ApplicationController
 
   def new
     @news = News.new
-    breadcrumb :new, new_admin_news_path
+    add_breadcrumb :new, new_admin_news_path
   end
 
   def edit
     @news = News.find(params[:id])
-    breadcrumb :edit, edit_admin_news_path(@news)
+    add_breadcrumb :edit, edit_admin_news_path(@news)
   end
 
   def create
@@ -24,7 +24,7 @@ class Web::Admin::NewsController < Web::Admin::ApplicationController
       redirect_to admin_news_index_path
     else
       flash_error
-      breadcrumb :new, new_admin_news_path
+      add_breadcrumb :new, new_admin_news_path
 
       render :new
     end
@@ -38,7 +38,7 @@ class Web::Admin::NewsController < Web::Admin::ApplicationController
       redirect_to admin_news_index_path
     else
       flash_error
-      breadcrumb :edit, edit_admin_news_path(@news)
+      add_breadcrumb :edit, edit_admin_news_path(@news)
 
       render :edit
     end

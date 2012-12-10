@@ -1,6 +1,5 @@
 class Web::ApplicationController < ApplicationController
   include FlashHelper
-  include BreadcrumbsHelper
 
   helper_method :title, :base_title
 

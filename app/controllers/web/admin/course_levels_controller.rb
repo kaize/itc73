@@ -1,6 +1,6 @@
 class Web::Admin::CourseLevelsController < Web::Admin::ApplicationController
-  breadcrumb :courses, :admin_courses_path
-  breadcrumb :index, :admin_course_levels_path
+  add_breadcrumb :courses, :admin_courses_path
+  add_breadcrumb :index, :admin_course_levels_path
 
   def index
     query = params[:q] || { s: 'created_at desc' }
@@ -10,7 +10,7 @@ class Web::Admin::CourseLevelsController < Web::Admin::ApplicationController
 
   def new
     @level = Course::Level.new
-    breadcrumb :new, new_admin_course_level_path
+    add_breadcrumb :new, new_admin_course_level_path
   end
 
   def create
@@ -20,7 +20,7 @@ class Web::Admin::CourseLevelsController < Web::Admin::ApplicationController
       redirect_to action: :index
     else
       flash_error
-      breadcrumb :new, new_admin_course_level_path
+      add_breadcrumb :new, new_admin_course_level_path
 
       render :new
     end
@@ -28,7 +28,7 @@ class Web::Admin::CourseLevelsController < Web::Admin::ApplicationController
 
   def edit
     @level = Course::Level.find params[:id]
-    breadcrumb @level.name, edit_admin_course_level_path(@level)
+    add_breadcrumb @level.name, edit_admin_course_level_path(@level)
   end
 
   def update
@@ -38,7 +38,7 @@ class Web::Admin::CourseLevelsController < Web::Admin::ApplicationController
       redirect_to action: :index
     else
       flash_error
-      breadcrumb @level.name, edit_admin_course_level_path(@level)
+      add_breadcrumb @level.name, edit_admin_course_level_path(@level)
 
       render :edit
     end

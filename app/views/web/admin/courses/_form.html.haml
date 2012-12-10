@@ -1,16 +1,36 @@
 = simple_form_for @course, url: url do |f|
-  = f.input :name, input_html: { class: 'input-xxlarge' }
-  = f.input :description, input_html: { class: 'input-block-level', rows: 5 }
-  .row
-    .span3
-      = f.association :kind, collection: Course::Kind.asc_by_name, include_blank: false
-    .span3
-      = f.association :level, collection: Course::Level.asc_by_name, include_blank: false
-    .span2
-      = f.input :state do
-        %span.label= @course.human_state_name
-    .span3
-      = f.input :state_event, as: :state_event
+  .tabbable.tabs-right
+    %ul.nav.nav-tabs
+      %li.active= link_to t('.main'), '#main', data: { toggle: 'tab' }
+      %li= link_to t('.materials'), '#materials', data: { toggle: 'tab' }
+      %li= link_to t('.tasks'), '#tasks', data: { toggle: 'tab' }
+
+    .tab-content
+      .tab-pane.active#main
+        = f.input :name, input_html: { class: 'input-xxlarge' }
+        = f.input :description, as: :ckeditor,
+          input_html: { class: 'input-block-level' }
+        .row
+          .span3
+            = f.association :kind, collection: Course::Kind.asc_by_name, include_blank: false
+          .span3
+            = f.association :level, collection: Course::Level.asc_by_name, include_blank: false
+          .span4
+            = f.input :state_event, as: :state_event, wrapper: :state
+      .tab-pane#materials
+        = f.simple_fields_for :materials do |m|
+          = render 'material_fields', f: m
+        .links
+          = link_to_add_association f, :materials, class: 'btn btn-success' do
+            %i.icon-plus
+            = t '.add_material'
+      .tab-pane#tasks
+        = f.simple_fields_for :tasks do |m|
+          = render 'task_fields', f: m
+        .links
+          = link_to_add_association f, :tasks, class: 'btn btn-success' do
+            %i.icon-plus
+            = t '.add_task'
   .form-actions
     = f.button :submit, class: 'btn btn-primary'
     = link_to t('.cancel'), admin_courses_path, class: 'btn'

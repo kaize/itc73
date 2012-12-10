@@ -1,6 +1,6 @@
 class Web::Admin::CourseKindsController < Web::Admin::ApplicationController
-  breadcrumb :courses, :admin_courses_path
-  breadcrumb :index, :admin_course_kinds_path
+  add_breadcrumb :courses, :admin_courses_path
+  add_breadcrumb :index, :admin_course_kinds_path
 
   def index
     query = params[:q] || { s: 'created_at desc' }
@@ -10,7 +10,7 @@ class Web::Admin::CourseKindsController < Web::Admin::ApplicationController
 
   def new
     @kind = Course::Kind.new
-    breadcrumb :new, new_admin_course_kind_path
+    add_breadcrumb :new, new_admin_course_kind_path
   end
 
   def create
@@ -20,7 +20,7 @@ class Web::Admin::CourseKindsController < Web::Admin::ApplicationController
       redirect_to action: :index
     else
       flash_error
-      breadcrumb :new, new_admin_course_kind_path
+      add_breadcrumb :new, new_admin_course_kind_path
 
       render :new
     end
@@ -28,7 +28,7 @@ class Web::Admin::CourseKindsController < Web::Admin::ApplicationController
 
   def edit
     @kind = Course::Kind.find params[:id]
-    breadcrumb @kind.name, edit_admin_course_kind_path(@kind)
+    add_breadcrumb @kind.name, edit_admin_course_kind_path(@kind)
   end
 
   def update
@@ -38,7 +38,7 @@ class Web::Admin::CourseKindsController < Web::Admin::ApplicationController
       redirect_to action: :index
     else
       flash_error
-      breadcrumb @kind.name, edit_admin_course_kind_path(@kind)
+      add_breadcrumb @kind.name, edit_admin_course_kind_path(@kind)
 
       render :edit
     end

@@ -1,5 +1,5 @@
 class Web::Admin::UsersController < Web::Admin::ApplicationController
-  breadcrumb :index, :admin_users_path
+  add_breadcrumb :index, :admin_users_path
 
   def index
     query = { s: 'created_at desc' }.merge(params[:q] || {})
@@ -9,7 +9,7 @@ class Web::Admin::UsersController < Web::Admin::ApplicationController
 
   def new
     @user = User.new
-    breadcrumb :new, new_admin_user_path
+    add_breadcrumb :new, new_admin_user_path
   end
 
   def create
@@ -20,7 +20,7 @@ class Web::Admin::UsersController < Web::Admin::ApplicationController
       redirect_to action: :index
     else
       flash_error
-      breadcrumb :new, new_admin_user_path
+      add_breadcrumb :new, new_admin_user_path
 
       render :new
     end
@@ -28,7 +28,7 @@ class Web::Admin::UsersController < Web::Admin::ApplicationController
 
   def edit
     @user = User.find(params[:id]).decorate
-    breadcrumb @user, edit_admin_user_path(@user)
+    add_breadcrumb @user, edit_admin_user_path(@user)
   end
 
   def update
@@ -41,7 +41,7 @@ class Web::Admin::UsersController < Web::Admin::ApplicationController
       @user = user.decorate
 
       flash_error
-      breadcrumb @user.full_name, edit_admin_user_path(@user)
+      add_breadcrumb @user.full_name, edit_admin_user_path(@user)
 
       render :edit
     end

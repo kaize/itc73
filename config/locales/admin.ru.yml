@@ -17,9 +17,14 @@ ru:
     admin:
       courses:
         form:
-          delete: "Удалить"
+          add_material: "Добавить материал"
+          add_task: "Добавить задание"
           cancel: "Отмена"
+          delete: "Удалить"
           delete_confirm: "Вы уверены, что хотите удалить курс?"
+          main: "Основное"
+          materials: "Материалы"
+          tasks: "Задания"
         index:
           delete: "Удалить"
           delete_confirm: "Вы уверены, что хотите удалить курс?"
