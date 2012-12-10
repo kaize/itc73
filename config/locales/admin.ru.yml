@@ -32,6 +32,10 @@ ru:
           new_course: "Добавить курс"
           kinds: "Типы курсов"
           levels: "Уровни сложности"
+        material_fields:
+          add_file: "Добавить файл"
+        task_fields:
+          add_file: "Добавить файл"
       course_kinds:
         form:
           delete: "Удалить"

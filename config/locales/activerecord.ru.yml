@@ -14,11 +14,12 @@ ru:
         name: "Уровень"
       material:
         description: "Описание"
-        file: "Файл"
         name: "Название"
         state: "Состояние"
         state_event: "Изменить состояние"
         url: "URL"
+      material/file:
+        file: "Файл"
       news:
         name: "Заголовок"
         body: "Содержание"
@@ -32,11 +33,12 @@ ru:
         body: "Содержание"
       task:
         description: "Описание"
-        file: "Файл"
         name: "Название"
         state: "Состояние"
         state_event: "Изменить состояние"
         url: "URL"
+      task/file:
+        file: "Файл"
       user:
         first_name: 'Имя'
         last_name: 'Фамилия'

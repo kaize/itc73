@@ -1,5 +1,7 @@
 class Task::File < ActiveRecord::Base
-  attr_accessible :file
+  belongs_to :task
+
+  attr_accessible :file, :task, :task_id
 
   mount_uploader :file, TaskFileUploader
 end

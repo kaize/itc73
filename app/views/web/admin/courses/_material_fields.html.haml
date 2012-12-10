@@ -5,3 +5,11 @@
   = f.input :url, input_html: { class: 'input-xxlarge' }
   = f.input :state_event, as: :state_event, wrapper: :state
 
+  .row
+    = f.simple_fields_for :files do |fl|
+      = render 'file_fields', f: fl
+    .links.span4
+      = link_to_add_association f, :files, class: 'btn btn-info' do
+        %i.icon-plus
+        = t '.add_file'
+
