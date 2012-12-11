@@ -4,9 +4,11 @@ ru:
     web:
       application:
         title: "ITC"
+        admin: "Админка"
+        sign_out: "Выйти"
       shared:
         footer:
-          copyright: "2012 ITC"
+          copyright: "2012 НП «Содействие развитию ИТ»"
         nav:
           about: "О проекте"
           contacts: "Контакты"

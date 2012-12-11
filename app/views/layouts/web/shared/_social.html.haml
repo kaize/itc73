@@ -1,0 +1,45 @@
+= javascript_include_tag 'http://userapi.com/js/api/openapi.js?34'
+:javascript
+  VK.init({apiId: 2466630, onlyWidgets: true});
+
+= stylesheet_link_tag 'http://stg.odnoklassniki.ru/share/odkl_share.css'
+= javascript_include_tag 'http://stg.odnoklassniki.ru/share/odkl_share.js'
+:javascript
+  ODKL.init();
+
+= javascript_include_tag 'http://platform.twitter.com/widgets.js'
+= javascript_include_tag 'http://connect.facebook.net/ru_RU/all.js#xfbml=1', id: 'facebook-jssdk'
+
+.span2
+  #vk_like
+  :javascript
+    VK.Widgets.Like("vk_like", {type: "button"});
+
+.span2
+  %div
+    =link_to 'http://itc73.ru', class: 'odkl-klass-oc' do
+      %span 0
+  :javascript
+    (function($) { $(function() {
+      $('a.odkl-klass-oc').click( function() {
+        ODKL.Share(this);
+        return false;
+      });
+    })})(jQuery);
+
+.span2
+  %div
+    = link_to 'http://twitter.com/share', class: 'twitter-share-button' do
+      Tweet
+
+.span2
+  .fb-like{data: {href: "#{url_for}", send: "false", layout: "button_count", width: "216", :"show-faces" => "true"}}
+
+.span1.pull-right
+  = link_to 'http://vk.com/edu_v_it' do
+    = image_tag 'vk.png'
+  = link_to 'http://facebook.com/groups/130321057038683' do
+    = image_tag 'fb.png'
+  = link_to 'http://twitter.com/edu_v_it' do
+    = image_tag 'tw.png'
+
