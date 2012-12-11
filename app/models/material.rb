@@ -9,7 +9,7 @@ class Material < ActiveRecord::Base
     :files_attributes
 
   validates :name, presence: true, length: { maximum: 255 }
-  validates :url, presence: true, url: true
+  validates :url, url: true, allow_blank: true
 
   accepts_nested_attributes_for :files, allow_destroy: true, reject_if: :all_blank
 

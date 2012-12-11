@@ -9,6 +9,6 @@ class MaterialFileUploader < CarrierWave::Uploader::Base
   end
 
   def extension_white_list
-   %w(doc docx xls xlsx odt ods txt rtf pdf ppt pptx pages key odp)
+   %w(zip 7z rar tar gz bz2 doc docx xls xlsx odt ods txt rtf pdf ppt pptx pages key odp)
   end
 end

@@ -128,6 +128,7 @@ GEM
     net-ssh (2.6.2)
     net-ssh-gateway (1.1.0)
       net-ssh (>= 1.99.1)
+    nokogiri (1.5.5)
     orm_adapter (0.4.0)
     pg (0.14.1)
     polyamorous (0.5.0)
@@ -172,6 +173,8 @@ GEM
       i18n (>= 0.5.0)
     rvm-capistrano (1.2.7)
       capistrano (>= 2.0.0)
+    sanitize (2.0.3)
+      nokogiri (>= 1.4.4, < 1.6)
     sass (3.2.3)
     sass-rails (3.2.5)
       railties (~> 3.2.0)
@@ -251,6 +254,7 @@ DEPENDENCIES
   ransack
   russian
   rvm-capistrano
+  sanitize
   sass-rails (~> 3.2.3)
   simple_form
   simplecov
