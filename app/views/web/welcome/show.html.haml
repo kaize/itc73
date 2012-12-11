@@ -1,6 +1,8 @@
 .hero-unit
-  %h1!= Sanitize.clean @page.name, Sanitize::Config::BASIC
+  %h1!= t '.hero_unit_title'
   .lead
-    != Sanitize.clean @page.body, Sanitize::Config::RELAXED
+    %p
+      != t '.hero_unit_content'
   = link_to t('.join'), '#', class: 'btn btn-large btn-success'
 
+!= Sanitize.clean @page.body, Sanitize::Config::RELAXED
