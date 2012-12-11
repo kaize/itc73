@@ -3,6 +3,7 @@ module TaskRepository
   include BaseRepository
 
   included do
+    scope :published, with_state(:published)
   end
 end
 

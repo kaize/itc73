@@ -1,0 +1,12 @@
+- resources.each do |r|
+  %h3= r.name
+
+  - if r.url?
+    %p
+      = link_to r.url, r.url
+
+  - if r.files.any?
+    %ul.nav
+      - r.files.each do |f|
+        %li= link_to f.name, f.file.url
+

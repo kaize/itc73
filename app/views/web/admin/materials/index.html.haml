@@ -11,11 +11,11 @@
       %td= n.url
       %td
         .pull-right.btn-group
-          = link_to edit_admin_material_path(n), class: 'btn btn-mini btn-primary' do
+          = link_to edit_admin_material_path(n), class: 'btn btn-mini' do
             %i.icon-pencil
             = t(:edit)
           = link_to admin_material_path(n), method: :delete,
-            class: 'btn btn-mini btn-danger',
+            class: 'btn btn-mini',
             data: { confirm: t('.delete_confirm') } do
             %i.icon-trash
 

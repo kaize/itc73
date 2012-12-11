@@ -17,20 +17,20 @@
         %td= l u.created_at, format: :only_date
         %td
           .pull-right.btn-group
-            = link_to edit_admin_user_path(u), class: 'btn btn-mini btn-primary' do
+            = link_to edit_admin_user_path(u), class: 'btn btn-mini' do
               %i.icon-pencil
               = t(:edit)
             - if u.can_activate?
               = link_to trigger_state_event_admin_user_path(u, event: :activate),
                 data: { method: :put, confirm: t('.activate_confirm') },
                 title: User.human_state_event_name(:activate),
-                class: 'btn btn-mini btn-notice' do
+                class: 'btn btn-mini' do
                 %i.icon-repeat
             - if u.can_deactivate?
               = link_to trigger_state_event_admin_user_path(u, event: :deactivate),
                 data: { method: :put, confirm: t('.delete_confirm') },
                 title: User.human_state_event_name(:deactivate),
-                class: 'btn btn-mini btn-danger' do
+                class: 'btn btn-mini' do
                 %i.icon-remove
 .pagination
   = paginate @users

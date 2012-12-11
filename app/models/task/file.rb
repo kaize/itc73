@@ -4,4 +4,8 @@ class Task::File < ActiveRecord::Base
   attr_accessible :file, :task, :task_id
 
   mount_uploader :file, TaskFileUploader
+
+  def name
+    @name ||= File.basename file.url
+  end
 end

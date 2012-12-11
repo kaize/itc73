@@ -13,11 +13,11 @@
       %td= n.human_state_name
       %td
         .pull-right.btn-group
-          = link_to edit_admin_news_path(n), class: 'btn btn-mini btn-primary' do
+          = link_to edit_admin_news_path(n), class: 'btn btn-mini' do
             %i.icon-pencil
             = t(:edit)
           = link_to admin_news_path(n), method: :delete,
-            class: 'btn btn-mini btn-danger',
+            class: 'btn btn-mini',
             data: { confirm: t('.delete_confirm') } do
             %i.icon-trash
 

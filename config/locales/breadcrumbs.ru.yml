@@ -40,3 +40,5 @@ ru:
           edit: "Редактирование пользователя"
       application:
         index: "Главная"
+      courses:
+        index: "Курсы"

@@ -14,12 +14,20 @@ ru:
           contacts: "Контакты"
           news: "Новости"
           schedule: "Расписание"
+        partners:
+          org: "Организаторы"
+          partners: "Партнеры"
         reformal:
           qa: "Вопросы и предложения"
   time:
     formats:
       only_date: "%d.%m.%Y"
   web:
+    courses:
+      show:
+        main: "Описание"
+        materials: "Материалы"
+        tasks: "Задания"
     welcome:
       show:
         join: "Записаться!"

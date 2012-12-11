@@ -1,0 +1,5 @@
+.page-header
+  %h1= @page.name
+
+!= Sanitize.clean @page.body, Sanitize::Config::RELAXED
+

@@ -1,0 +1,21 @@
+%ul.nav.nav-pills.pull-right
+  %li.active= link_to t('.main'), '#main', data: { toggle: 'tab' }
+  - if @course.materials.published.any?
+    %li= link_to t('.materials'), '#materials', data: { toggle: 'tab' }
+  - if @course.tasks.published.any?
+    %li= link_to t('.tasks'), '#tasks', data: { toggle: 'tab' }
+
+.page-header
+  %h1= @course.name
+
+.tab-content
+  .tab-pane.active#main
+    != Sanitize.clean @course.description, Sanitize::Config::RELAXED
+
+  .tab-pane#materials
+    - if @course.materials.published.any?
+      = render 'resources', resources: @course.materials.published
+
+  .tab-pane#tasks
+    - if @course.tasks.published.any?
+      = render 'resources', resources: @course.tasks.published

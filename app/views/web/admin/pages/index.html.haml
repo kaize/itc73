@@ -14,12 +14,12 @@
 
       %td
         .pull-right.btn-group
-          = link_to edit_admin_page_path(page), class: 'btn btn-mini btn-primary' do
+          = link_to edit_admin_page_path(page), class: 'btn btn-mini' do
             %i.icon-pencil
             = t(:edit)
           - if page.can_destroy?
             = link_to admin_page_path(page), method: :delete,
-              class: 'btn btn-mini btn-danger',
+              class: 'btn btn-mini',
               data: { confirm: t('.delete_confirm') } do
               %i.icon-trash
 .pagination
