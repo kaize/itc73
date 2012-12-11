@@ -12,6 +12,8 @@ ru:
           contacts: "Контакты"
           news: "Новости"
           schedule: "Расписание"
+        reformal:
+          qa: "Вопросы и предложения"
   time:
     formats:
       only_date: "%d.%m.%Y"
