@@ -8,14 +8,17 @@ ru:
         footer:
           copyright: "2012 ITC"
         nav:
-          news: "Новости"
+          about: "О проекте"
           contacts: "Контакты"
+          news: "Новости"
+          schedule: "Расписание"
   time:
     formats:
       only_date: "%d.%m.%Y"
   web:
     welcome:
       show:
+        join: "Записаться!"
     news:
       index:
         news: "Новости"

@@ -26,11 +26,12 @@
                     = current_user.first_name
     .container
       .row
-        %div{class: "span#{content_for?(:sidebar) ? 9 : 12}"}
+        .span3
+          = yield :sidebar_top
+          = render 'layouts/web/shared/courses_nav'
+          = yield :sidebar_bottom
+        .span9
           = flash_block
-          = render_breadcrumbs
+          = render_breadcrumbs unless current_page?(root_path)
           = yield
-        - if content_for? :sidebar
-          .span3
-            = yield :sidebar
       = render 'layouts/web/shared/footer'

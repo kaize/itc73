@@ -1,6 +1,8 @@
 class Web::ApplicationController < ApplicationController
   include FlashHelper
 
+  add_breadcrumb :index, :root_path
+
   helper_method :title, :base_title
 
   private
