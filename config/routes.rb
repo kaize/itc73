@@ -5,6 +5,7 @@ Itc73::Application.routes.draw do
   scope module: :web do
     root to: 'welcome#show'
 
+    resources :courses, only: [:show]
     resources :pages, only: [:show] do
       collection do
         get :contacts

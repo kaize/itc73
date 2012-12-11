@@ -17,7 +17,7 @@ gem 'ransack'
 gem 'russian'
 gem 'simple_form'
 gem 'state_machine'
-gem 'twitter-bootstrap-rails', git: 'https://github.com/kosmatov/twitter-bootstrap-rails.git'
+gem 'twitter-bootstrap-rails'
 gem 'unicorn'
 gem 'usefull_scopes', git: 'https://github.com/kaize/usefull_scopes.git'
 gem 'validates'
@@ -29,7 +29,7 @@ group :assets do
   gem 'jquery-ui-rails'
   gem 'less-rails'
   gem 'sass-rails',   '~> 3.2.3'
-  gem 'therubyracer', '0.10.2', platform: :ruby
+  gem 'therubyracer', platform: :ruby
   gem 'uglifier', '>= 1.0.3'
 end
 
@@ -37,6 +37,7 @@ group :development do
   gem 'capi'
   gem 'capistrano'
   gem 'capistrano-ext'
+  gem 'quiet_assets'
   gem 'rvm-capistrano'
 end
 

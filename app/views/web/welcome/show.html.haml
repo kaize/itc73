@@ -1,0 +1,11 @@
+- content_for :sidebar do
+  - Course::Kind.with_courses.each do |kind|
+    .well
+      %ul.nav.nav-list
+        %li
+          %h5= kind.name
+        %li.divider
+        - Course::Level.with_kind(kind).each do |level|
+          %li.nav-header= level.name
+          - level.courses.each do |c|
+            %li= link_to c.name, course_path(c)

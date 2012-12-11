@@ -4,15 +4,6 @@ GIT
   specs:
     usefull_scopes (0.0.1)
 
-GIT
-  remote: https://github.com/kosmatov/twitter-bootstrap-rails.git
-  revision: 63d2bc8e9373ee1e7ddd75b7cbaa39c1abab64b1
-  specs:
-    twitter-bootstrap-rails (2.1.7)
-      actionpack (>= 3.1)
-      execjs
-      railties (>= 3.1)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -120,7 +111,6 @@ GEM
     less-rails (2.2.6)
       actionpack (>= 3.1)
       less (~> 2.2.0)
-    libv8 (3.3.10.4)
     mail (2.4.4)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -129,7 +119,7 @@ GEM
     mini_magick (3.4)
       subexec (~> 0.2.1)
     minitest (3.4.0)
-    multi_json (1.4.0)
+    multi_json (1.5.0)
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
     net-sftp (2.0.5)
@@ -142,6 +132,8 @@ GEM
     polyamorous (0.5.0)
       activerecord (~> 3.0)
     polyglot (0.3.3)
+    quiet_assets (1.0.1)
+      railties (~> 3.1)
     rack (1.4.1)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -172,6 +164,7 @@ GEM
       polyamorous (~> 0.5.0)
     rdoc (3.12)
       json (~> 1.4)
+    ref (1.0.2)
     rubinius-actor (0.0.2)
       rubinius-core-api
     rubinius-core-api (0.0.1)
@@ -202,8 +195,8 @@ GEM
       minitest (~> 3.4.0)
       term-ansicolor (~> 1.0.7)
     term-ansicolor (1.0.7)
-    therubyracer (0.10.2)
-      libv8 (~> 3.3.10)
+    therubyracer (0.11.0)
+      ref
     thor (0.16.0)
     tilt (1.3.3)
     treetop (1.4.12)
@@ -211,6 +204,10 @@ GEM
       polyglot (>= 0.3.1)
     turn (0.9.6)
       ansi
+    twitter-bootstrap-rails (2.1.8)
+      actionpack (>= 3.1)
+      execjs
+      railties (>= 3.1)
     tzinfo (0.3.35)
     uglifier (1.3.0)
       execjs (>= 0.3.0)
@@ -249,6 +246,7 @@ DEPENDENCIES
   mini_magick
   minitest
   pg
+  quiet_assets
   rails (= 3.2.9)
   ransack
   russian
@@ -258,9 +256,9 @@ DEPENDENCIES
   simplecov
   state_machine
   tconsole
-  therubyracer (= 0.10.2)
+  therubyracer
   turn
-  twitter-bootstrap-rails!
+  twitter-bootstrap-rails
   uglifier (>= 1.0.3)
   unicorn
   usefull_scopes!
