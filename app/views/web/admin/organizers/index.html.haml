@@ -1,0 +1,20 @@
+%table.table.table-striped
+  %thead
+    %tr
+      %th= Organizer.human_attribute_name :name
+      %th= Organizer.human_attribute_name :url
+
+  %tbody.sortable{:"data-update-url" => mass_update_order_api_organizers_path}
+    - @organizers.each do |organizer|
+      %tr{data: {id: organizer.id}}
+        %td
+          = organizer.name
+        %td
+          = link_to organizer.url, organizer.url, target: :_blank
+
+        %td
+          .pull-right
+            = link_to edit_admin_organizer_path(organizer), class: 'btn btn-mini btn-primary' do
+              %i.icon-pencil
+
+= render 'sidebar'

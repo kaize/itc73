@@ -1,0 +1,11 @@
+= simple_form_for @organizer, url: url do |f|
+  = f.input :name
+  = f.input :url, input_html: { class: 'span5' }
+  = f.input :image, as: :image_preview
+  .form-actions
+    = f.button :submit, class: 'btn-primary'
+    = link_to t('.cancel'), admin_organizers_path, class: 'btn'
+    - if @organizer.can_destroy?
+      = link_to t('.delete'), admin_organizer_path(@organizer), method: :delete,
+        class: 'btn btn-danger pull-right',
+        data: { confirm: t('.delete_confirm') }

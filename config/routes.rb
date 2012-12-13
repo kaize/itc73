@@ -26,6 +26,7 @@ Itc73::Application.routes.draw do
       resources :courses
       resources :course_kinds
       resources :course_levels
+      resources :organizers
       resources :tasks
       resources :materials
       resources :pages
@@ -39,6 +40,11 @@ Itc73::Application.routes.draw do
   end
 
   namespace :api do
+    resources :organizers do
+      collection do
+        put :mass_update_order
+      end
+    end
   end
 
 end
