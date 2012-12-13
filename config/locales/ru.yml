@@ -5,6 +5,7 @@ ru:
       application:
         title: "ITC"
         admin: "Админка"
+        profile: "Профиль"
         sign_out: "Выйти"
       shared:
         footer:

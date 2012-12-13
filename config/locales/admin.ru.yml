@@ -5,15 +5,17 @@ ru:
       admin:
         application:
           title: "Админка"
-          courses: "Курсы"
-          materials: "Материалы"
-          organizers: "Организаторы"
-          pages: "Страницы сайта"
-          tasks: "Задания"
-          users: "Пользователи"
-          news: "Новости"
           index: "На главную"
           sign_out: "Выйти"
+        shared:
+          nav:
+            courses: "Курсы"
+            materials: "Материалы"
+            organizers: "Организаторы"
+            pages: "Страницы сайта"
+            tasks: "Задания"
+            users: "Пользователи"
+            news: "Новости"
   web:
     admin:
       courses:
