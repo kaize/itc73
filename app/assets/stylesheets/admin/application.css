@@ -15,3 +15,7 @@
 ul.nav.nav-stacked > li > a.close {
   border: none;
 }
+
+.sortable tr, .sortable li {
+  cursor: move;
+}
