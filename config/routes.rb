@@ -40,6 +40,18 @@ Itc73::Application.routes.draw do
   end
 
   namespace :api do
+    resources :course_levels do
+      collection do
+        put :mass_update_order
+      end
+    end
+
+    resources :course_kinds do
+      collection do
+        put :mass_update_order
+      end
+    end
+
     resources :organizers do
       collection do
         put :mass_update_order

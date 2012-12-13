@@ -3,9 +3,7 @@ class Web::Admin::CourseLevelsController < Web::Admin::ApplicationController
   add_breadcrumb :index, :admin_course_levels_path
 
   def index
-    query = params[:q] || { s: 'created_at desc' }
-    @q = Course::Level.ransack(query)
-    @levels = @q.result.page(params[:page])
+    @levels = Course::Level.page(params[:page]).asc_by_order_at
   end
 
   def new

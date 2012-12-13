@@ -3,9 +3,7 @@ class Web::Admin::CourseKindsController < Web::Admin::ApplicationController
   add_breadcrumb :index, :admin_course_kinds_path
 
   def index
-    query = params[:q] || { s: 'created_at desc' }
-    @q = Course::Kind.ransack(query)
-    @kinds = @q.result.page(params[:page])
+    @kinds = Course::Kind.page(params[:page]).asc_by_order_at
   end
 
   def new

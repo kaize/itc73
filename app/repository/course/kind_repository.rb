@@ -3,7 +3,7 @@ module Course::KindRepository
   include BaseRepository
 
   included do
-    scope :with_courses, -> { joins(:courses).merge(Course.published).uniq }
+    scope :with_courses, -> { joins(:courses).merge(Course.published).uniq.asc_by_order_at }
   end
 end
 
