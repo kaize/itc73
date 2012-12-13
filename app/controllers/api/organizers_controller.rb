@@ -7,8 +7,7 @@ class Api::OrganizersController < Api::ApplicationController
 
     organizers.each do |organizer|
       order = organizer_ids.index(organizer.id)
-      organizer.order_at = order
-      organizer.save
+      organizer.update_attribute :order_at, order
     end
 
     head :ok

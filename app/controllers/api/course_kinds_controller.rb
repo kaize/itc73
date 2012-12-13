@@ -7,8 +7,7 @@ class Api::CourseKindsController < Api::ApplicationController
 
     kinds.each do |kind|
       order = kind_ids.index(kind.id)
-      kind.order_at = order
-      kind.save
+      kind.update_attribute :order_at, order
     end
 
     head :ok

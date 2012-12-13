@@ -3,7 +3,7 @@ class Course::Level < ActiveRecord::Base
 
   has_many :courses
 
-  attr_accessible :name
+  attr_accessible :name, :order_at
 
   validates :name, presence: true, length: { maximum: 255 }
 

@@ -7,8 +7,7 @@ class Api::CourseLevelsController < Api::ApplicationController
 
     levels.each do |level|
       order = level_ids.index(level.id)
-      level.order_at = order
-      level.save
+      level.update_attribute :order_at, order
     end
 
     head :ok
