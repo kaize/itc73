@@ -1,9 +1,18 @@
-%h1= t('.news')
+.page-header
+  %h1= t('.news')
 
-%ul.news
-  - @news.each do |n|
-    %li
-      %h4= n.name
-      %time{datetime: n.date}= n.date
-      %p= n.body
+- @news.each do |n|
+  .media
+    = link_to news_path(n), class: 'pull-left' do
+      = image_tag n.image.thumb.url, class: 'media-object'
+    .media-body
+      %h4.media-heading
+        %small
+          %time.pull-right{datetime: n.date}= n.date
+        = link_to n.name, news_path(n)
+      %p= n.description
+  - unless n == @news.last
+    %hr
 
+.pagination
+  = paginate @news

@@ -1,6 +1,6 @@
 = simple_form_for @organizer, url: url do |f|
-  = f.input :name
-  = f.input :url, input_html: { class: 'span5' }
+  = f.input :name, input_html: { class: 'input-xxlarge' }
+  = f.input :url, input_html: { class: 'input-xxlarge' }
   = f.input :image, as: :image_preview
   .form-actions
     = f.button :submit, class: 'btn-primary'

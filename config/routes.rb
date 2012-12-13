@@ -12,7 +12,7 @@ Itc73::Application.routes.draw do
       end
     end
 
-    resources :news, only: [:index]
+    resources :news, only: [:index, :show]
 
     resource :user, only: [:new, :create] do
       scope module: :user do

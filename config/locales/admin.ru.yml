@@ -7,6 +7,7 @@ ru:
           title: "Админка"
           courses: "Курсы"
           materials: "Материалы"
+          organizers: "Организаторы"
           pages: "Страницы сайта"
           tasks: "Задания"
           users: "Пользователи"
@@ -76,6 +77,16 @@ ru:
           delete_confirm: "Вы уверены, что хотите удалить новость?"
         sidebar:
           new_news: "Добавить новость"
+      organizers:
+        form:
+          delete: "Удалить"
+          cancel: "Отмена"
+          delete_confirm: "Вы уверены, что хотите удалить организатора?"
+        index:
+          delete: "Удалить"
+          delete_confirm: "Вы уверены, что хотите удалить организатора?"
+        sidebar:
+          new: "Добавить организатора"
       pages:
         sidebar:
           new_page: "Добавить страницу"

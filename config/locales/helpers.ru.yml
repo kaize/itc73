@@ -13,6 +13,9 @@ ru:
       material:
         create: "Создать"
         update: "Сохранить"
+      organizer:
+        create: "Создать"
+        update: "Сохранить"
       news:
         create: "Создать"
         update: "Сохранить"

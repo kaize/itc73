@@ -2,7 +2,7 @@
   .well
     %ul.nav.nav-list
       %li
-        %h5= kind.name
+        %h4= kind.name
       %li.divider
       - Course::Level.with_kind(kind).each do |level|
         %li.nav-header= level.name

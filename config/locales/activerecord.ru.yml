@@ -27,6 +27,10 @@ ru:
         state_event: "Изменить состояние"
         image: "Изображение"
         published_at: "Дата публикации"
+      organizer:
+        name: "Название"
+        url: "URL"
+        image: "Логотип"
       page:
         name: "Заголовок"
         slug: "Алиас"
