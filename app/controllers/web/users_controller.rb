@@ -4,8 +4,8 @@ class Web::UsersController < Web::ApplicationController
   end
 
   def create
-    user = UserRegistrationType.new params[:user]
-    if user.save
+    @user = UserRegistrationType.new params[:user]
+    if @user.save
       flash_success
       redirect_to root_path
     else

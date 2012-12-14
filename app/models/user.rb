@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
 
   belongs_to :graduate
 
-  attr_accessible :birthday, :university, :edu_year_end, :graduate, :email,
+  attr_accessible :birthday, :university, :edu_year_end, :graduate, :graduate_id, :email,
     :first_name, :last_name, :password, :phone, :state, :subscribe, :admin
 
   validates :email, presence: true, email: true, uniqueness: { case_sensitive: false }

@@ -7,6 +7,7 @@ FactoryGirl.define do
     birthday { generate :date }
     university { generate :string }
     edu_year_end { generate :year }
+    graduate
     phone { generate :string }
 
     trait :active do
@@ -16,6 +17,10 @@ FactoryGirl.define do
     trait :admin do
       state :active
       admin true
+    end
+
+    trait :reg do
+      personal_data_processing true
     end
   end
 end

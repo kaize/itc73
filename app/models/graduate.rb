@@ -1,7 +1,7 @@
 class Graduate < ActiveRecord::Base
   include GraduateRepository
 
-  has_many :users
+  has_many :users, inverse_of: :graduate
 
   attr_accessible :name
 

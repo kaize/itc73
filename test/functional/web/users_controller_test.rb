@@ -2,7 +2,9 @@ require 'test_helper'
 
 class Web::UsersControllerTest < ActionController::TestCase
   def setup
-    @attrs = attributes_for :user
+    graduate = create :graduate
+    @attrs = attributes_for :user, :reg
+    @attrs.merge! graduate_id: graduate.id, password_confirmation: @attrs[:password]
   end
 
   test "should get new" do
