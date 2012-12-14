@@ -7,7 +7,7 @@ Status](https://secure.travis-ci.org/kaize/itc73.png)](http://travis-ci.org/kaiz
   git clone https://github.com/kaize/itc73.git
   cd itc73
   bundle install
-  bundle exec rake db:setup
+  bundle exec rake db:create db:migrate db:seed
   bundle exec unicorn_rails
 ```
 
