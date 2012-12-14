@@ -1,8 +1,8 @@
-.row
-  .span4
-    = simple_form_for :session, url: user_session_path do |f|
-      = f.input :email, input_html: { class: 'span4', value: @email }
-      = f.input :password, input_html: { class: 'span4' }
-      .form-actions
-        = f.button :submit, class: 'btn-primary pull-right'
+.page-header
+  %h1= t '.sign_in'
 
+= render 'web/shared/user_tabs'
+
+.tab-content
+  .tab-pane.active#sign-in
+    = render 'sign_in'

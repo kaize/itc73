@@ -1,5 +1,9 @@
 Itc73::Application.routes.draw do
 
+  get "users/new"
+
+  get "users/create"
+
   mount Ckeditor::Engine => '/ckeditor'
 
   scope module: :web do
@@ -26,11 +30,12 @@ Itc73::Application.routes.draw do
       resources :courses
       resources :course_kinds
       resources :course_levels
-      resources :organizers
-      resources :tasks
+      resources :graduates
       resources :materials
+      resources :organizers
       resources :pages
       resources :news
+      resources :tasks
       resources :users do
         member do
           put :trigger_state_event
@@ -40,19 +45,25 @@ Itc73::Application.routes.draw do
   end
 
   namespace :api do
-    resources :course_levels do
+    resources :course_levels, only: [] do
       collection do
         put :mass_update_order
       end
     end
 
-    resources :course_kinds do
+    resources :course_kinds, only: [] do
       collection do
         put :mass_update_order
       end
     end
 
-    resources :organizers do
+    resources :organizers, only: [] do
+      collection do
+        put :mass_update_order
+      end
+    end
+
+    resources :graduates, only: [] do
       collection do
         put :mass_update_order
       end

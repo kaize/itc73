@@ -12,6 +12,8 @@ ru:
         name: "Тип"
       course/level:
         name: "Уровень"
+      graduate:
+        name: "Степень"
       material:
         description: "Описание"
         name: "Название"
@@ -48,6 +50,14 @@ ru:
         last_name: 'Фамилия'
         password: 'Пароль'
         password_confirmation: 'Подтверждение пароля'
+        email: "Адрес эл. почты"
+        personal_data_processing: "Даю согласие на обработку персональных данных"
+        subscribe: "Подписаться на рассылку событий НП"
+        birthday: "Дата рождения"
+        university: "Учебное заведение"
+        edu_year_end: "Год окончания"
+        phone: "Номер телефона"
+        graduate: "Уровень образования"
         state: 'Состояние'
         state_event: 'Действие'
         created_at: 'Дата создания'

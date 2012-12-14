@@ -7,6 +7,10 @@ FactoryGirl.define do
     Date.today - 1000 - n
   end
 
+  sequence :year do |n|
+    2005 + (n % 10)
+  end
+
   sequence :name do |n|
     "Name#{n}"
   end

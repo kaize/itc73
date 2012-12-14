@@ -1,0 +1,9 @@
+= simple_form_for @graduate, url: url do |f|
+  = f.input :name, input_html: { class: 'input-xxlarge' }
+  .form-actions
+    = f.button :submit, class: 'btn btn-primary'
+    = link_to t('.cancel'), admin_graduates_path, class: 'btn'
+    - if @graduate.can_destroy?
+      = link_to t('.delete'), admin_graduate_path(@graduate), method: :delete,
+        class: 'btn btn-danger pull-right',
+        data: { confirm: t('.delete_confirm') }

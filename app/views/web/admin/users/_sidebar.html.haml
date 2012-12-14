@@ -4,3 +4,8 @@
       %i.icon-plus
       = t('.new_user')
 
+  %ul.nav.nav-tabs.nav-stacked
+    %li
+      = link_to new_admin_graduate_path, class: 'close' do
+        %i.icon-plus
+      = link_to t('.graduates'), admin_graduates_path

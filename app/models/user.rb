@@ -3,14 +3,16 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
-  attr_accessible :birthday, :education, :email, :first_name, :last_name,
-    :password, :phone, :state, :admin
+  belongs_to :graduate
+
+  attr_accessible :birthday, :university, :edu_year_end, :graduate, :email,
+    :first_name, :last_name, :password, :phone, :state, :subscribe, :admin
 
   validates :email, presence: true, email: true, uniqueness: { case_sensitive: false }
   validates :password, length: { minimum: 6 }, allow_blank: true
   validates :password, presence: true, on: :create
-  validates :first_name, length: { maximum: 255 }
-  validates :last_name, length: { maximum: 255 }
+  validates :first_name, presence: true, length: { maximum: 255 }
+  validates :last_name, presence: true, length: { maximum: 255 }
   validates :education, length: { maximum: 255 }
 
   state_machine :state, initial: :new do
@@ -26,5 +28,20 @@ class User < ActiveRecord::Base
       transition :active => :inactive
     end
   end
+
+  def guest?
+    false
+  end
+
+  class << self
+    def birthday_year_min
+      Date.today.year - 90
+    end
+
+    def birthday_year_max
+      Date.today.year - 10
+    end
+  end
+
 end
 

@@ -59,6 +59,16 @@ ru:
           delete_confirm: "Вы уверены, что хотите удалить уровень сложности?"
         sidebar:
           new: "Добавить уровень"
+      graduates:
+        form:
+          delete: "Удалить"
+          cancel: "Отмена"
+          delete_confirm: "Вы уверены, что хотите удалить степень?"
+        index:
+          delete: "Удалить"
+          delete_confirm: "Вы уверены, что хотите удалить степень?"
+        sidebar:
+          new: "Добавить степень"
       materials:
         form:
           delete: "Удалить"

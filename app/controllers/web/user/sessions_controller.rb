@@ -1,8 +1,5 @@
 class Web::User::SessionsController < Web::ApplicationController
-  layout 'web/admin/application'
-
-  def new
-  end
+  add_breadcrumb :index, :new_user_session_path
 
   def create
     @email = params[:session][:email]

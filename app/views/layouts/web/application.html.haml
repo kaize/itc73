@@ -15,8 +15,8 @@
           .container.nav-collapse
             = link_to t('.title'), root_path, class: 'brand'
             = render 'layouts/web/shared/nav'
-            - if signed_in?
-              %ul.nav.pull-right
+            %ul.nav.pull-right
+              - if signed_in?
                 %li.dropdown
                   = link_to '#',
                     class: 'dropdown-toggle',
@@ -30,6 +30,9 @@
                       %li.divider
                       %li= link_to t('.profile'), '#'
                       %li= link_to t('.sign_out'), user_session_path, method: :delete
+              - else
+                %li{class: "#{'active' if current_page?(new_user_session_path)}"}
+                  = link_to t('.sign_in'), new_user_session_path
     .container
       .row
         .span3

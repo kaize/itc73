@@ -10,6 +10,9 @@ ru:
       course_level:
         create: "Создать"
         update: "Сохранить"
+      graduate:
+        create: "Создать"
+        update: "Сохранить"
       material:
         create: "Создать"
         update: "Сохранить"

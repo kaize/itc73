@@ -1,0 +1,20 @@
+%table.table.table-striped
+  %thead
+    %tr
+      %th= Graduate.human_attribute_name :name
+
+  %tbody.sortable{:"data-update-url" => mass_update_order_api_graduates_path}
+    - @graduates.each do |n|
+      %tr{:"data-id" => n.id}
+        %td= n.name
+        %td
+          .pull-right.btn-group
+            = link_to edit_admin_graduate_path(n), class: 'btn btn-mini' do
+              %i.icon-pencil
+              = t(:edit)
+            = link_to admin_graduate_path(n), method: :delete,
+              class: 'btn btn-mini',
+              data: { confirm: t('.delete_confirm') } do
+              %i.icon-trash
+
+= render 'sidebar'

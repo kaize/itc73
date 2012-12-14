@@ -5,7 +5,8 @@ FactoryGirl.define do
     first_name { generate :name }
     last_name { generate :name }
     birthday { generate :date }
-    education { generate :string }
+    university { generate :string }
+    edu_year_end { generate :year }
     phone { generate :string }
 
     trait :active do

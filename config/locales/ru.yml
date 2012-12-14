@@ -6,14 +6,15 @@ ru:
         title: "ITC"
         admin: "Админка"
         profile: "Профиль"
-        sign_out: "Выйти"
+        sign_out: "Выход"
+        sign_in: "Вход"
       shared:
         footer:
           copyright: "2012 НП «Содействие развитию ИТ»"
         nav:
           about: "О проекте"
-          contacts: "Контакты"
-          news: "Новости"
+          contacts_pages: "Контакты"
+          news_index: "Новости"
           schedule: "Расписание"
         partners:
           org: "Организаторы"
@@ -29,11 +30,30 @@ ru:
         main: "Описание"
         materials: "Материалы"
         tasks: "Задания"
+    news:
+      index:
+        news: "Новости"
+    shared:
+      user_tabs:
+        new_user_session: "Войти на сайт"
+        new_user: "Зарегистрироваться"
+    user:
+      sessions:
+        new:
+          sign_in: "Вход"
+    users:
+      new:
+        sign_up: "Регистрация"
+      sign_up:
+        info: "Личная информация"
+        education: "Образование"
+        contacts: "Контактная информация"
+        auth: "Авторизация"
+        subscribe: "Подписаться на рассылку событий НП"
+        personal_data_processing: "Даю согласие на обработку персональных данных"
+        reg: "Зарегистрироваться"
     welcome:
       show:
         join: "Записаться на курсы"
         hero_unit_title: "Центр обучения<br>IT-специалистов!"
         hero_unit_content: "<br>Хочешь работать и зарабатывать в IT? Пройди обучение на курсах повышения IT-компетенции! Повышай свой профессиональный уровень!"
-    news:
-      index:
-        news: "Новости"

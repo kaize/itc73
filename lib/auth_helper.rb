@@ -15,7 +15,7 @@ module AuthHelper
   end
 
   def signed_in?
-    session[:user_id] && current_user
+    !current_user.guest?
   end
 
   def api_authenticate!
