@@ -39,6 +39,8 @@ ru:
           add_file: "Добавить файл"
         task_fields:
           add_file: "Добавить файл"
+        file_fields:
+          white_list_formats: "Разрешенные расширения файлов: zip, 7z, rar, tar, gz, bz2, doc, docx, xls, xlsx, odt, ods, txt, rtf, pdf, jpg, jpeg, gif, png"
       course_kinds:
         form:
           delete: "Удалить"
