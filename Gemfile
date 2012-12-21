@@ -22,6 +22,7 @@ gem 'twitter-bootstrap-rails'
 gem 'unicorn'
 gem 'usefull_scopes', git: 'https://github.com/kaize/usefull_scopes.git'
 gem 'validates'
+gem 'thinking-sphinx', '2.0.10'
 
 group :assets do
   gem 'coffee-rails', '~> 3.2.1'
