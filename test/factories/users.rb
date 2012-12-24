@@ -20,7 +20,7 @@ FactoryGirl.define do
     end
 
     trait :reg do
-      personal_data_processing true
+      personal_data_processing "1"
     end
   end
 end

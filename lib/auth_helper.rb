@@ -31,13 +31,17 @@ module AuthHelper
   def current_user
     @current_user ||=
       session[:user_id] && User.active.find_by_id(session[:user_id]).decorate ||
-      User::Guest.new
+      Guest.new
   end
 
   def basic_auth
     authenticate_or_request_with_http_basic do |user, password|
       user == configus.basic_auth.username && password == configus.basic_auth.password
     end
+  end
+
+  def admin?(user)
+    user.admin
   end
 
 end
