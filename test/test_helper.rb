@@ -6,6 +6,9 @@ Dir[File.expand_path('../support/**/*.rb', __FILE__)].each {|f| require f}
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 
+require 'coveralls'
+Coveralls.wear!
+
 class ActiveSupport::TestCase
   include AuthHelper
   include TestSupport
