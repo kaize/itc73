@@ -8,6 +8,8 @@
   - if @course.tasks.published.any?
     %li= link_to t('.tasks'), '#tasks', data: { toggle: 'tab' }
 
+  = link_to t('.join'), '#', class: 'btn btn-info pull-right'
+
 .tab-content
   .tab-pane.active#main
     != Sanitize.clean @course.description, Sanitize::Config::RELAXED

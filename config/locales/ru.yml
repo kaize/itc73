@@ -30,6 +30,7 @@ ru:
         main: "Описание"
         materials: "Материалы"
         tasks: "Задания"
+        join: "Записаться"
     news:
       index:
         news: "Новости"
