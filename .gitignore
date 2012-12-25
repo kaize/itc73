@@ -33,3 +33,6 @@ pickle-email-*.html
 # Ignore uploads files
 /public/system
 /public/uploads
+
+# Ignore user db config
+config/database.yml
