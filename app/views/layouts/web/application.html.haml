@@ -24,10 +24,10 @@
                     %i.icon-user
                     = current_user.first_name
                     %b.caret
-                  - if current_user.admin?
                     %ul.dropdown-menu
-                      = render 'layouts/web/admin/shared/nav'
-                      %li.divider
+                      - if current_user.admin? 
+                        = render 'layouts/web/admin/shared/nav'
+                        %li.divider
                       %li= link_to t('.profile'), '#'
                       %li= link_to t('.sign_out'), user_session_path, method: :delete
               - else
