@@ -31,6 +31,9 @@ ru:
         materials: "Материалы"
         tasks: "Задания"
         join: "Записаться"
+      index:
+        index_header: "Доступные курсы"
+        join: "Записаться" 
     news:
       index:
         news: "Новости"
