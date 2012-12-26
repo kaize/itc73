@@ -3,6 +3,6 @@
   .lead
     %p
       != t '.hero_unit_content'
-  = link_to t('.join'), '#', class: 'btn btn-large btn-success'
+  = link_to t('.join'), courses_path, class: 'btn btn-large btn-success'
 
 != Sanitize.clean @page.body, Sanitize::Config::RELAXED
