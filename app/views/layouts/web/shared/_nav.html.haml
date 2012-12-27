@@ -1,4 +1,5 @@
 %ul.nav
-  - [:about, :schedule, :news_index, :contacts_pages].each do |h|
-    - path = send "#{h}_path"
-    %li{class: "#{'active' if current_page?(path)}"}= link_to t(".#{h}"), path
+  %li= link_to t(".about"), page_path(:about)
+  %li= link_to t(".schedule"), page_path(:schedule)
+  %li= link_to t(".news"), news_index_path
+  %li= link_to t(".contacts"), contacts_pages_path
