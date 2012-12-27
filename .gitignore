@@ -35,4 +35,4 @@ pickle-email-*.html
 /public/uploads
 
 # Ignore user db config
-config/database.yml
+database.yml
