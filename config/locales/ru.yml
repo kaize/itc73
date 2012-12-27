@@ -13,8 +13,8 @@ ru:
           copyright: "2012 НП «Содействие развитию ИТ»"
         nav:
           about: "О проекте"
-          contacts_pages: "Контакты"
-          news_index: "Новости"
+          contacts: "Контакты"
+          news: "Новости"
           schedule: "Расписание"
         partners:
           org: "Организаторы"
