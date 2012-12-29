@@ -2,13 +2,31 @@
   %h1= @course.name
 
 %ul.nav.nav-tabs
+  - if !signed_in?    
+    .pagination-centered
+      %h5
+        = t('.need_authorization')
+        = link_to t('.authorization'), new_user_session_path
+        = t('.slash')
+        = link_to t('.registration'), new_user_path
+  
   %li.active= link_to t('.main'), '#main', data: { toggle: 'tab' }
   - if @course.materials.published.any?
     %li= link_to t('.materials'), '#materials', data: { toggle: 'tab' }
   - if @course.tasks.published.any?
     %li= link_to t('.tasks'), '#tasks', data: { toggle: 'tab' }
 
-  = link_to t('.join'), '#', class: 'btn btn-info pull-right'
+  - if signed_in?
+    - if current_user.courses.include?(@course)
+      = simple_form_for @course, url: unscribe_course_user_path do |f|
+        = f.input :course_id, :as => :hidden, input_html: {value: @course.id }
+        = f.button :submit, value: t('.unscribe'),  class: 'btn btn-danger pull-right', :confirm => t(".unscribe_confirm")
+    - else
+      = simple_form_for @course, url: scribe_course_user_path do |f|
+        = f.input :course_id, :as => :hidden, input_html: {value: @course.id }
+        = f.button :submit, value: t('.scribe'),  class: 'btn btn-info pull-right', :confirm => t(".scribe_confirm")
+  - else
+    = link_to t('.scribe'), '#', class: 'btn btn-info pull-right disabled'
 
 .tab-content
   .tab-pane.active#main

@@ -13,4 +13,19 @@ class Web::UsersController < Web::ApplicationController
       render :new
     end
   end
+
+  def scribe_course
+    course = Course.find(params[:course][:course_id])
+    current_user.courses << course
+
+    redirect_to :back
+  end
+
+  def unscribe_course
+    course = Course.find(params[:course][:course_id])
+    current_user.courses.delete(course)
+
+    redirect_to :back
+  end
+
 end
