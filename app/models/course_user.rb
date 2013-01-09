@@ -1,6 +1,4 @@
-class CourseUser < ActiveRecord::Base
-  attr_accessible :course_id, :user_id
-  
+class CourseUser < ActiveRecord::Base 
   belongs_to :course
   belongs_to :user
 end
