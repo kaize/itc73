@@ -50,4 +50,12 @@ class Web::Admin::CoursesController < Web::Admin::ApplicationController
     flash_success
     redirect_to action: :index
   end
+
+  def subscribe_state_event
+    @course = Course.find(params[:id])
+    @course.fire_subscribe_event(params[:event])
+
+    flash_success
+    redirect_to action: :index
+  end
 end
