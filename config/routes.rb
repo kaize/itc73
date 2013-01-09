@@ -15,7 +15,7 @@ Itc73::Application.routes.draw do
 
     resource :user, only: [:new, :create] do
       member do
-          put :scribe_course
+          put :subscribe_course
           put :unscribe_course
       end
 

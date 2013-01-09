@@ -8,7 +8,7 @@ class Web::UsersControllerTest < ActionController::TestCase
     
     @course = create :course
     @course_two = create :course
-    @user = create :user
+    @user = create :user, :active
     sign_in @user
     @user.courses << @course_two 
   end
@@ -26,18 +26,18 @@ class Web::UsersControllerTest < ActionController::TestCase
   end
 
   test "should scribe course" do
-    request.env['HTTP_REFERER'] = courses_path
+    set_http_referer courses_path
 
-    attrs = {course_id: @course.id}
-    put :scribe_course, course: attrs
+    attrs = {id: @course.id}
+    put :subscribe_course, course: attrs
 
     assert @user.courses.exists?(@course)
   end
 
   test "should unscribe course" do
-    request.env['HTTP_REFERER'] = courses_path
+    set_http_referer courses_path
 
-    attrs = {course_id: @course_two.id}
+    attrs = {id: @course_two.id}
     put :unscribe_course, course: attrs
 
     assert !@user.courses.exists?(@course_two)

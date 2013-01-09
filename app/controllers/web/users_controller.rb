@@ -14,15 +14,15 @@ class Web::UsersController < Web::ApplicationController
     end
   end
 
-  def scribe_course
-    course = Course.find(params[:course][:course_id])
+  def subscribe_course
+    course = Course.find(params[:course][:id])
     current_user.courses << course
 
     redirect_to :back
   end
 
   def unscribe_course
-    course = Course.find(params[:course][:course_id])
+    course = Course.find(params[:course][:id])
     current_user.courses.delete(course)
 
     redirect_to :back

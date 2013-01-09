@@ -24,3 +24,7 @@ class ActiveSupport::TestCase
 
   include FactoryGirl::Syntax::Methods
 end
+
+def set_http_referer(path)
+  request.env['HTTP_REFERER'] = path
+end
