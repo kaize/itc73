@@ -8,7 +8,7 @@ class Course < ActiveRecord::Base
   has_many :tasks, inverse_of: :course
 
   attr_accessible :description, :kind, :kind_id, :level, :level_id, :name, 
-    :state, :state_event, :subscribe
+    :state, :state_event, :subscribe_state
 
   validates :name, presence: true, length: { maximum: 255 }
 
@@ -26,7 +26,7 @@ class Course < ActiveRecord::Base
     end
   end
 
-  state_machine :subscribe, initial: :allowed do
+  state_machine :subscribe_state, initial: :allowed do
     state :allowed
     state :denied
  

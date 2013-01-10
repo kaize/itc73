@@ -5,7 +5,7 @@
       %th= sort_link @q, :kind_name
       %th= sort_link @q, :level_name
       %th= sort_link @q, :state
-      %th= sort_link @q, :subscribe
+      %th= sort_link @q, :subscribe_state
 
   %tbody
   - @courses.each do |n|
@@ -14,7 +14,7 @@
       %td= n.kind
       %td= n.level
       %td= n.human_state_name
-      %td= n.human_subscribe_name
+      %td= n.human_subscribe_state_name
       %td
         .pull-right.btn-group
           = link_to edit_admin_course_path(n), class: 'btn btn-mini' do
