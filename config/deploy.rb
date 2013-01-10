@@ -1,4 +1,4 @@
-set :rvm_type, :system
+set :rvm_type, :user
 set :stages, %w(staging)
 set :default_stage, "staging"
 set :rvm_ruby_string, '1.9.3'
