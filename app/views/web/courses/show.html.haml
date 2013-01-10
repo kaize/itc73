@@ -26,7 +26,7 @@
         = f.input :id, :as => :hidden
         = f.button :submit, value: t('.subscribe'),  class: 'btn btn-info pull-right', :confirm => t(".subscribe_confirm")
   - else
-    = link_to t('.scribe'), '#', class: 'btn btn-info pull-right disabled'
+    = link_to t('.subscribe'), '#', class: 'btn btn-info pull-right disabled', :confirm => t(".subscribe_confirm")
 
 .tab-content
   .tab-pane.active#main
