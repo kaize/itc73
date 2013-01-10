@@ -35,6 +35,7 @@ ru:
           allow_confirm: "Вы уверены, что хотите открыть запись на курс?"
           title_allow_confirm: "Открыть запись на курс?"
           title_deny_confirm: "Закрыть запись на курс?"
+          title_users: "Список пользователей курса"
         sidebar:
           new_course: "Добавить курс"
           kinds: "Типы курсов"

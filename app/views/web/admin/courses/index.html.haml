@@ -17,6 +17,10 @@
       %td= n.human_subscribe_state_name
       %td
         .pull-right.btn-group
+          = link_to '#', 
+            title: t('.title_users'),
+            class: 'btn btn-mini' do
+            %i.icon-user
           = link_to edit_admin_course_path(n), class: 'btn btn-mini' do
             %i.icon-pencil
             = t(:edit)
