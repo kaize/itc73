@@ -8,7 +8,7 @@ ru:
         level: "Уровень"
         state: "Состояние"
         state_event: "Изменить состояние"
-        subscribe: "Запись"
+        subscribe_state: "Запись"
       course/kind:
         name: "Тип"
       course/level:
@@ -87,7 +87,7 @@ ru:
           events:
             publish: "Опубликовать"
             unpublish: "Скрыть"
-        subscribe:
+        subscribe_state:
           states:
             allowed: "Открыта"
             denied: "Закрыта"
