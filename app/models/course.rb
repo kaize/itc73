@@ -6,6 +6,8 @@ class Course < ActiveRecord::Base
 
   has_many :materials, inverse_of: :course
   has_many :tasks, inverse_of: :course
+  has_many :course_users
+  has_many :users, :through => :course_users
 
   attr_accessible :description, :kind, :kind_id, :level, :level_id, :name, 
     :state, :state_event
