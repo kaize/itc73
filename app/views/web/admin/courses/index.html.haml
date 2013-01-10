@@ -21,10 +21,12 @@
             title: t('.title_users'),
             class: 'btn btn-mini' do
             %i.icon-user
-          = link_to edit_admin_course_path(n), class: 'btn btn-mini' do
+          = link_to edit_admin_course_path(n),
+            title: t('.title_edit'), 
+            class: 'btn btn-mini' do
             %i.icon-pencil
-            = t(:edit)
           = link_to admin_course_path(n), method: :delete,
+            title: t('.title_delete'), 
             class: 'btn btn-mini',
             data: { confirm: t('.delete_confirm') } do
             %i.icon-trash
