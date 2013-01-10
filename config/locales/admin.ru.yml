@@ -33,8 +33,11 @@ ru:
           delete_confirm: "Вы уверены, что хотите удалить курс?"
           deny_confirm: "Вы уверены, что хотите закрыть запись на курс?"
           allow_confirm: "Вы уверены, что хотите открыть запись на курс?"
-          title_allow_confirm: "Открыть запись на курсы?"
-          title_deny_confirm: "Закрыть запись на курсы?"
+          title_allow_confirm: "Открыть запись на курс?"
+          title_deny_confirm: "Закрыть запись на курс?"
+          title_users: "Список пользователей курса"
+          title_edit: "Редактировать курс"
+          title_delete: "Удалить курс"
         sidebar:
           new_course: "Добавить курс"
           kinds: "Типы курсов"
