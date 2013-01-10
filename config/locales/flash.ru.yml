@@ -12,6 +12,8 @@ ru:
               success: "Курс обновлен"
             destroy:
               success: "Курс удален"
+            subscribe_state_event:
+              success: "Курс успешно обнавлен"
           course_kinds:
             create:
               error: "При добавлении типа курса возникли ошибки"

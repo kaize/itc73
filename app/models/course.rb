@@ -10,7 +10,7 @@ class Course < ActiveRecord::Base
   has_many :users, :through => :course_users
 
   attr_accessible :description, :kind, :kind_id, :level, :level_id, :name, 
-    :state, :state_event
+    :state, :state_event, :subscribe_state
 
   validates :name, presence: true, length: { maximum: 255 }
 
@@ -25,6 +25,19 @@ class Course < ActiveRecord::Base
 
     event :unpublish do
       transition published: :unpublished
+    end
+  end
+
+  state_machine :subscribe_state, initial: :allowed do
+    state :allowed
+    state :denied
+ 
+    event :allow do
+      transition denied: :allowed
+    end
+
+    event :deny do
+      transition allowed: :denied
     end
   end
 

@@ -27,7 +27,11 @@ Itc73::Application.routes.draw do
     namespace :admin do
       root to: 'welcome#show'
 
-      resources :courses
+      resources :courses do
+        member do
+          put :subscribe_state_event
+        end
+      end
       resources :course_kinds
       resources :course_levels
       resources :graduates
