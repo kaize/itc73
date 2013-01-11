@@ -12,7 +12,7 @@ gem 'haml-rails'
 gem 'kaminari'
 gem 'mini_magick'
 gem 'pg'
-gem 'rails', '3.2.9'
+gem 'rails'
 gem 'ransack'
 gem 'russian'
 gem 'sanitize'
@@ -37,7 +37,7 @@ end
 
 group :development do
   gem 'capi'
-  gem 'capistrano'
+  gem 'capistrano', '2.13.5'
   gem 'capistrano-ext'
   gem 'quiet_assets'
   gem 'rvm-capistrano'
