@@ -26,5 +26,6 @@ namespace :deploy do
 end
 
 before 'deploy:finalize_update', 'deploy:symlink_db'
+after "deploy:restart", "thinking_sphinx:index"
 after "deploy:restart", "unicorn:stop"
 after "deploy:update", "deploy:cleanup"
