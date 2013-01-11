@@ -2,3 +2,6 @@
   - [:about, :schedule, :news_index, :contacts_pages].each do |h|
     - path = send "#{h}_path"
     %li{class: "#{'active' if current_page?(path)}"}= link_to t(".#{h}"), path
+
+  = form_tag search_index_path, :method => :get, :id => 'search', :class => 'navbar-search pull-left' do
+    = search_field_tag 'term', '', :placeholder => t('.query_placeholder'), :class => 'search-query span3'
