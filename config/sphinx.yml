@@ -1,0 +1,8 @@
+production:
+  pid_file: /u/apps/okinfo/shared/log/searchd.pid
+  searchd_file_path: /u/apps/okinfo/shared/db/sphinx
+  morphology: stem_ru
+development:
+  port: 9313
+test:
+  port: 9315

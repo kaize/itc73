@@ -1,6 +1,13 @@
 class Course < ActiveRecord::Base
   include CourseRepository
 
+  define_index do
+    indexes :name
+    indexes :description
+
+    has created_at
+  end
+
   belongs_to :kind
   belongs_to :level
 
