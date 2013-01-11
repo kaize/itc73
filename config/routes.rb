@@ -1,14 +1,10 @@
 Itc73::Application.routes.draw do
-
-  get "users/new"
-
-  get "users/create"
-
   mount Ckeditor::Engine => '/ckeditor'
 
   scope module: :web do
     root to: 'welcome#show'
 
+    resources :search, :only => [:index]
     resources :courses, only: [:index, :show]
     resources :pages, only: [:show] do
       collection do
