@@ -34,6 +34,7 @@ end
 
 before 'deploy:finalize_update', 'deploy:symlink_db'
 before 'deploy:update_code', 'thinking_sphinx:stop'
+after "deploy:restart", "thinking_sphinx:index", :roles => [:app]
 after 'deploy:finalize_update', 'sphinx:symlink_indexes'
 after 'deploy:update_code', 'thinking_sphinx:start'
 after 'deploy:restart', 'unicorn:stop'
