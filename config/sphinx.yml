@@ -1,5 +1,9 @@
 production:
-  pid_file: /u/apps/itc73/shared/log/searchd.pid
+  pid_file: /u/apps/itc73/shared/tmp/searchd.pid
+  searchd_file_path: /u/apps/itc73/shared/db/sphinx
+  morphology: stem_ru
+staging:
+  pid_file: /u/apps/itc73/shared/tmp/searchd.pid
   searchd_file_path: /u/apps/itc73/shared/db/sphinx
   morphology: stem_ru
 development:
