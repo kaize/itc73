@@ -1,3 +1,5 @@
+require 'thinking_sphinx/deploy/capistrano'
+
 set :rvm_type, :user
 set :stages, %w(staging)
 set :default_stage, "staging"
@@ -25,7 +27,16 @@ namespace :deploy do
   end
 end
 
+namespace :sphinx do
+  desc "Symlink Sphinx indexes"
+  task :symlink_indexes, :roles => [:app] do
+    run "ln -nfs #{shared_path}/db/sphinx #{release_path}/db/sphinx"
+  end
+end
+
+before 'deploy:update_code', 'thinking_sphinx:stop'
 before 'deploy:finalize_update', 'deploy:symlink_db'
-after "deploy:restart", "thinking_sphinx:index"
-after "deploy:restart", "unicorn:stop"
-after "deploy:update", "deploy:cleanup"
+after 'deploy:update_code', 'thinking_sphinx:start'
+after 'deploy:finalize_update', 'sphinx:symlink_indexes'
+after 'deploy:restart', 'unicorn:stop'
+after 'deploy:update', 'deploy:cleanup'
