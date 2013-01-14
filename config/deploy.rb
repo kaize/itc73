@@ -1,5 +1,3 @@
-require 'thinking_sphinx/deploy/capistrano'
-
 set :rvm_type, :user
 set :stages, %w(staging)
 set :default_stage, "staging"
@@ -19,7 +17,7 @@ set :repository,  "git@github.com:kaize/itc73.git"
 namespace :deploy do
   desc "Symlinks the database.yml"
   task :symlink_db, :roles => :app do
-    run "ln -nfs #{release_path}/config/database.yml.sample #{release_path}/config/database.yml"
+    run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
   end
   desc "Seed database data"
   task :seed_data do
@@ -36,7 +34,7 @@ end
 
 before 'deploy:update_code', 'thinking_sphinx:stop'
 before 'deploy:finalize_update', 'deploy:symlink_db'
-after 'deploy:update_code', 'thinking_sphinx:start'
 after 'deploy:finalize_update', 'sphinx:symlink_indexes'
+after 'deploy:update_code', 'thinking_sphinx:start'
 after 'deploy:restart', 'unicorn:stop'
 after 'deploy:update', 'deploy:cleanup'
