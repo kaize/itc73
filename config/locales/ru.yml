@@ -16,6 +16,8 @@ ru:
           contacts: "Контакты"
           news: "Новости"
           schedule: "Расписание"
+        my_courses_nav:
+          my_course: "Мои курсы"
         partners:
           org: "Организаторы"
           partners: "Партнеры"
