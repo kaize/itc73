@@ -17,6 +17,8 @@ ru:
           news: "Новости"
           schedule: "Расписание"
           query_placeholder: "Поиск по курсам"
+        my_courses_nav:
+          my_course: "Мои курсы"
         partners:
           org: "Организаторы"
           partners: "Партнеры"
