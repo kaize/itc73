@@ -43,6 +43,7 @@ group :development do
   gem 'capistrano-ext'
   gem 'quiet_assets'
   gem 'rvm-capistrano'
+  gem "better_errors"
 end
 
 group :test do

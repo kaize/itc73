@@ -1,4 +1,4 @@
-class User::Guest
+class Guest
   def guest?
     true
   end

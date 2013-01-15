@@ -13,6 +13,7 @@ Itc73::Application.routes.draw do
     end
 
     resources :news, only: [:index, :show]
+    resources :users, only: [:new, :create]
 
     resource :user, only: [:new, :create] do
       member do

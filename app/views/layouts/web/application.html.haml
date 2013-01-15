@@ -24,6 +24,7 @@
                     %i.icon-user
                     = current_user.first_name
                     %b.caret
+                  - if signed_in?
                     %ul.dropdown-menu
                       - if current_user.admin? 
                         = render 'layouts/web/admin/shared/nav'
