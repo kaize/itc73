@@ -11,7 +11,7 @@
         = link_to t('.registration'), new_user_path
 
   - @course.each do |n|
-    - if n.allowed?
+    - if n.allowed? && n.published?
       %tr
         %td 
           = link_to n.name, course_path(n), class: 'btn btn-link'
