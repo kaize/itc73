@@ -51,4 +51,8 @@ class Course < ActiveRecord::Base
   def can_destroy?
     persisted?
   end
+
+  def to_s
+    name
+  end
 end
