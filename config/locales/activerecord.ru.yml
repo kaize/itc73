@@ -49,6 +49,7 @@ ru:
       user:
         first_name: 'Имя'
         last_name: 'Фамилия'
+        patronymic: 'Отчество'
         password: 'Пароль'
         password_confirmation: 'Подтверждение пароля'
         email: "Адрес эл. почты"
@@ -57,6 +58,7 @@ ru:
         birthday: "Дата рождения"
         university: "Учебное заведение"
         edu_year_end: "Год окончания"
+        workplace: "Место работы"
         phone: "Номер телефона"
         graduate: "Уровень образования"
         state: 'Состояние'
