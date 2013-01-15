@@ -1,0 +1,8 @@
+-if @results.any?
+  %h3= t(".search_title", :query => @query)
+  %ul 
+    - @results.each do |r|
+      - if r.published?
+        %li= link_to r, course_path(r)
+-else 
+  %h3= t(".nothing_result", :query => @query)

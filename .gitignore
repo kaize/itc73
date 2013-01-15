@@ -36,3 +36,7 @@ pickle-email-*.html
 
 # Ignore user db config
 database.yml
+
+# Ignore Sphinx’s configuration and indexes
+config/development.sphinx.conf
+db/sphinx/*

@@ -22,5 +22,8 @@ class ActiveSupport::TestCase
   require 'factory_girl'
   FactoryGirl.reload
 
+  require 'thinking_sphinx/test'
+  ThinkingSphinx::Test.init
+
   include FactoryGirl::Syntax::Methods
 end

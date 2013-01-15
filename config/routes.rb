@@ -4,6 +4,7 @@ Itc73::Application.routes.draw do
   scope module: :web do
     root to: 'welcome#show'
 
+    resources :search, :only => [:index]
     resources :courses, only: [:index, :show]
     resources :pages, only: [:show] do
       collection do
