@@ -8,14 +8,17 @@ class User < ActiveRecord::Base
   has_many :courses, :through => :course_users
 
   attr_accessible :birthday, :university, :edu_year_end, :graduate, :graduate_id, :email,
-    :first_name, :last_name, :password, :phone, :state, :subscribe_state, :admin
+    :first_name, :last_name, :patronymic, :password, :phone, :state, :subscribe_state, :admin, 
+    :workplace
 
   validates :email, presence: true, email: true, uniqueness: { case_sensitive: false }
   validates :password, length: { minimum: 6 }, allow_blank: true
   validates :password, presence: true, on: :create
   validates :first_name, presence: true, length: { maximum: 255 }
   validates :last_name, presence: true, length: { maximum: 255 }
+  validates :patronymic, length: { maximum: 255 }
   validates :education, length: { maximum: 255 }
+  validates :workplace, length: { maximum: 255 }
 
   state_machine :state, initial: :new do
     state :new
