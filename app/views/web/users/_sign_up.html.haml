@@ -5,16 +5,18 @@
       %hr
       = f.input :first_name, input_html: { class: 'input-xlarge' }
       = f.input :last_name, input_html: { class: 'input-xlarge' }
+      = f.input :patronymic, input_html: { class: 'input-xlarge' }
       = f.input :birthday, as: :datepicker,
         input_html: { class: 'input-xlarge', data: { 'year-min' => User.birthday_year_min, 'year-max' => User.birthday_year_max }}
     .span4
       %h4= t '.education'
       %hr
-      = f.input :university, input_html: { class: 'input-xlarge' }
       = f.association :graduate, collection: Graduate.asc_by_order_at,
         input_html: { class: 'input-xlarge' }, include_blank: false
+      = f.input :university, input_html: { class: 'input-xlarge' }
       = f.input :edu_year_end, as: :edu_year_end, include_blank: false,
         input_html: { class: 'input-medium' }
+      = f.input :workplace, input_html: { class: 'input-xlarge' }
   .row
     .span4
       %h4= t '.contacts'
