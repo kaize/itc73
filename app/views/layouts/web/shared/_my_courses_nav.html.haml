@@ -1,0 +1,9 @@
+- if signed_in? && current_user.courses.any? 
+  .well
+    %ul.nav.nav-list
+      %li
+        %h4= t(".my_course")
+      %li.divider
+      - current_user.courses.each do |course|
+        - if course.published?
+          %li= link_to course, course_path(course)
