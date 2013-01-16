@@ -6,6 +6,7 @@ class Web::UsersController < Web::ApplicationController
   def create
     @user = UserRegistrationType.new params[:user]
     if @user.save
+      UserMailer.registred(@user).deliver
       flash_success
       redirect_to root_path
     else
