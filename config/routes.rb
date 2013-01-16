@@ -1,12 +1,5 @@
 Itc73::Application.routes.draw do
 
-  #get "users/new"
-
-  #get "users/create"
-
-  
-
-
   mount Ckeditor::Engine => '/ckeditor'
 
   scope module: :web do
@@ -23,9 +16,7 @@ Itc73::Application.routes.draw do
     resources :users, only: [:new, :create]
 
     resource :user, only: [:new, :create] do
-      scope module: :user do
         resource :session, only: [:new, :create, :destroy]
-      end
     end
 
     namespace :admin do

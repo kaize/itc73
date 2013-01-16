@@ -53,6 +53,5 @@ ru:
         index: "Курсы"
       news:
         index: "Новости"
-      user:
-        sessions:
-          index: "Вход"
+      sessions:
+        index: "Вход"

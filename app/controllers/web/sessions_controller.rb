@@ -1,4 +1,4 @@
-class Web::User::SessionsController < Web::ApplicationController
+class Web::SessionsController < Web::ApplicationController
   add_breadcrumb :index, :new_user_session_path
 
   def create

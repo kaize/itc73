@@ -37,10 +37,9 @@ ru:
       user_tabs:
         new_user_session: "Войти на сайт"
         new_user: "Зарегистрироваться"
-    user:
-      sessions:
-        new:
-          sign_in: "Вход"
+    sessions:
+      new:
+        sign_in: "Вход"
     users:
       new:
         sign_up: "Регистрация"

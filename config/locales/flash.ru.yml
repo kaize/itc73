@@ -94,10 +94,9 @@ ru:
               success: 'Данные пользователя были успешно обновлены'
             trigger_state_event:
               success: "Состояние пользователя изменено"
-        user:
-          sessions:
-            create:
-              error: 'Неправильный email или пароль.'
+        sessions:
+          create:
+            error: 'Неправильный email или пароль.'
         users:
           create:
             error: 'Пожалуйста, заполните все обязательные поля'

@@ -5,6 +5,11 @@ Configus.build Rails.env do
       password 'fPl7d9'
     end
 
+    mailer do
+      default_host "itc73.kaize.ru"
+      default_from "noreplay@itc73.kaize.ru"
+    end
+
     page_slugs [:index, :about, :contacts, :courses, :schedule]
   end
 
