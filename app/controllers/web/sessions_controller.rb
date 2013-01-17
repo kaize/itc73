@@ -7,7 +7,7 @@ class Web::SessionsController < Web::ApplicationController
     if user && user.authenticate(params[:session][:password])
       reset_session
       sign_in(user)
-      if admin?(user)
+      if user.admin?
         redirect_to admin_root_path
       else
         redirect_to root_path

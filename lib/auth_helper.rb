@@ -40,8 +40,4 @@ module AuthHelper
     end
   end
 
-  def admin?(user)
-    user.admin
-  end
-
 end
