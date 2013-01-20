@@ -16,4 +16,11 @@ class UserMailerTest < ActionMailer::TestCase
     assert_match(@token.authentication_token, email.body.to_s)
   end
 
+  test "should get confirm remind password email" do
+    assert ActionMailer::Base.deliveries.empty?
+    email = UserMailer.remind_password(@user, @token).deliver
+    assert !ActionMailer::Base.deliveries.empty?
+    assert_match(@token.authentication_token, email.body.to_s)
+  end
+
 end

@@ -40,6 +40,8 @@ ru:
     sessions:
       new:
         sign_in: "Вход"
+      sign_in:
+        forgot_password: "Забыли пароль?"
     users:
       new:
         sign_up: "Регистрация"
@@ -61,6 +63,10 @@ ru:
         edit:
           password_reset: "Изменение пароля"
           reset: "Изменить"
+    remind_passwords:
+      new:
+        password_recovery: "Восстановление пароля"
+        recovery: "Восстановить"
   user_mailer:
     confirm_registration:
       subject: "Подтверждение регистрации"

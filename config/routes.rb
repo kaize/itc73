@@ -20,6 +20,7 @@ Itc73::Application.routes.draw do
     end
 
     resource :session, only: [:new, :create, :destroy]
+    resource :remind_password, only: [:new, :create]
 
     resource :account do
       scope :module => :account do

@@ -3,6 +3,7 @@
     .span4
       = f.input :email, input_html: { class: 'input-xlarge', value: @email }
       = f.input :password, input_html: { class: 'input-xlarge' }
+      = link_to(t(".forgot_password"), new_remind_password_path)
   .form-actions
     = f.button :submit, class: 'btn-primary'
 
