@@ -29,10 +29,10 @@
                       = render 'layouts/web/admin/shared/nav'
                       %li.divider
                       %li= link_to t('.profile'), '#'
-                      %li= link_to t('.sign_out'), user_session_path, method: :delete
+                      %li= link_to t('.sign_out'), session_path, method: :delete
               - else
-                %li{class: "#{'active' if current_page?(new_user_session_path)}"}
-                  = link_to t('.sign_in'), new_user_session_path
+                %li{class: "#{'active' if current_page?(new_session_path)}"}
+                  = link_to t('.sign_in'), new_session_path
     .container
       .row
         .span3

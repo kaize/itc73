@@ -1,5 +1,5 @@
 class Web::SessionsController < Web::ApplicationController
-  add_breadcrumb :index, :new_user_session_path
+  add_breadcrumb :index, :new_session_path
 
   def create
     @email = params[:session][:email]

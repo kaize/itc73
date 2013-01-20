@@ -2,14 +2,10 @@ class UserMailer < ActionMailer::Base
   default_url_options[:host] = configus.mailer.default_host
   default from: configus.mailer.default_from
 
-  def registred(user)
+  def confirm_registration(user, token)
     @user = user
-    mail :to => user.email, :subject => "Registered!"
-  end
-
-  def password_reset(user)
-    @user = user
-    mail :to => user.email, :subject => "Password Reset"
+    @token = token
+    mail :to => user.email, :subject => t(".subject")
   end
 
 end

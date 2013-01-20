@@ -13,10 +13,18 @@ Itc73::Application.routes.draw do
     end
 
     resources :news, only: [:index, :show]
-    resources :users, only: [:new, :create]
+    resources :users, only: [:new, :create] do
+      member do
+        get :activate
+      end
+    end
 
-    resource :user, only: [:new, :create] do
-        resource :session, only: [:new, :create, :destroy]
+    resource :session, only: [:new, :create, :destroy]
+
+    resource :account do
+      scope :module => :account do
+        resource :password, only: [:edit, :update]
+      end
     end
 
     namespace :admin do

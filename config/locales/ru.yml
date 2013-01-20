@@ -35,7 +35,7 @@ ru:
         news: "Новости"
     shared:
       user_tabs:
-        new_user_session: "Войти на сайт"
+        new_session: "Войти на сайт"
         new_user: "Зарегистрироваться"
     sessions:
       new:
@@ -56,3 +56,11 @@ ru:
         join: "Записаться на курсы"
         hero_unit_title: "Центр обучения<br>IT-специалистов!"
         hero_unit_content: "<br>Хочешь работать и зарабатывать в IT? Пройди обучение на курсах повышения IT-компетенции! Повышай свой профессиональный уровень!"
+    account:
+      passwords:
+        edit:
+          password_reset: "Изменение пароля"
+          reset: "Изменить"
+  user_mailer:
+    confirm_registration:
+      subject: "Подтверждение регистрации"

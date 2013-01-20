@@ -26,7 +26,7 @@
                     = current_user.full_name
                 %li
                   .btn-group.pull-right
-                    = link_to t('.sign_out'), user_session_path, class: 'btn', method: :delete
+                    = link_to t('.sign_out'), new_session_path, class: 'btn', method: :delete
     .container
       .row
         %div{class: "span#{content_for?(:sidebar) ? 9 : 12}"}

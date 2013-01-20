@@ -10,6 +10,10 @@ Configus.build Rails.env do
       default_from "noreplay@itc73.kaize.ru"
     end
 
+    token do
+      lifetime 1.hour
+    end
+
     page_slugs [:index, :about, :contacts, :courses, :schedule]
   end
 

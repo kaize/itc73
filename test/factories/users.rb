@@ -14,6 +14,10 @@ FactoryGirl.define do
       state :active
     end
 
+    trait :new do
+      state :new
+    end
+
     trait :admin do
       state :active
       admin true
