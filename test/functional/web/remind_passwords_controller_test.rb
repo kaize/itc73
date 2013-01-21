@@ -2,7 +2,8 @@ require 'test_helper'
 
 class Web::RemindPasswordsControllerTest < ActionController::TestCase
   setup do
-    @user = create :user, :active
+    @user = create :user
+    @user.fire_state_event(:activate)
   end
 
   test "should get new" do

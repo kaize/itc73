@@ -6,7 +6,7 @@ class Web::RemindPasswordsController < Web::ApplicationController
   def create
     @user = User.find_by_email(params[:user][:email])
     if @user
-      token = @user.create_auth_token
+      token = @user.build_auth_token
       token.save!
       UserMailer.remind_password(@user, token).deliver
       flash_success

@@ -5,13 +5,13 @@ class UserMailer < ActionMailer::Base
   def confirm_registration(user, token)
     @user = user
     @token = token
-    mail :to => user.email, :subject => t(".subject")
+    mail :to => @user.email
   end
 
   def remind_password(user, token)
     @user = user
     @token = token
-    mail :to => user.email, :subject => t(".subject")
+    mail :to => @user.email
   end
 
 end

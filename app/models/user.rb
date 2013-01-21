@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   belongs_to :graduate
 
   attr_accessible :birthday, :university, :edu_year_end, :graduate, :graduate_id, :email,
-    :first_name, :last_name, :password, :password_confirmation, :phone, :state, :subscribe, :admin
+    :first_name, :last_name, :password, :password_confirmation, :phone
 
   validates :email, presence: true, email: true, uniqueness: { case_sensitive: false }
   validates :password, length: { minimum: 6 }, allow_blank: true
@@ -34,7 +34,7 @@ class User < ActiveRecord::Base
     false
   end
 
-  def create_auth_token
+  def build_auth_token
     token = SecureHelper.generate_token
     expired_at = Time.current + configus.token.lifetime
     auth_tokens.build :authentication_token => token, :expired_at => expired_at

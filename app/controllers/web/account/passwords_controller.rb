@@ -1,5 +1,4 @@
 class Web::Account::PasswordsController < Web::ApplicationController
-  before_filter :sign_in_by_token
 
   def edit
     @user = UserPasswordEditType.new

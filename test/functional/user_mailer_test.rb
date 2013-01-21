@@ -3,7 +3,7 @@ require 'test_helper'
 class UserMailerTest < ActionMailer::TestCase
   setup do
     @user = create :user
-    @token = @user.create_auth_token
+    @token = @user.build_auth_token
     @token.save!
 
     ActionMailer::Base.deliveries.clear

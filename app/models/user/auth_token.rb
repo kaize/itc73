@@ -12,4 +12,7 @@ class User::AuthToken < ActiveRecord::Base
     authentication_token
   end
 
+  def expired?
+    expired_at < Time.current
+  end
 end

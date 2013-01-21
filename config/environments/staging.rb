@@ -64,4 +64,14 @@ Itc73::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = {
+    :user_name => 'itc73-kaize-ru-2b2e0421973c0a85',
+    :password => '6e3b4ddee784bc5c',
+    :address => 'mailtrap.io',
+    :port => '2525',
+    :authentication => :plain,
+  }
+  
 end

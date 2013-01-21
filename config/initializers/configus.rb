@@ -3,6 +3,8 @@ Configus.build Rails.env do
     admin do
       email 'admin@np.kaize.ru'
       password 'fPl7d9'
+      first_name 'admin'
+      last_name 'admin'
     end
 
     mailer do

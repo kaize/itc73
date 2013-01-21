@@ -13,12 +13,13 @@ module AuthHelper
   def sign_in_by_token
     if params[:auth_token]
       token = User::AuthToken.find_by_authentication_token params[:auth_token]
-      if token && token.expired_at > Time.current
+      if token && !token.expired?
         user = token.user
         sign_in(user)
         flash_success
       else
-        redirect_to new_session_path, :flash => { :error => t(".invalid_link") }
+        flash_error
+        redirect_to new_session_path
       end
     end
   end
