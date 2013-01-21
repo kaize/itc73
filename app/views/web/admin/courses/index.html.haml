@@ -5,6 +5,7 @@
       %th= sort_link @q, :kind_name
       %th= sort_link @q, :level_name
       %th= sort_link @q, :state
+      %th= sort_link @q, :subscribe_state
 
   %tbody
   - @courses.each do |n|
@@ -13,15 +14,34 @@
       %td= n.kind
       %td= n.level
       %td= n.human_state_name
+      %td= n.human_subscribe_state_name
       %td
         .pull-right.btn-group
-          = link_to edit_admin_course_path(n), class: 'btn btn-mini' do
+          = link_to '#', 
+            title: t('.title_users'),
+            class: 'btn btn-mini' do
+            %i.icon-user
+          = link_to edit_admin_course_path(n),
+            title: t('.title_edit'), 
+            class: 'btn btn-mini' do
             %i.icon-pencil
-            = t(:edit)
           = link_to admin_course_path(n), method: :delete,
+            title: t('.title_delete'), 
             class: 'btn btn-mini',
             data: { confirm: t('.delete_confirm') } do
             %i.icon-trash
+          - if n.can_deny?
+            = link_to subscribe_state_event_admin_course_path(n, event: :deny),
+              data: { method: :put, confirm: t('.deny_confirm') },
+              title: t('.title_deny_confirm'),
+              class: 'btn btn-mini' do
+              %i.icon-stop
+          - if n.can_allow?
+            = link_to subscribe_state_event_admin_course_path(n, event: :allow),
+              data: { method: :put, confirm: t('.allow_confirm') },
+              title: t('.title_allow_confirm'),
+              class: 'btn btn-mini' do
+              %i.icon-play
 
 .pagination
   = paginate @courses

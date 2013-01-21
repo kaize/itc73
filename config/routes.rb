@@ -5,6 +5,7 @@ Itc73::Application.routes.draw do
   scope module: :web do
     root to: 'welcome#show'
 
+    resources :search, :only => [:index]
     resources :courses, only: [:index, :show]
     resources :pages, only: [:show] do
       collection do
@@ -14,7 +15,6 @@ Itc73::Application.routes.draw do
 
     resources :news, only: [:index, :show]
     resources :users, only: [:new, :create] 
-
     resource :session, only: [:new, :create, :destroy]
     resource :remind_password, only: [:new, :create]
 
@@ -27,10 +27,21 @@ Itc73::Application.routes.draw do
       end
     end
 
+    resource :user, only: [:new, :create] do
+      member do
+          put :subscribe_course
+          put :unscribe_course
+      end
+    end
+
     namespace :admin do
       root to: 'welcome#show'
 
-      resources :courses
+      resources :courses do
+        member do
+          put :subscribe_state_event
+        end
+      end
       resources :course_kinds
       resources :course_levels
       resources :graduates

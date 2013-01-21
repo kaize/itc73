@@ -1,5 +1,9 @@
 require 'simplecov'
 SimpleCov.start('rails') if ENV["COVERAGE"]
+
+require 'coveralls'
+Coveralls.wear!('rails')
+
 ENV["RAILS_ENV"] = "test"
 
 Dir[File.expand_path('../support/**/*.rb', __FILE__)].each {|f| require f}
@@ -18,6 +22,9 @@ class ActiveSupport::TestCase
 
   require 'factory_girl'
   FactoryGirl.reload
+
+  require 'thinking_sphinx/test'
+  ThinkingSphinx::Test.init
 
   include FactoryGirl::Syntax::Methods
 end

@@ -43,18 +43,21 @@ module AuthHelper
   end
 
   def current_user
-    @current_user ||=
       # session[:user_id] && User.active.find(session[:user_id]).decorate ||
       # Guest.new
       # временное решение
-      session[:user_id] && User.find(session[:user_id]).decorate ||
-      Guest.new
+      @current_user ||=session[:user_id] && User.find(session[:user_id]).decorate ||
+        Guest.new
   end
 
   def basic_auth
     authenticate_or_request_with_http_basic do |user, password|
       user == configus.basic_auth.username && password == configus.basic_auth.password
     end
+  end
+
+  def admin?(user)
+    user.admin
   end
 
 end

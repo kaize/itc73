@@ -8,6 +8,7 @@ ru:
         level: "Уровень"
         state: "Состояние"
         state_event: "Изменить состояние"
+        subscribe_state: "Запись"
       course/kind:
         name: "Тип"
       course/level:
@@ -48,6 +49,7 @@ ru:
       user:
         first_name: 'Имя'
         last_name: 'Фамилия'
+        patronymic: 'Отчество'
         password: 'Пароль'
         password_confirmation: 'Подтверждение пароля'
         email: "Адрес эл. почты"
@@ -56,6 +58,7 @@ ru:
         birthday: "Дата рождения"
         university: "Учебное заведение"
         edu_year_end: "Год окончания"
+        workplace: "Место работы"
         phone: "Номер телефона"
         graduate: "Уровень образования"
         state: 'Состояние'
@@ -86,6 +89,13 @@ ru:
           events:
             publish: "Опубликовать"
             unpublish: "Скрыть"
+        subscribe_state:
+          states:
+            allowed: "Открыта"
+            denied: "Закрыта"
+          events:
+            allow: "Открыть"
+            deny: "Закрыть"
       material:
         state:
           states:

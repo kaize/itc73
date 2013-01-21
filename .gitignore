@@ -33,3 +33,10 @@ pickle-email-*.html
 # Ignore uploads files
 /public/system
 /public/uploads
+
+# Ignore user db config
+database.yml
+
+# Ignore Sphinx’s configuration and indexes
+config/development.sphinx.conf
+db/sphinx/*

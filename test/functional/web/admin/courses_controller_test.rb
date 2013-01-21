@@ -44,4 +44,12 @@ class Web::Admin::CoursesControllerTest < ActionController::TestCase
 
     assert_nil Course.find_by_id @course
   end
+
+  test "should put subscribe_state_event" do
+    put :subscribe_state_event, id: @course.id, event: :deny
+    assert_response :redirect
+
+    @course.reload
+    assert @course.denied?
+  end
 end

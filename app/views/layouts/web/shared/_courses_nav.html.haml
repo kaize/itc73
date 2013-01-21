@@ -7,5 +7,6 @@
       - Course::Level.with_kind(kind).each do |level|
         %li.nav-header= level.name
         - level.courses.each do |c|
-          %li= link_to c.name, course_path(c)
+          - if c.published? && c.allowed? 
+            %li= link_to c.name, course_path(c)
 

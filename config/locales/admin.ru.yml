@@ -31,6 +31,13 @@ ru:
         index:
           delete: "Удалить"
           delete_confirm: "Вы уверены, что хотите удалить курс?"
+          deny_confirm: "Вы уверены, что хотите закрыть запись на курс?"
+          allow_confirm: "Вы уверены, что хотите открыть запись на курс?"
+          title_allow_confirm: "Открыть запись на курс?"
+          title_deny_confirm: "Закрыть запись на курс?"
+          title_users: "Список пользователей курса"
+          title_edit: "Редактировать курс"
+          title_delete: "Удалить курс"
         sidebar:
           new_course: "Добавить курс"
           kinds: "Типы курсов"
@@ -39,6 +46,8 @@ ru:
           add_file: "Добавить файл"
         task_fields:
           add_file: "Добавить файл"
+        file_fields:
+          white_list_formats: "Разрешенные расширения файлов: zip, 7z, rar, tar, gz, bz2, doc, docx, xls, xlsx, odt, ods, txt, rtf, pdf, jpg, jpeg, gif, png"
       course_kinds:
         form:
           delete: "Удалить"

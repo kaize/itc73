@@ -2,7 +2,7 @@ class Web::CoursesController < Web::ApplicationController
   add_breadcrumb :index, :courses_path
 
   def index
-    @page = Page.courses
+    @course = Course.page(params[:page])
   end
 
   def show

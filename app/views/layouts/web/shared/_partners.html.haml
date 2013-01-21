@@ -2,7 +2,6 @@
   %h3= t '.org'
   .row
     - Organizer.asc_by_order_at.each do |org|
-      .span1
-        = link_to org.url do
-          = image_tag org.image.url
+      = link_to org.url do
+        = image_tag org.image.url
 

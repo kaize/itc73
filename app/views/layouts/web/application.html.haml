@@ -26,8 +26,9 @@
                     %b.caret
                   - if signed_in?
                     %ul.dropdown-menu
-                      = render 'layouts/web/admin/shared/nav'
-                      %li.divider
+                      - if current_user.admin? 
+                        = render 'layouts/web/admin/shared/nav'
+                        %li.divider
                       %li= link_to t('.profile'), '#'
                       %li= link_to t('.sign_out'), session_path, method: :delete
               - else
@@ -37,6 +38,7 @@
       .row
         .span3
           = yield :sidebar_top
+          = render 'layouts/web/shared/my_courses_nav'
           = render 'layouts/web/shared/courses_nav'
           = yield :sidebar_bottom
         .span9
