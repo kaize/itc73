@@ -67,8 +67,8 @@ Itc73::Application.configure do
 
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
-    :user_name => 'itc73-kaize-ru-2b2e0421973c0a85',
-    :password => '6e3b4ddee784bc5c',
+    :user_name => 'itc73-44b16f87d66f2aaa',
+    :password => '551c508369b80496',
     :address => 'mailtrap.io',
     :port => '2525',
     :authentication => :plain,
