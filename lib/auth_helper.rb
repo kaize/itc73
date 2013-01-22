@@ -43,11 +43,8 @@ module AuthHelper
   end
 
   def current_user
-      # session[:user_id] && User.active.find(session[:user_id]).decorate ||
-      # Guest.new
-      # временное решение
-      @current_user ||=session[:user_id] && User.find(session[:user_id]).decorate ||
-        Guest.new
+      @current_user ||=session[:user_id] && User.active.find(session[:user_id]).decorate ||
+      Guest.new
   end
 
   def basic_auth

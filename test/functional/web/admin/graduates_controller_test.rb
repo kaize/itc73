@@ -3,6 +3,7 @@ require 'test_helper'
 class Web::Admin::GraduatesControllerTest < ActionController::TestCase
   setup do
     admin = create :user, :admin
+    admin.activate
     sign_in admin
 
     @graduate = create :graduate
