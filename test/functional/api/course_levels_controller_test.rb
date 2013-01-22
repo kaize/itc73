@@ -3,6 +3,7 @@ require 'test_helper'
 class Api::CourseLevelsControllerTest < ActionController::TestCase
   setup do
     admin = create :user, :admin
+    admin.fire_state_event(:activate)
     sign_in admin
 
     @level = create :course_level
