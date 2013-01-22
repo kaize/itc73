@@ -16,9 +16,9 @@ ru:
           contacts: "Контакты"
           news: "Новости"
           schedule: "Расписание"
+          query_placeholder: "Поиск по курсам"
         my_courses_nav:
           my_course: "Мои курсы"
-          query_placeholder: "Поиск по курсам"
         partners:
           org: "Организаторы"
           partners: "Партнеры"
@@ -87,6 +87,7 @@ ru:
     remind_passwords:
       new:
         password_recovery: "Восстановление пароля"
+        recovery: "Восстановить"
   user_mailer:
     confirm_registration:
       subject: "Подтверждение регистрации"
