@@ -43,7 +43,7 @@ module AuthHelper
   end
 
   def current_user
-      @current_user ||=session[:user_id] && User.active.find(session[:user_id]).decorate ||
+    @current_user ||= session[:user_id] && User.active.find(session[:user_id]).decorate ||
       Guest.new
   end
 
