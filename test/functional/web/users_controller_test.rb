@@ -8,7 +8,8 @@ class Web::UsersControllerTest < ActionController::TestCase
     
     @course = create :course
     @course_two = create :course
-    @user = create :user, :active
+    @user = create :user
+    @user.activate
     sign_in @user
     @user.courses << @course_two 
   end
@@ -21,7 +22,6 @@ class Web::UsersControllerTest < ActionController::TestCase
   test "should post create" do
     post :create, user: @attrs
     assert_response :redirect
-
     assert User.find_by_email(@attrs[:email])
   end
 

@@ -10,6 +10,20 @@ module AuthHelper
     session[:user_id] = user.id
   end
 
+  def sign_in_by_token
+    if params[:auth_token]
+      token = User::AuthToken.find_by_authentication_token params[:auth_token]
+      if token && !token.expired?
+        user = token.user
+        sign_in(user)
+        flash_success
+      else
+        flash_error
+        redirect_to new_session_path
+      end
+    end
+  end
+
   def sign_out
     session[:user_id] = nil
   end
@@ -24,14 +38,13 @@ module AuthHelper
 
   def authenticate_admin!
     unless current_user.admin?
-      redirect_to new_user_session_path
+      redirect_to new_session_path
     end
   end
 
   def current_user
-    @current_user ||=
-      session[:user_id] && User.active.find(session[:user_id]).decorate ||
-      User::Guest.new
+      @current_user ||=session[:user_id] && User.active.find(session[:user_id]).decorate ||
+      Guest.new
   end
 
   def basic_auth

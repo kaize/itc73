@@ -38,4 +38,9 @@ FactoryGirl.define do
   sequence :url do |n|
     "http://url-#{n}.com/url#{n}"
   end
+
+  sequence :token do |n|
+    "token#{n}"
+  end
+
 end

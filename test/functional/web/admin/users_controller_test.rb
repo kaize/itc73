@@ -4,10 +4,12 @@ class Web::Admin::UsersControllerTest < ActionController::TestCase
 
   def setup
     admin = create :user, :admin
+    admin.activate
     sign_in admin
 
-    @user = create :user, :active
-    @attrs = attributes_for :user, :active
+    @user = create :user
+    @user.activate
+    @attrs = attributes_for :user
   end
 
   test "should get index" do

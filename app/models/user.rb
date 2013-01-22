@@ -3,17 +3,17 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
+  has_many :auth_tokens
+
   belongs_to :graduate
   has_many :course_users
   has_many :courses, :through => :course_users
 
   attr_accessible :birthday, :university, :edu_year_end, :graduate, :graduate_id, :email,
-    :first_name, :last_name, :patronymic, :password, :phone, :state, :subscribe_state, :admin, 
-    :workplace
+    :first_name, :last_name, :patronymic, :password, :password_confirmation, :phone, :workplace
 
   validates :email, presence: true, email: true, uniqueness: { case_sensitive: false }
   validates :password, length: { minimum: 6 }, allow_blank: true
-  validates :password, presence: true, on: :create
   validates :first_name, presence: true, length: { maximum: 255 }
   validates :last_name, presence: true, length: { maximum: 255 }
   validates :patronymic, length: { maximum: 255 }
@@ -36,6 +36,12 @@ class User < ActiveRecord::Base
 
   def guest?
     false
+  end
+
+  def build_auth_token
+    token = SecureHelper.generate_token
+    expired_at = Time.current + configus.token.lifetime
+    auth_tokens.build :authentication_token => token, :expired_at => expired_at
   end
 
   class << self

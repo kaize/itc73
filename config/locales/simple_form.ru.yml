@@ -3,7 +3,7 @@ ru:
     "yes": 'Да'
     "no": 'Нет'
     required:
-      text: 'обязательно'
+      text: 'Поле обязательно для заполнения'
       mark: '*'
     error_notification:
       default_message: "Были обнаружены следующие ошибки:"
@@ -13,7 +13,7 @@ ru:
         password: 'Пароль'
     hints:
       user:
-        password: 'длина не менее 6 символов'
+        password: 'Длина не менее 6 символов'
     labels:
       defaults:
         email: 'Email'

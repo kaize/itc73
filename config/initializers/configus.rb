@@ -3,6 +3,17 @@ Configus.build Rails.env do
     admin do
       email 'admin@np.kaize.ru'
       password 'fPl7d9'
+      first_name 'admin'
+      last_name 'admin'
+    end
+
+    mailer do
+      default_host "itc73.kaize.ru"
+      default_from "noreplay@itc73.kaize.ru"
+    end
+
+    token do
+      lifetime 1.hour
     end
 
     page_slugs [:index, :about, :contacts, :courses, :schedule]

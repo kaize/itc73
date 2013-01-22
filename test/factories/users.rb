@@ -10,17 +10,12 @@ FactoryGirl.define do
     graduate
     phone { generate :string }
 
-    trait :active do
-      state :active
-    end
-
     trait :admin do
-      state :active
       admin true
     end
 
     trait :reg do
-      personal_data_processing true
+      personal_data_processing "1"
     end
   end
 end

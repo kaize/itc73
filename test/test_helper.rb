@@ -12,6 +12,7 @@ require 'rails/test_help'
 
 class ActiveSupport::TestCase
   include AuthHelper
+  include SecureHelper
   include TestSupport
   # Setup all fixtures in test/fixtures/*.(yml|csv) for all tests in alphabetical order.
   #
