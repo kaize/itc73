@@ -4,11 +4,11 @@ class Web::Admin::UsersControllerTest < ActionController::TestCase
 
   def setup
     admin = create :user, :admin
-    admin.fire_state_event(:activate)
+    admin.activate
     sign_in admin
 
     @user = create :user
-    @user.fire_state_event(:activate)
+    @user.activate
     @attrs = attributes_for :user
   end
 

@@ -3,7 +3,7 @@ require 'test_helper'
 class Web::Account::PasswordsControllerTest < ActionController::TestCase
   setup do
     @user = create :user
-    @user.fire_state_event(:activate)
+    @user.activate
     sign_in @user
   end
 

@@ -9,7 +9,7 @@ class Web::UsersControllerTest < ActionController::TestCase
     @course = create :course
     @course_two = create :course
     @user = create :user
-    @user.fire_state_event(:activate)
+    @user.activate
     sign_in @user
     @user.courses << @course_two 
   end

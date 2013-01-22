@@ -3,7 +3,7 @@ require 'test_helper'
 class Web::Account::UsersControllerTest < ActionController::TestCase
   def setup
     @user = create :user
-    @user.fire_state_event(:deactivate)
+    @user.deactivate
     @token = @user.build_auth_token
     @token.save!
   end

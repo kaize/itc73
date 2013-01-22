@@ -5,7 +5,7 @@ class Web::Admin::PagesControllerTest < ActionController::TestCase
     set_http_referer
 
     admin = create :user, :admin
-    admin.fire_state_event(:activate)
+    admin.activate
     sign_in admin
 
     @page = create :page

@@ -88,12 +88,12 @@ ru:
       new:
         password_recovery: "Восстановление пароля"
         recovery: "Восстановить"
+    search:
+      index:
+        search_title: "Результат поиска по запросу '%{query}'"
+        nothing_result: "По запросу '%{query}' ничего не найдено"
   user_mailer:
     confirm_registration:
       subject: "Подтверждение регистрации"
     remind_password:
       subject: "Восстановление пароля"
-    search:
-      index:
-        search_title: "Результат поиска по запросу '%{query}'"
-        nothing_result: "По запросу '%{query}' ничего не найдено"
