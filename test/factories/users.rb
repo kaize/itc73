@@ -9,6 +9,7 @@ FactoryGirl.define do
     edu_year_end { generate :year }
     graduate
     phone { generate :string }
+    subscribe true 
 
     trait :admin do
       admin true
