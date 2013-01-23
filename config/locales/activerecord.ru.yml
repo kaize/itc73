@@ -36,7 +36,7 @@ ru:
         image: "Логотип"
       page:
         name: "Заголовок"
-        slug: "Алиас"
+        slug: "Slug"
         body: "Содержание"
       task:
         description: "Описание"
