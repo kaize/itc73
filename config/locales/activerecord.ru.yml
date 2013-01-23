@@ -47,6 +47,7 @@ ru:
       task/file:
         file: "Файл"
       user:
+        id: 'id '
         first_name: 'Имя'
         last_name: 'Фамилия'
         patronymic: 'Отчество'
