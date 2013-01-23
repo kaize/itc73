@@ -4,7 +4,7 @@ class Organizer < ActiveRecord::Base
   attr_accessible :image, :name, :order_at, :url
 
   validates :name, presence: true, length: { maximum: 255 }
-  validates :url, :url => true, :allow_blank => true, length: { maximum: 255 }
+  validates :url, :url => true
   mount_uploader :image, OrganizerImageUploader
 
   def can_destroy?
