@@ -9,10 +9,11 @@
     %tr
       %td
         = link_to page.name, page_path(page), target: :_blank
-      %td
+      %td 
+        .pull-right
         = link_to page.slug, page_path(page), target: :_blank
       %td
-        .pull-right.btn-group
+        .btn-group
           = link_to edit_admin_page_path(page), class: 'btn btn-mini' do
             %i.icon-pencil
             = t(:edit)
