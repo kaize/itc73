@@ -80,6 +80,10 @@ ru:
           attributes:
             email:
               email: "некорректный адрес"
+        organizer:
+          attributes:
+            url:
+              url: "некорректный адрес"
     state_machines:
       course:
         state:

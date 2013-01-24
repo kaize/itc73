@@ -1,4 +1,4 @@
-= simple_form_for @organizer, url: url do |f|
+= simple_form_for @organizer, :validate=>true, url: url do |f|
   = f.input :name, input_html: { class: 'input-xxlarge' }
   = f.input :url, input_html: { class: 'input-xxlarge' }
   = f.input :image, as: :image_preview
