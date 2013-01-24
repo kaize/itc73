@@ -19,9 +19,10 @@
         %td= l u.created_at, format: :only_date
         %td
           .pull-right.btn-group
-            = link_to edit_admin_user_path(u), class: 'btn btn-mini' do
+            = link_to edit_admin_user_path(u), 
+              title: t('.title_edit'),
+              class: 'btn btn-mini' do
               %i.icon-pencil
-              = t(:edit)
             - if u.can_activate?
               = link_to trigger_state_event_admin_user_path(u, event: :activate),
                 data: { method: :put, confirm: t('.activate_confirm') },
