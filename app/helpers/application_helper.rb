@@ -1,4 +1,5 @@
 module ApplicationHelper
+  include CustomUrlHelper
 
   def user_state_label(user)
     cls = "label label-user-#{user.state_name}"
