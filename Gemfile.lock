@@ -94,6 +94,8 @@ GEM
     factory_girl_rails (4.1.0)
       factory_girl (~> 4.1.0)
       railties (>= 3.0.0)
+    faraday (0.8.4)
+      multipart-post (~> 1.1)
     girl_friday (0.11.2)
       connection_pool (~> 1.0)
       rubinius-actor
@@ -103,8 +105,10 @@ GEM
       activesupport (>= 3.1, < 4.1)
       haml (~> 3.1)
       railties (>= 3.1, < 4.1)
+    hashie (1.2.0)
     highline (1.6.15)
     hike (1.2.1)
+    httpauth (0.2.0)
     i18n (0.6.1)
     journey (1.0.4)
     jquery-rails (2.1.4)
@@ -114,6 +118,8 @@ GEM
       jquery-rails
       railties (>= 3.1.0)
     json (1.7.6)
+    jwt (0.1.5)
+      multi_json (>= 1.0)
     kaminari (0.14.1)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -133,6 +139,7 @@ GEM
       subexec (~> 0.2.1)
     minitest (4.3.3)
     multi_json (1.5.0)
+    multipart-post (1.1.5)
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
     net-sftp (2.0.5)
@@ -141,6 +148,20 @@ GEM
     net-ssh-gateway (1.1.0)
       net-ssh (>= 1.99.1)
     nokogiri (1.5.6)
+    oauth2 (0.8.0)
+      faraday (~> 0.8)
+      httpauth (~> 0.1)
+      jwt (~> 0.1.4)
+      multi_json (~> 1.0)
+      rack (~> 1.2)
+    omniauth (1.1.1)
+      hashie (~> 1.2)
+      rack
+    omniauth-facebook (1.4.1)
+      omniauth-oauth2 (~> 1.1.0)
+    omniauth-oauth2 (1.1.1)
+      oauth2 (~> 0.8.0)
+      omniauth (~> 1.0)
     orm_adapter (0.4.0)
     pg (0.14.1)
     polyamorous (0.5.0)
@@ -272,6 +293,8 @@ DEPENDENCIES
   less-rails
   mini_magick
   minitest
+  omniauth
+  omniauth-facebook
   pg
   quiet_assets
   rails

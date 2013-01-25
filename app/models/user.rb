@@ -4,13 +4,14 @@ class User < ActiveRecord::Base
   has_secure_password
 
   has_many :auth_tokens
-
-  belongs_to :graduate
+  has_many :authorizations  
   has_many :course_users
   has_many :courses, :through => :course_users
 
+  belongs_to :graduate
+
   attr_accessible :birthday, :university, :edu_year_end, :graduate, :graduate_id, :email,
-    :first_name, :last_name, :patronymic, :password, :password_confirmation, :phone, :workplace
+    :first_name, :last_name, :patronymic, :password, :password_confirmation, :phone, :workplace, :subscribe
 
   validates :email, presence: true, email: true, uniqueness: { case_sensitive: false }
   validates :password, length: { minimum: 6 }, allow_blank: true
