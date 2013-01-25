@@ -2,6 +2,10 @@ Itc73::Application.routes.draw do
 
   mount Ckeditor::Engine => '/ckeditor'
 
+  # omniauth-facebook
+  get '/auth/facebook/callback' => 'web/social_network#authorization'
+  get '/auth/facebook/failure' => 'web/social_network#failure'
+
   scope module: :web do
     root to: 'welcome#show'
 
@@ -32,6 +36,10 @@ Itc73::Application.routes.draw do
           put :subscribe_course
           put :unscribe_course
       end
+    end
+
+    resource :social_network, :only => [] do 
+      get :authorization, :on => :member
     end
 
     namespace :admin do

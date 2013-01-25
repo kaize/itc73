@@ -16,6 +16,11 @@ Configus.build Rails.env do
       lifetime 1.hour
     end
 
+    facebook do
+      app_id ''
+      app_secret ''
+    end
+
     page_slugs [:index, :about, :contacts, :courses, :schedule]
   end
 
@@ -24,6 +29,12 @@ Configus.build Rails.env do
       email 'admin@np.kaize.ru'
       password '1234'
     end
+
+    facebook do
+      app_id '106746716171244'
+      app_secret '74d7290db6060d909dbccb70c29d907e'
+    end
+
   end
 
   env :test, parent: :production do
@@ -40,5 +51,6 @@ Configus.build Rails.env do
       username 'admin'
       password '123654'
     end
+
   end
 end
