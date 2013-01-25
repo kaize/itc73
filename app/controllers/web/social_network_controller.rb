@@ -6,7 +6,6 @@ class Web::SocialNetworkController < Web::ApplicationController
     if authorization
       sign_in authorization.user
       flash_success
-      redirect_to root_path
     else
       user = User.find_or_initialize_by_email(auth_hash[:info][:email])
       
@@ -20,13 +19,12 @@ class Web::SocialNetworkController < Web::ApplicationController
         user.activate
         sign_in user
         flash_success
-        redirect_to root_path
       else
         flash_error
-        redirect_to root_path
       end
 
-    end
+    end    
+    redirect_to root_path
   end
 
   def failure

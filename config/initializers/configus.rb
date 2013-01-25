@@ -52,5 +52,10 @@ Configus.build Rails.env do
       password '123654'
     end
 
+    facebook do
+      app_id '106746716171244'
+      app_secret '74d7290db6060d909dbccb70c29d907e'
+    end
+
   end
 end
