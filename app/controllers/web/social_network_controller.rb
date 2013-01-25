@@ -8,7 +8,7 @@ class Web::SocialNetworkController < Web::ApplicationController
       flash_success
       redirect_to root_path
     else
-      user = User.find_by_email(auth_hash[:info][:email]) || User.new
+      user = User.find_or_initialize_by_email(auth_hash[:info][:email])
       
       if user.new_record?
         user = UserPopulator.via_facebook(user, auth_hash)
