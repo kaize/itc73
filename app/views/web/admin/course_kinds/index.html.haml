@@ -9,9 +9,10 @@
         %td= n.name
         %td
           .pull-right.btn-group
-            = link_to edit_admin_course_kind_path(n), class: 'btn btn-mini' do
+            = link_to edit_admin_course_kind_path(n), 
+              title: t('.title_edit'),
+              class: 'btn btn-mini' do
               %i.icon-pencil
-              = t(:edit)
             = link_to admin_course_kind_path(n), method: :delete,
               class: 'btn btn-mini',
               data: { confirm: t('.delete_confirm') } do

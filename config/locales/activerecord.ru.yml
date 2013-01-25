@@ -36,7 +36,7 @@ ru:
         image: "Логотип"
       page:
         name: "Заголовок"
-        slug: "Алиас"
+        slug: "Slug"
         body: "Содержание"
       task:
         description: "Описание"
@@ -80,6 +80,10 @@ ru:
           attributes:
             email:
               email: "некорректный адрес"
+        organizer:
+          attributes:
+            url:
+              url: "некорректный адрес"
     state_machines:
       course:
         state:

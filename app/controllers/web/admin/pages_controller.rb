@@ -2,7 +2,7 @@ class Web::Admin::PagesController < Web::Admin::ApplicationController
   add_breadcrumb :index, :admin_pages_path
 
   def index
-    query = params[:q] || { s: 'slug' }
+    query = params[:q] || { s: 'name' }
     @q = Page.ransack(query)
     @pages = @q.result.page(params[:page])
   end

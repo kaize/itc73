@@ -21,12 +21,12 @@ gem 'state_machine'
 gem 'twitter-bootstrap-rails'
 gem 'unicorn'
 gem 'usefull_scopes', git: 'https://github.com/kaize/usefull_scopes.git'
-gem 'validates'
 gem 'coveralls', require: false
 gem 'thinking-sphinx', '2.0.10'
 gem 'whenever'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'validates'
 
 group :assets do
   gem 'coffee-rails', '~> 3.2.1'

@@ -1,22 +1,22 @@
 %table.table.table-striped
   %thead
     %tr
-      %th= sort_link @q, :slug
       %th= sort_link @q, :name
+      %th= sort_link @q, :slug
 
   %tbody
   - @pages.each do |page|
     %tr
       %td
+        = link_to page.name, page_path(page), target: :_blank
+      %td 
         = link_to page.slug, page_path(page), target: :_blank
       %td
-        = link_to page.name, page_path(page), target: :_blank
-
-      %td
         .pull-right.btn-group
-          = link_to edit_admin_page_path(page), class: 'btn btn-mini' do
+          = link_to edit_admin_page_path(page), 
+            title: t('.title_edit'),
+            class: 'btn btn-mini' do
             %i.icon-pencil
-            = t(:edit)
           - if page.can_destroy?
             = link_to admin_page_path(page), method: :delete,
               class: 'btn btn-mini',
