@@ -81,6 +81,7 @@ ru:
         education: "Образование"
         contacts: "Контактная информация"
         redact_profile: "Изменить профиль"
+        cancel: "Отмена"
     welcome:
       show:
         join: "Записаться на курсы"
