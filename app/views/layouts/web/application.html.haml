@@ -29,7 +29,7 @@
                       - if current_user.admin? 
                         = render 'layouts/web/admin/shared/nav'
                         %li.divider
-                      %li= link_to t('.profile'), '#'
+                      %li= link_to t('.profile'),  edit_user_path(current_user) 
                       %li= link_to t('.sign_out'), session_path, method: :delete
               - else
                 %li{class: "#{'active' if current_page?(new_session_path)}"}
