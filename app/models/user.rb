@@ -8,9 +8,9 @@ class User < ActiveRecord::Base
   belongs_to :graduate
   has_many :course_users
   has_many :courses, :through => :course_users
-
   attr_accessible :birthday, :university, :edu_year_end, :graduate, :graduate_id, :email,
-    :first_name, :last_name, :patronymic, :password, :password_confirmation, :phone, :workplace, :subscribe
+   :first_name, :last_name, :patronymic, :password, :password_confirmation, :phone, :workplace, :subscribe, :state
+
 
   validates :email, presence: true, email: true, uniqueness: { case_sensitive: false }
   validates :password, length: { minimum: 6 }, allow_blank: true
