@@ -14,7 +14,7 @@ Itc73::Application.routes.draw do
     end
 
     resources :news, only: [:index, :show]
-    resources :users, only: [:new, :create] 
+    resources :users, only: [:new, :create, :edit, :update] 
     resource :session, only: [:new, :create, :destroy]
     resource :remind_password, only: [:new, :create]
 
