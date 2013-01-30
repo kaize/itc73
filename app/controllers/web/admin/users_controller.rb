@@ -1,10 +1,12 @@
+#encoding: utf-8
 class Web::Admin::UsersController < Web::Admin::ApplicationController
 
   add_breadcrumb :index, :admin_users_path
   def index
+    I18n.backend.store_translations :ru, 'list_of_current_users' => 'Список пользователей по курсу "%{name_course}"' 
     @q = User.ransack("course_users_course_id_eq" => params[:course_id])
     @users = @q.result.page(params[:page])
-    @course_name = Course.ransack("id_eq" => params[:course_id]).result.first_or_initialize.name
+    @course_name = Course.ransack("id_eq_all" => params[:course_id]).result.first_or_initialize.name
     @course_name_presence = params.include?(:course_id)
   end
   def new
