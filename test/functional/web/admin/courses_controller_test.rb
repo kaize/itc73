@@ -8,6 +8,7 @@ class Web::Admin::CoursesControllerTest < ActionController::TestCase
 
     @course = create :course
     @attrs = attributes_for :course
+    @course_to_test = Course.find_by_name @attrs[:name].nil?
   end
 
   test "should get index" do
@@ -23,8 +24,7 @@ class Web::Admin::CoursesControllerTest < ActionController::TestCase
   test "should post create" do
     post :create, course: @attrs
     assert_response :redirect
-
-    assert Course.find_by_name @attrs[:name]
+    assert !@course_to_test
   end
 
   test "should get edit" do
@@ -35,8 +35,7 @@ class Web::Admin::CoursesControllerTest < ActionController::TestCase
   test "should put update" do
     put :update, id: @course.id, course: @attrs
     assert_response :redirect
-
-    assert Course.find_by_name @attrs[:name]
+    assert !@course_to_test
   end
 
   test "should delele destroy" do
