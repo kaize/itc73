@@ -2,19 +2,10 @@ class Web::Admin::UsersController < Web::Admin::ApplicationController
 
   add_breadcrumb :index, :admin_users_path
   def index
-    query = { s: 'created_at desc' }.merge(params[:q] || {})
-    @q = User.ransack(query)
-    unless(params[:course_id] == nil) 
-      @users = User.from_course(params[:course_id]).page(params[:page])
-      @course_name = Course.find(params[:course_id]).name
-      @course_name_presence = true
-    else
-      @users = @q.result.page(params[:page])
-      @course_name_presence = false
-    end
-  end
-  def available_to_course
-    redirect_to action: :index
+    @q = User.ransack("course_users_course_id_eq" => params[:course_id])
+    @users = @q.result.page(params[:page])
+    @course_name = Course.ransack("id_eq" => params[:course_id]).result.first_or_initialize.name
+    @course_name_presence = params.include?(:course_id)
   end
   def new
     @user = User.new
