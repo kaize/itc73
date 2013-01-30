@@ -4,6 +4,8 @@ class Web::Admin::UsersController < Web::Admin::ApplicationController
   def index
     @q = User.ransack("course_users_course_id_eq" => params[:course_id])
     @users = @q.result.page(params[:page])
+    @course_name = Course.ransack("id_eq" => params[:course_id]).result.first_or_initialize.name
+    @course_name_presence = params.include?(:course_id)
   end
   def new
     @user = User.new
