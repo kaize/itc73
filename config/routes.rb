@@ -38,9 +38,6 @@ Itc73::Application.routes.draw do
       root to: 'welcome#show'
 
       resources :courses do
-        resources :users, :only => [:index] do
-          get :available_to_course, :on => :collection
-        end
         member do
           put :subscribe_state_event
         end

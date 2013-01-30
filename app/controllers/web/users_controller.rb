@@ -1,5 +1,4 @@
 class Web::UsersController < Web::ApplicationController
-  before_filter :find_post, :only => [:show]
   def new
     @user = UserRegistrationType.new
   end

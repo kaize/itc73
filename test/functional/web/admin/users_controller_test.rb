@@ -16,10 +16,6 @@ class Web::Admin::UsersControllerTest < ActionController::TestCase
     get :index
     assert_response :success
   end
-  test "should get avalaible_to_course" do
-    get :available_to_course, course_id: @course.id
-    assert_response :redirect
-  end
   test "should get new" do
     get :new
     assert_response :success

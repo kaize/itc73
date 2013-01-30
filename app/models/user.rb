@@ -12,8 +12,6 @@ class User < ActiveRecord::Base
   attr_accessible :birthday, :university, :edu_year_end, :graduate, :graduate_id, :email,
     :first_name, :last_name, :patronymic, :password, :password_confirmation, :phone, :workplace, :subscribe
 
-  scope :from_course, lambda { |id| joins(:courses).where("course_id= ?", id) }
-
   validates :email, presence: true, email: true, uniqueness: { case_sensitive: false }
   validates :password, length: { minimum: 6 }, allow_blank: true
   validates :first_name, presence: true, length: { maximum: 255 }

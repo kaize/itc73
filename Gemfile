@@ -25,7 +25,6 @@ gem 'validates'
 gem 'coveralls', require: false
 gem 'thinking-sphinx', '2.0.10'
 gem 'whenever'
-gem 'binding_of_caller'
 
 group :assets do
   gem 'coffee-rails', '~> 3.2.1'
