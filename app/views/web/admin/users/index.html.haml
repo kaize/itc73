@@ -1,3 +1,7 @@
+- if @course_name_presence
+  %h4= t('.list_of_current_users') + @course_name
+- else
+  %h4= t('.list_of_all_users')
 %table.table.table-striped
   %thead
     %tr

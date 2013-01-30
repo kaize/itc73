@@ -31,7 +31,7 @@ Itc73::Application.routes.draw do
       end
     end
 
-    resource :user, only: [:new, :create] do
+    resource :user, only: [:index, :new, :create] do
       member do
           put :subscribe_course
           put :unscribe_course
@@ -46,6 +46,9 @@ Itc73::Application.routes.draw do
       root to: 'welcome#show'
 
       resources :courses do
+        resources :users, :only => [:index] do
+          get :available_to_course, :on => :collection
+        end
         member do
           put :subscribe_state_event
         end

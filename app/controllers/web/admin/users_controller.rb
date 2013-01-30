@@ -1,12 +1,21 @@
 class Web::Admin::UsersController < Web::Admin::ApplicationController
-  add_breadcrumb :index, :admin_users_path
 
+  add_breadcrumb :index, :admin_users_path
   def index
     query = { s: 'created_at desc' }.merge(params[:q] || {})
     @q = User.ransack(query)
-    @users = @q.result.page(params[:page])
+    unless(params[:course_id] == nil) 
+      @users = User.from_course(params[:course_id]).page(params[:page])
+      @course_name = Course.find(params[:course_id]).name
+      @course_name_presence = true
+    else
+      @users = @q.result.page(params[:page])
+      @course_name_presence = false
+    end
   end
-
+  def available_to_course
+    redirect_to action: :index
+  end
   def new
     @user = User.new
     add_breadcrumb :new, new_admin_user_path
@@ -14,14 +23,12 @@ class Web::Admin::UsersController < Web::Admin::ApplicationController
 
   def create
     @user = User.new(params[:user])
-
     if @user.save
       flash_success
       redirect_to action: :index
     else
       flash_error
       add_breadcrumb :new, new_admin_user_path
-
       render :new
     end
   end
@@ -33,7 +40,6 @@ class Web::Admin::UsersController < Web::Admin::ApplicationController
 
   def update
     user = User.find(params[:id])
-
     if user.update_attributes(params[:user])
       flash_success
       redirect_to action: :index
