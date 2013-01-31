@@ -104,3 +104,6 @@ ru:
       subject: "Подтверждение регистрации"
     remind_password:
       subject: "Восстановление пароля"
+  errors:
+    messages:
+      extension_white_list_error: "Неправильный формат файла"
