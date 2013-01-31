@@ -1,5 +1,5 @@
 - if @course_name_presence
-  %h4= I18n.translate :list_of_current_users, :name_course => @course_name
+  %h4= t '.list_of_current_users', :name_course => @course_name
 - else
   %h4= t('.list_of_all_users')
 %table.table.table-striped
