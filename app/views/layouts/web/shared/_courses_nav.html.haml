@@ -5,8 +5,10 @@
         %h4= kind.name
       %li.divider
       - Course::Level.with_kind(kind).each do |level|
-        %li.nav-header= level.name
+        - if signed_in? && level.courses.select{|c| !current_user.courses.include?(c)}.any? || !signed_in? && level.courses.any?
+          %li.nav-header= level.name
         - level.courses.each do |c|
           - if c.published? && c.allowed? 
-            %li= link_to c.name, course_path(c)
+            - if  (signed_in? && level.courses.select{|course| !current_user.courses.include?(course)}.include?(c)) || !signed_in?
+              %li= link_to c.name, course_path(c)
 
