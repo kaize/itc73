@@ -1,7 +1,7 @@
 = simple_form_for @material, url: url do |f|
   = f.input :name, input_html: { class: 'input-xxlarge' }
   = f.input :url, input_html: { class: 'input-xxlarge' }
-  = f.input :description, input_html: { class: 'input-block-level', rows: 3 }
+  = f.input :state_event, as: :state_event, wrapper: :state
   .form-actions
     = f.button :submit, class: 'btn btn-primary'
     = link_to t('.cancel'), admin_materials_path, class: 'btn'
