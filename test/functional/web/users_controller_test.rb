@@ -21,16 +21,16 @@ class Web::UsersControllerTest < ActionController::TestCase
   test "should post create" do
     post :create, user: @attrs
     assert_response :redirect
-    assert User.find_by_email(@attrs[:email])
+    @test_user = User.find_by_email(@attrs[:email])
+    assert_not_nil @test_user
   end
   test "should get edit" do 
-      get :edit, id: @user.id 
-        assert_response :success
+    get :edit, id: @user.id 
+    assert_response :success
   end
   test "should put update" do
     put :update, id: @user.id, user: @attrs.delete_if{|key, value| key == :personal_data_processing}
     assert_response :redirect
-    assert User.find_by_email(@attrs[:email])
   end
   test "should scribe course" do
     set_http_referer courses_path
