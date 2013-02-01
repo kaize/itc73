@@ -1,14 +1,14 @@
-- Course::Kind.with_courses.each do |kind|
+- course_kinds.each do |kind|
   .well
     %ul.nav.nav-list
       %li
-        %h4= kind.name
+        %h4= kind
       %li.divider
-      - Course::Level.with_kind(kind).each do |level|
-        - if signed_in? && level.courses.select{|c| !current_user.courses.include?(c)}.any? || !signed_in? && level.courses.any?
+      - course_level(kind).each do |level|
+        - if signed_in? && courses_in_main_list(level).any? || !signed_in? && level.courses.any?
           %li.nav-header= level.name
         - level.courses.each do |c|
           - if c.published? && c.allowed? 
-            - if  (signed_in? && level.courses.select{|course| !current_user.courses.include?(course)}.include?(c)) || !signed_in?
+            - if  signed_in? && courses_in_main_list(level).include?(c) || !signed_in?
               %li= link_to c.name, course_path(c)
 
