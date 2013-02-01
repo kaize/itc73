@@ -6,7 +6,7 @@ class Web::Admin::UsersControllerTest < ActionController::TestCase
     admin = create :user, :admin
     admin.activate
     sign_in admin
-
+    @course = create :course
     @user = create :user
     @user.activate
     @attrs = attributes_for :user
@@ -16,7 +16,6 @@ class Web::Admin::UsersControllerTest < ActionController::TestCase
     get :index
     assert_response :success
   end
-
   test "should get new" do
     get :new
     assert_response :success
