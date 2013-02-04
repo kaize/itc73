@@ -11,10 +11,16 @@ module ApplicationHelper
   def course_kinds
     Course::Kind.with_courses
   end
-  def course_level(kind)
+  def courses_for_level(kind)
     Course::Level.with_kind(kind)
   end
   def courses_in_main_list(level)
-    level.courses.select{|c| !current_user.courses.include?(c)}
+    level.courses - current_user.courses
+  end
+  def header_needed?(level) 
+    signed_in? && courses_in_main_list(level).any? || !signed_in? && level.courses.any?
+  end
+  def item_needed?(course, level)
+    signed_in? && courses_in_main_list(level).include?(course) || !signed_in?
   end
 end
