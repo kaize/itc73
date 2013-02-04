@@ -4,11 +4,11 @@
       %li
         %h4= kind
       %li.divider
-      - course_level(kind).each do |level|
-        - if signed_in? && courses_in_main_list(level).any? || !signed_in? && level.courses.any?
+      - courses_for_level(kind).each do |level|
+        - if header_needed?(level)
           %li.nav-header= level.name
         - level.courses.each do |c|
           - if c.published? && c.allowed? 
-            - if  signed_in? && courses_in_main_list(level).include?(c) || !signed_in?
+            - if item_needed?(c, level)
               %li= link_to c.name, course_path(c)
 
