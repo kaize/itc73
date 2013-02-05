@@ -3,7 +3,7 @@ class NewsDecorator < Draper::Base
 
   def description
     name = Sanitize.clean(name)
-    description = Sanitize.clean(body)
+    description = Sanitize.clean(body.gsub(/(&nbsp;|\s)+/, " "))
     "#{description[0..200]}#{'...' if description.length > 200}"
   end
 
