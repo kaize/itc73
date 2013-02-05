@@ -38,6 +38,8 @@ ru:
         name: "Заголовок"
         slug: "Slug"
         body: "Содержание"
+        state_event: "Сменить статус"
+        state: "Статус"
       task:
         description: "Описание"
         name: "Название"
@@ -97,6 +99,15 @@ ru:
           events:
             allow: "Открыть"
             deny: "Закрыть"
+      page:
+        state:
+          states:
+            new: "Новая"
+            published: "Показана"
+            unpublished: "Скрыта"
+          events:
+            publish: "Показать"
+            unpublish: "Скрыть"
       material:
         state:
           states:
