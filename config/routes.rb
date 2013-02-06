@@ -47,12 +47,16 @@ Itc73::Application.routes.draw do
       resources :graduates
       resources :materials
       resources :organizers
-      resources :pages
       resources :news
       resources :tasks
       resources :users do
         member do
           put :trigger_state_event
+        end
+      end
+      resources :pages do
+        member do
+          put :publish_state_event
         end
       end
     end

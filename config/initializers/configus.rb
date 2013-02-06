@@ -22,7 +22,7 @@ Configus.build Rails.env do
   env :development, parent: :production do
     admin do
       email 'admin@np.kaize.ru'
-      password '1234'
+      password '123456'
     end
   end
 
