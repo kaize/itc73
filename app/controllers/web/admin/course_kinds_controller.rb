@@ -47,11 +47,10 @@ class Web::Admin::CourseKindsController < Web::Admin::ApplicationController
     begin
       kind.destroy
       flash_success
-    rescue ActiveRecord::DeleteRestrictionError => e
-      kind.errors.add(:base, e)
-      flash[:error] = "#{t('flash.delete_restriction_error')}"
+    rescue ActiveRecord::DeleteRestrictionError
+      flash_error now: false
     ensure
-      redirect_to action: :index
+      redirect_to :back
     end
   end
 end
