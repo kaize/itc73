@@ -1,12 +1,14 @@
-- Course::Kind.with_courses.each do |kind|
+- course_kinds.each do |kind|
   .well
     %ul.nav.nav-list
       %li
-        %h4= kind.name
+        %h4= kind
       %li.divider
-      - Course::Level.with_kind(kind).each do |level|
-        %li.nav-header= level.name
+      - courses_for_level(kind).each do |level|
+        - if header_needed?(level)
+          %li.nav-header= level.name
         - level.courses.each do |c|
           - if c.published? && c.allowed? 
-            %li= link_to c.name, course_path(c)
+            - if item_needed?(c, level)
+              %li= link_to c.name, course_path(c)
 
