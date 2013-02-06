@@ -1,9 +1,9 @@
 = simple_form_for @news, url: url do |f|
+  = f.input :state_event, as: :state_event
   = f.input :name, input_html: { class: 'input-xxlarge' }
   = f.input :body, as: :ckeditor,
     input_html: { class: 'input-block-level' }
   = f.input :published_at, as: :datepicker
-  = f.input :state_event, as: :state_event
   = f.input :image, as: :image_preview
   .form-actions
     = f.button :submit, class: 'btn btn-primary'

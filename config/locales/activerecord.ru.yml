@@ -70,6 +70,8 @@ ru:
         updated_at: 'Дата обновления'
     errors:
       models:
+        course/level:
+          assignment: "Нельзя"
         material:
           attributes:
             url:

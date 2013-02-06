@@ -1,5 +1,6 @@
 ru:
   flash:
+    delete_restriction_error: "Проверьте зависимости"
     controllers:
       web:
         admin:
