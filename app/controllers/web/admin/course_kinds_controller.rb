@@ -50,7 +50,7 @@ class Web::Admin::CourseKindsController < Web::Admin::ApplicationController
     rescue ActiveRecord::DeleteRestrictionError
       flash_error now: false
     ensure
-      redirect_to :back
+      redirect_to action: :index
     end
   end
 end
