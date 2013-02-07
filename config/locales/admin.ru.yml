@@ -7,6 +7,10 @@ ru:
           title: "Админка"
           index: "На главную"
           sign_out: "Выйти"
+          directory: "Справочник"
+          course_levels: "Уровни сложности курсов"
+          course_kinds: "Типы курсов"
+          graduates: "Уровни образования"
         shared:
           nav:
             courses: "Курсы"
@@ -55,12 +59,12 @@ ru:
           delete_confirm: "Вы уверены, что хотите удалить тип?"
         index:
           title_edit: "Редактировать виды курсов"
-          delete: "Удалить"
           delete_confirm: "Вы уверены, что хотите удалить тип?"
         sidebar:
           new: "Добавить тип курса"
       course_levels:
         form:
+          delete: "Удалить"
           delete: "Удалить"
           cancel: "Отмена"
           delete_confirm: "Вы уверены, что хотите удалить уровень сложности?"
