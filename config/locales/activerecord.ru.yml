@@ -70,22 +70,18 @@ ru:
         updated_at: 'Дата обновления'
     errors:
       models:
-        course/level:
-          assignment: "Нельзя"
-        material:
+        material: &url_valid
           attributes:
             url:
               url: "некорректный адрес"
         task:
-          attributes:
-            url:
-              url: "некорректный адрес"
+          <<: *url_valid
         user:
           attributes:
             email:
               email: "некорректный адрес"
     state_machines:
-      course:
+      course: &publish_state
         state:
           states:
             new: "Новый"
@@ -111,23 +107,9 @@ ru:
             publish: "Показать"
             unpublish: "Скрыть"
       material:
-        state:
-          states:
-            new: "Новый"
-            published: "Опубликован"
-            unpublished: "Скрыт"
-          events:
-            publish: "Опубликовать"
-            unpublish: "Скрыть"
+        <<: *publish_state
       task:
-        state:
-          states:
-            new: "Новый"
-            published: "Опубликован"
-            unpublished: "Скрыт"
-          events:
-            publish: "Опубликовать"
-            unpublish: "Скрыть"
+        <<: *publish_state
       news:
         state:
           states:
