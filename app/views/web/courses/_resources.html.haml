@@ -1,6 +1,9 @@
 - resources.each do |r|
   %h4= r.name
 
+  - if r.description?
+    %p
+      = Sanitize.clean r.description
   - if r.url?
     %p
       = link_to r.url, r.url
