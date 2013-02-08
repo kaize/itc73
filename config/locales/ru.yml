@@ -64,6 +64,7 @@ ru:
       sign_in:
         forgot_password: "Забыли пароль?"
         social_networks: "Вы также можете использовать для входа такие учетные записи:"
+        save: "Войти"
     users:
       new:
         sign_up: "Регистрация"

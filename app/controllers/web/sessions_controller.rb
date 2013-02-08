@@ -14,7 +14,7 @@ class Web::SessionsController < Web::ApplicationController
       end
     else
       flash_error
-      render action: :new
+      redirect_to action: :new
     end
   end
 
