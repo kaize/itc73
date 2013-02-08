@@ -63,6 +63,7 @@ ru:
         sign_in: "Вход"
       sign_in:
         forgot_password: "Забыли пароль?"
+        save: "Войти"
     users:
       new:
         sign_up: "Регистрация"
