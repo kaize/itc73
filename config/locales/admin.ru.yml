@@ -7,7 +7,7 @@ ru:
           title: "Админка"
           index: "На главную"
           sign_out: "Выйти"
-          directory: "Справочник"
+          directory: "Справочники"
           course_levels: "Уровни сложности курсов"
           course_kinds: "Типы курсов"
           graduates: "Уровни образования"
