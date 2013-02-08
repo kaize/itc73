@@ -16,7 +16,7 @@ class Web::SessionsControllerTest < ActionController::TestCase
   test "should not authenticate" do
     attrs = { email: @user.email, password: 'wrong_password' }
     post :create, session: attrs
-    assert_response :success
+    assert_response :redirect
     assert !signed_in?
   end
 
