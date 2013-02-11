@@ -28,8 +28,8 @@ class Web::UsersController < Web::ApplicationController
       flash_success
       redirect_to root_path
     else
-      flash_error
-      redirect_to action: :new
+      flash_error now: true
+      render :new
     end
   end
 

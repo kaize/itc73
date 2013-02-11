@@ -1,6 +1,6 @@
 class Web::SessionsController < Web::ApplicationController
   add_breadcrumb :index, :new_session_path
-
+ 
   def create
     @email = params[:session][:email]
     user = ::User.active.find_by_email(@email)
@@ -13,8 +13,8 @@ class Web::SessionsController < Web::ApplicationController
         redirect_to root_path
       end
     else
-      flash_error
-      redirect_to action: :new
+      flash_error now: true 
+      render :new
     end
   end
 

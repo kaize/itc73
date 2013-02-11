@@ -24,4 +24,8 @@ module ApplicationHelper
   def item_needed?(course, level)
     signed_in? && courses_in_main_list(level).include?(course) || !signed_in?
   end
+  def active_item?(h)
+    contoller_name = "web/#{h[4..-1]}s"
+    params[:controller] == contoller_name
+  end
 end
