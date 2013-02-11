@@ -10,5 +10,5 @@
         - level.courses.each do |c|
           - if c.published? && c.allowed? 
             - if item_needed?(c, level)
-              %li= link_to c.name, course_path(c)
+              %li{class: "#{'active' if c == @course}"}= link_to c.name, course_path(c)
 
