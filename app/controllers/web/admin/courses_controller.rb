@@ -8,12 +8,12 @@ class Web::Admin::CoursesController < Web::Admin::ApplicationController
   end
 
   def new
-    @course = CourseType.new
+    @course = Course.new
     add_breadcrumb :new, new_admin_course_path
   end
 
   def create
-    @course = CourseType.new params[:course]
+    @course = Course.new params[:course]
     if @course.save
       flash_success
       redirect_to action: :index
@@ -26,12 +26,12 @@ class Web::Admin::CoursesController < Web::Admin::ApplicationController
   end
 
   def edit
-    @course = CourseType.find params[:id]
+    @course = Course.find params[:id]
     add_breadcrumb @course.name, edit_admin_course_path(@course)
   end
 
   def update
-    @course = CourseType.find params[:id]
+    @course = Course.find params[:id]
     if @course.update_attributes params[:course]
       flash_success
       redirect_to action: :index

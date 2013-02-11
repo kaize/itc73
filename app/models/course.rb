@@ -17,8 +17,9 @@ class Course < ActiveRecord::Base
   has_many :users, :through => :course_users
 
   attr_accessible :description, :kind, :kind_id, :level, :level_id, :name, 
-    :state, :state_event, :subscribe_state
-
+    :state, :state_event, :subscribe_state, :materials_attributes, :tasks_attributes
+  accepts_nested_attributes_for :materials
+  accepts_nested_attributes_for :tasks
   validates :name, presence: true, length: { maximum: 255 }
   state_machine :state, initial: :new do
     state :new

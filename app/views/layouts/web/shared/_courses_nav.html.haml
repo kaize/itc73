@@ -8,5 +8,5 @@
         %li.nav-header= level.name
         - level.courses.each do |c|
           - if c.published? && c.allowed? 
-            %li= link_to c.name, course_path(c)
+            %li{class: "#{'active' if c == @course}"}= link_to c.name, course_path(c)
 
