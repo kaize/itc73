@@ -3,6 +3,9 @@
 class NewsImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
+  def default_url
+    "/images/fallback" + [version_name, "default.png"].compact.join('_')
+  end
   storage :file
 
   def store_dir
