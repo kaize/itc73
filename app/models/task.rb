@@ -1,6 +1,5 @@
 class Task < ActiveRecord::Base
   include TaskRepository
-
   belongs_to :course
 
   has_many :files
@@ -29,5 +28,8 @@ class Task < ActiveRecord::Base
 
   def can_destroy?
     persisted?
+  end
+  def changed?
+    super || (respond_to?(:state_event) && state_event.present?)
   end
 end
