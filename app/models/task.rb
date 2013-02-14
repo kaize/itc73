@@ -29,7 +29,4 @@ class Task < ActiveRecord::Base
   def can_destroy?
     persisted?
   end
-  def changed?
-    super || (respond_to?(:state_event) && state_event.present?)
-  end
 end
