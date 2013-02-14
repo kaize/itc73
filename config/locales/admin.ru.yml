@@ -52,9 +52,9 @@ ru:
         task_fields:
           add_file: "Добавить файл"
         edit:
-          title_edit: "Редактирование пользователя"
+          title_edit: "Редактирование курса"
         new:
-          title_new: "Создание пользователя"
+          title_new: "Создание курса"
         file_fields:
           white_list_formats: "Разрешенные расширения файлов: zip, 7z, rar, tar, gz, bz2, doc, docx, xls, xlsx, odt, ods, txt, rtf, pdf, jpg, jpeg, gif, png"
       course_kinds:
