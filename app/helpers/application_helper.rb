@@ -24,7 +24,7 @@ module ApplicationHelper
     signed_in? && courses_in_main_list(level).include?(course) || !signed_in?
   end
   def active_item?(h)
-    contoller_name = "web/#{h[4..-1].pluralize}"
+    contoller_name = "web/#{h.split('_').last.pluralize}"
     params[:controller] == contoller_name
   end
 end
