@@ -1,7 +1,7 @@
 namespace :test do
   Rails::SubTestTask.new(:lib => "test:prepare") do |t|
     t.libs << "test"
-    t.pattern = 'test/lib/*_test.rb'
+    t.pattern = 'test/lib/**/*_test.rb'
   end
 end
 
