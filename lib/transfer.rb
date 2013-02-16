@@ -2,9 +2,9 @@
 require "csv"
 
 class Transfer
-  attr_accessor :user
   def transfer_info
     User.transaction do
+      @users_changed = true
       i = 0
       CSV.foreach(Rails.root.to_s + "/users.csv", :col_sep => ";") do |row|
         i += 1
@@ -26,10 +26,11 @@ class Transfer
           @user.university = user_info["Учебное заведение"]
           @user.birthday = user_info["Год рождения"] 
         end
+        @users_changed &&= @user.changed?
       end
     end
   end
   def users_transfered?
-    @user.changed?
+    @users_changed
   end 
 end
