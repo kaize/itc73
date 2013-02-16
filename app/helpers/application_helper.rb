@@ -25,7 +25,8 @@ module ApplicationHelper
     signed_in? && courses_in_main_list(level).include?(course) || !signed_in?
   end
   def active_item?(h)
-    contoller_name = "web/#{h[4..-1].pluralize}"
-    params[:controller] == contoller_name
+    r = Rails.application.routes
+    hash_for_path = r.url_helpers.send "hash_for_#{h}_path"
+    hash_for_path[:controller] == params[:controller]
   end
 end
