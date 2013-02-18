@@ -2,9 +2,11 @@
 require "csv"
 
 class UsersDataImporter
+  attr_accessor :user
   def initialize(source) 
     @source = source
   end
+
   def prepare_JSON(row)
     ActiveSupport::JSON.decode row.gsub('{', '{"').gsub(': "', '": "').gsub('", ', '", "').gsub('user', 'user"')
   end
@@ -13,7 +15,7 @@ class UsersDataImporter
     @first_name = row[1]
     @last_name = row[2]
     @phone = row[4]
-    @extra_fields = prepare_JSON(row[3])
+    extra_fields = prepare_JSON(row[3])
     @user_info = extra_fields["user"]
     @created_at = row[5]
   end
@@ -26,22 +28,18 @@ class UsersDataImporter
     @user.phone = @phone
     @user.created_at = @created_at
     @user.university = @user_info["Учебное заведение"]
-    @user.birthday = @user_info["Год рождения"]
-    @user.password_digest = "";
+    @user.password_digest = "123";
     @user.activate
     @user.save!
   end
   def import_data
-    User.transaction do
-      i = 0
-      CSV.foreach(@source, :col_sep => ";") do |row|
-        i += 1
-        next if (i != 3)
-        prepare_fields(row)
-        u = User.find_by_email email
-        unless u.nil?
-          saving_user!
-        end
+    i = 0
+    CSV.foreach(@source, :col_sep => ";") do |row|
+      i += 1
+      next if (i < 3)
+      prepare_fields(row)
+      unless User.find_by_email @email
+        saving_user!
       end
     end
   end

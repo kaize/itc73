@@ -1,24 +1,37 @@
+# encoding: UTF-8
 require 'test_helper'
 class UsersDataImporterTest < ActiveSupport::TestCase 
-  self.use_transactional_fixtures = false
-  self.use_instantiated_fixtures = false
-
-  fixtures :users_data_importer
   def setup
-    way = Rails.root.to_s + "/users.csv"
-    @importer = UsersDataImporter.new(way)
+    @way = "#{Rails.root}/test/fixtures/users.csv"
+    @importer = UsersDataImporter.new(@way)
   end
-  def making_row
-    @row = users_data_importer(:user_info) 
-  end
-
   def users_data_imported?
-    true
+    i = 0;
+    user_really_imported = true
+    CSV.foreach(@way, :col_sep => ";") do |row|
+      i += 1
+      next if(i < 3)
+      email = row[0]
+      first_name = row[1]
+      last_name = row[2]
+      phone = row[4]
+      extra_fields = @importer.prepare_JSON(row[3])
+      user_info = extra_fields["user"]
+      User.transaction do
+        u = User.find_by_email email
+        user_really_imported &&= !(u.nil?)
+        if(user_really_imported) 
+          user_really_imported &&= first_name == u.first_name
+          user_really_imported &&= last_name == u.last_name
+          user_really_imported &&= phone == u.phone
+          user_really_imported &&= user_info["Учебное заведение"] == u.university
+        end
+      end
+    end
+    user_really_imported
   end
   test "should_save_users_data" do
-    making_row
-    @importer.prepare_fields(@row)
-    @importer.saving_user!
+    @importer.import_data
     assert users_data_imported?
   end
 end

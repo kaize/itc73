@@ -1,7 +1,0 @@
-user_info:
-  email: st@yandex.ru
-  first_name: User
-  last_name: User
-  extra_field: "{user: {Год рождения: \"1971\", Образование: \"среднее\", Учебное заведение: \"Ulstu\", Курс: \"Жизнь программиста\"}}"
-  phone: 434343
-  created_at: 01-01-2012 

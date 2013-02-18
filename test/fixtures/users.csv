@@ -1,0 +1,3 @@
+E-mail;First name;Last name;Extra fields;Phone;Registration date
+"customer@somecompany.com";"Customer";"Customer";"";"77 77 777 7777";"22 Aug 2011 10:27:27"
+"ex@ya.ru";"User";"User";"{user: {Год рождения: ""1900"", Образование: ""среднее (полное)"", Учебное заведение: ""Univer"", Курс: ""Жизнь программиста"", Я согласен на обработку предоставленных мной данных: ""Y""}}";"777777";"08 Sep 2011 11:13:16"
