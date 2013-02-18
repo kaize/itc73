@@ -19,3 +19,7 @@ ul.nav.nav-stacked > li > a.close {
 .sortable tr, .sortable li {
   cursor: move;
 }
+
+.left-moved {
+  margin-left: -60px;
+}
