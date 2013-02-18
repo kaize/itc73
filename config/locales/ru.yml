@@ -6,6 +6,7 @@ ru:
         title: "ITC"
         admin: "Админка"
         profile: "Профиль"
+        my_courses: "Мои курсы"
         sign_out: "Выход"
         sign_in: "Вход"
       shared:
@@ -43,6 +44,7 @@ ru:
         slash: " / "
       index:
         index_header: "Доступные курсы"
+        own_courses: "Мои курсы"
         subscribe: "Записаться" 
         unscribe: "Отписаться"
         subscribe_confirm: "Вы уверены, что хотите записаться на данный курс?"
@@ -67,7 +69,7 @@ ru:
         save: "Войти"
     users:
       new:
-        sign_up: "Регистрация"
+        sign_up: "Регииирация"
       sign_up:
         info: "Личная информация"
         education: "Образование"

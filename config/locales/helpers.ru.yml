@@ -14,6 +14,8 @@ ru:
         <<: *create_and_save
       organizer:
         <<: *create_and_save
+      partner:
+        <<: *create_and_save
       news:
         <<: *create_and_save
       task:

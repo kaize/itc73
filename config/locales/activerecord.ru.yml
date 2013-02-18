@@ -30,10 +30,12 @@ ru:
         state_event: "Изменить состояние"
         image: "Изображение"
         published_at: "Дата публикации"
-      organizer:
+      organizer: &firm
         name: "Название"
         url: "URL"
         image: "Логотип"
+      partner:
+        <<: *firm
       page:
         name: "Заголовок"
         slug: "Slug"
