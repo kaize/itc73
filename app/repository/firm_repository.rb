@@ -1,4 +1,4 @@
-module OrganizerRepository
+module FirmRepository
   extend ActiveSupport::Concern
   include BaseRepository
 end

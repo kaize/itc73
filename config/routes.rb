@@ -47,6 +47,7 @@ Itc73::Application.routes.draw do
       resources :graduates
       resources :materials
       resources :organizers
+      resources :partners
       resources :news
       resources :tasks
       resources :users do
@@ -76,6 +77,12 @@ Itc73::Application.routes.draw do
     end
 
     resources :organizers, only: [] do
+      collection do
+        put :mass_update_order
+      end
+    end
+
+    resources :partners, only: [] do
       collection do
         put :mass_update_order
       end

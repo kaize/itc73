@@ -1,0 +1,22 @@
+%table.table.table-striped
+  %thead
+    %tr
+      %th= Partner.human_attribute_name :name
+      %th= Partner.human_attribute_name :url
+
+  %tbody.sortable{:"data-update-url" => mass_update_order_api_partners_path}
+    - @partners.each do |partner|
+      %tr{data: {id: partner.id}}
+        %td
+          = partner.name
+        %td
+          = link_to partner.url,  partner.url, target: :_blank
+
+        %td
+          .pull-right
+            = link_to edit_admin_partner_path(partner),
+              title: t('.title_edit'),
+              class: 'btn btn-mini' do
+              %i.icon-pencil
+
+= render 'sidebar'

@@ -12,6 +12,7 @@ ru:
             courses: "Курсы"
             materials: "Материалы"
             organizers: "Организаторы"
+            partners: "Партнеры"
             pages: "Страницы сайта"
             tasks: "Задания"
             users: "Пользователи"
@@ -114,6 +115,17 @@ ru:
           delete_confirm: "Вы уверены, что хотите удалить организатора?"
         sidebar:
           new: "Добавить организатора"
+      partners:
+        form:
+          delete: "Удалить"
+          cancel: "Отмена"
+          delete_confirm: "Вы уверены, что хотите удалить партнера?"
+        index:
+          title_edit: "Редактировать партнеров"
+          delete: "Удалить"
+          delete_confirm: "Вы уверены, что хотите удалить партнера?"
+        sidebar:
+          new: "Добавить партнера"
       pages:
         sidebar:
           new_page: "Добавить страницу"

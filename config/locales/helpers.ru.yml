@@ -19,6 +19,9 @@ ru:
       organizer:
         create: "Создать"
         update: "Сохранить"
+      partner:
+        create: "Создать"
+        update: "Сохранить"
       news:
         create: "Создать"
         update: "Сохранить"
