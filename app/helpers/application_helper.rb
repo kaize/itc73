@@ -23,4 +23,8 @@ module ApplicationHelper
   def item_needed?(course, level)
     signed_in? && courses_in_main_list(level).include?(course) || !signed_in?
   end
+  def active_item?(h)
+    hash = send "hash_for_#{h}_path"
+    params[:controller] == hash[:controller]
+  end
 end
