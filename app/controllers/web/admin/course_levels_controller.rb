@@ -44,9 +44,13 @@ class Web::Admin::CourseLevelsController < Web::Admin::ApplicationController
 
   def destroy
     level = Course::Level.find params[:id]
-    level.destroy
-
-    flash_success
-    redirect_to action: :index
+    begin
+      level.destroy
+      flash_success
+    rescue ActiveRecord::DeleteRestrictionError
+      flash_error now: false
+    ensure
+      redirect_to action: :index
+    end
   end
 end

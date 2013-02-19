@@ -1,38 +1,28 @@
 ru:
   helpers:
     submit:
-      course:
+      course: &create_and_save
         create: "Создать"
         update: "Сохранить"
       course_kind:
-        create: "Создать"
-        update: "Сохранить"
+        <<: *create_and_save
       course_level:
-        create: "Создать"
-        update: "Сохранить"
+        <<: *create_and_save
       graduate:
-        create: "Создать"
-        update: "Сохранить"
+        <<: *create_and_save
       material:
-        create: "Создать"
-        update: "Сохранить"
+        <<: *create_and_save
       organizer:
-        create: "Создать"
-        update: "Сохранить"
+        <<: *create_and_save
       partner:
-        create: "Создать"
-        update: "Сохранить"
+        <<: *create_and_save
       news:
-        create: "Создать"
-        update: "Сохранить"
+        <<: *create_and_save
       task:
-        create: "Создать"
-        update: "Сохранить"
+        <<: *create_and_save
       page:
-        create: "Создать"
-        update: "Сохранить"
+        <<: *create_and_save
       session:
-        submit: "Войти"
+        <<: *create_and_save
       user:
-        create: "Создать"
-        update: "Сохранить"
+        <<: *create_and_save
