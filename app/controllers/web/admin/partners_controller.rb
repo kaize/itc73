@@ -2,7 +2,9 @@ class Web::Admin::PartnersController < Web::Admin::ApplicationController
   add_breadcrumb :index, :admin_partners_path
 
   def index
-    @partners = Partner.asc_by_order_at
+    query = params[:q] || { s: 'created_at desc' }
+    @q = Partner.ransack(query)
+    @partners = @q.result.page(params[:page])
   end
 
   def new
