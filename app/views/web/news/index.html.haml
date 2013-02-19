@@ -3,8 +3,9 @@
 
 - @news.each do |n|
   .media
-    = link_to news_path(n), class: 'pull-left' do
-      = image_tag n.image.thumb.url, class: 'media-object'
+    - unless (empty_image?(n)) 
+      = link_to news_path(n), class: 'pull-left' do
+        = image_tag n.image.thumb.url, class: 'media-object'
     .media-body
       %h4.media-heading
         %small

@@ -28,4 +28,7 @@ module ApplicationHelper
     hash = send "hash_for_#{h}_path"
     params[:controller] == hash[:controller]
   end
+  def empty_image?(news)
+    news.image.url == "fallback/default.png"
+  end
 end
