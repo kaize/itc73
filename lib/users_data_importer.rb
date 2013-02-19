@@ -7,7 +7,7 @@ class UsersDataImporter
     @source = source
   end
 
-  def prepare_JSON(row)
+  def prepare_json(row)
     ActiveSupport::JSON.decode row.gsub('{', '{"').gsub(': "', '": "').gsub('", ', '", "').gsub('user', 'user"')
   end
   def prepare_fields(row)
@@ -15,9 +15,10 @@ class UsersDataImporter
     @first_name = row[1]
     @last_name = row[2]
     @phone = row[4]
-    extra_fields = prepare_JSON(row[3])
+    extra_fields = prepare_json(row[3])
     @user_info = extra_fields["user"]
     @created_at = row[5]
+    @password = row[6]
   end
   def saving_user!
     @user = User.new
@@ -28,8 +29,7 @@ class UsersDataImporter
     @user.phone = @phone
     @user.created_at = @created_at
     @user.university = @user_info["Учебное заведение"]
-    @user.password_digest = "123";
-    @user.activate
+    @user.password_digest = @password;
     @user.save!
   end
   def import_data

@@ -1,21 +1,23 @@
 # encoding: UTF-8
 require 'test_helper'
 class UsersDataImporterTest < ActiveSupport::TestCase 
+  include ActionDispatch::TestProcess
   def setup
-    @way = "#{Rails.root}/test/fixtures/users.csv"
-    @importer = UsersDataImporter.new(@way)
+    path = 'users.csv'
+    @file = fixture_file_upload(path)
+    @importer = UsersDataImporter.new(@file)
   end
   def users_data_imported?
     i = 0;
     user_really_imported = true
-    CSV.foreach(@way, :col_sep => ";") do |row|
+    CSV.foreach(@file, :col_sep => ";") do |row|
       i += 1
       next if(i < 3)
       email = row[0]
       first_name = row[1]
       last_name = row[2]
       phone = row[4]
-      extra_fields = @importer.prepare_JSON(row[3])
+      extra_fields = @importer.prepare_json(row[3])
       user_info = extra_fields["user"]
       User.transaction do
         u = User.find_by_email email
