@@ -2,7 +2,9 @@ class Web::Admin::OrganizersController < Web::Admin::ApplicationController
   add_breadcrumb :index, :admin_organizers_path
 
   def index
-    @organizers = Organizer.asc_by_order_at
+    query = params[:q] || { s: 'created_at desc' }
+    @q = Organizer.ransack(query)
+    @organizers = @q.result.page(params[:page])
   end
 
   def new
