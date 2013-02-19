@@ -29,7 +29,7 @@ class UsersDataImporter
     @user.phone = @phone
     @user.created_at = @created_at
     @user.university = @user_info["Учебное заведение"]
-    @user.password_digest = @password;
+    @user.password = @password;
     @user.save!
   end
   def import_data
