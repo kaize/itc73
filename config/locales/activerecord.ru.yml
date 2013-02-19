@@ -30,14 +30,18 @@ ru:
         state_event: "Изменить состояние"
         image: "Изображение"
         published_at: "Дата публикации"
-      organizer:
+      organizer: &firm
         name: "Название"
         url: "URL"
         image: "Логотип"
+      partner:
+        <<: *firm
       page:
         name: "Заголовок"
         slug: "Slug"
         body: "Содержание"
+        state_event: "Сменить статус"
+        state: "Статус"
       task:
         description: "Описание"
         name: "Название"
@@ -68,20 +72,18 @@ ru:
         updated_at: 'Дата обновления'
     errors:
       models:
-        material:
+        material: &url_valid
           attributes:
             url:
               url: "некорректный адрес"
         task:
-          attributes:
-            url:
-              url: "некорректный адрес"
+          <<: *url_valid
         user:
           attributes:
             email:
               email: "некорректный адрес"
     state_machines:
-      course:
+      course: &publish_state
         state:
           states:
             new: "Новый"
@@ -97,24 +99,19 @@ ru:
           events:
             allow: "Открыть"
             deny: "Закрыть"
+      page:
+        state:
+          states:
+            new: "Новая"
+            published: "Показана"
+            unpublished: "Скрыта"
+          events:
+            publish: "Показать"
+            unpublish: "Скрыть"
       material:
-        state:
-          states:
-            new: "Новый"
-            published: "Опубликован"
-            unpublished: "Скрыт"
-          events:
-            publish: "Опубликовать"
-            unpublish: "Скрыть"
+        <<: *publish_state
       task:
-        state:
-          states:
-            new: "Новый"
-            published: "Опубликован"
-            unpublished: "Скрыт"
-          events:
-            publish: "Опубликовать"
-            unpublish: "Скрыть"
+        <<: *publish_state
       news:
         state:
           states:

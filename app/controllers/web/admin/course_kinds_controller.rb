@@ -44,9 +44,13 @@ class Web::Admin::CourseKindsController < Web::Admin::ApplicationController
 
   def destroy
     kind = Course::Kind.find params[:id]
-    kind.destroy
-
-    flash_success
-    redirect_to action: :index
+    begin
+      kind.destroy
+      flash_success
+    rescue ActiveRecord::DeleteRestrictionError
+      flash_error now: false
+    ensure
+      redirect_to action: :index
+    end
   end
 end

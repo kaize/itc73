@@ -1,6 +1,8 @@
 - resources.each do |r|
   %h4= r.name
 
+  - if r.description?
+    != Sanitize.clean r.description, Sanitize::Config::RELAXED
   - if r.url?
     %p
       = link_to r.url, r.url

@@ -27,7 +27,7 @@ Itc73::Application.routes.draw do
       end
     end
 
-    resource :user, only: [:new, :create] do
+    resource :user, only: [:index, :new, :create] do
       member do
           put :subscribe_course
           put :unscribe_course
@@ -47,12 +47,17 @@ Itc73::Application.routes.draw do
       resources :graduates
       resources :materials
       resources :organizers
-      resources :pages
+      resources :partners
       resources :news
       resources :tasks
       resources :users do
         member do
           put :trigger_state_event
+        end
+      end
+      resources :pages do
+        member do
+          put :publish_state_event
         end
       end
     end
@@ -72,6 +77,12 @@ Itc73::Application.routes.draw do
     end
 
     resources :organizers, only: [] do
+      collection do
+        put :mass_update_order
+      end
+    end
+
+    resources :partners, only: [] do
       collection do
         put :mass_update_order
       end

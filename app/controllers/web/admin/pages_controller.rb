@@ -56,4 +56,11 @@ class Web::Admin::PagesController < Web::Admin::ApplicationController
     end
   end
 
+  def publish_state_event
+    @page = Page.find(params[:id])
+    @page.fire_state_event(params[:event])
+
+    flash_success
+    redirect_to action: :index
+  end
 end

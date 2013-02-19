@@ -1,3 +1,3 @@
 namespace :ci do
-  task :test => ['db:drop', 'db:create', 'db:migrate', 'ci:setup:minitest', 'rake:test']
+  task :test => ['db:drop', 'db:create', 'db:migrate', 'db:seed', 'ci:setup:minitest', 'rake:test']
 end
