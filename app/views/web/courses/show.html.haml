@@ -1,5 +1,8 @@
 .page-header
   %h1= @course.name
+  -if @course.note != nil
+    %hr
+    %h4{class: 'alert alert-info'}= @course.note
 
 %ul.nav.nav-tabs
   - if !signed_in?    

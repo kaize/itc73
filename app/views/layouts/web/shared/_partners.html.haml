@@ -3,13 +3,13 @@
   .org
     .row
       - Organizer.asc_by_order_at.each do |org|
-        = link_to org.url do
+        = link_to org.url, class: 'no-hover' do
           = image_tag org.image.url,
           class: 'org-image'  
   %h3= t '.partners'
   .org
     .row
       - Partner.asc_by_order_at.each do |partner|
-        = link_to partner.url do
+        = link_to partner.url, class: 'no-hover' do
           = image_tag partner.image.url,
-          class: 'org-image'
+            class: 'org-image'

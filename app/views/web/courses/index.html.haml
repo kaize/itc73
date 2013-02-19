@@ -13,8 +13,11 @@
   - @course.each do |n|
     - if n.allowed? && n.published?
       %tr
-        %td 
-          = link_to n.name, course_path(n), class: 'btn btn-link'
+        %td
+          %p
+            = link_to n.name, course_path(n), class: 'btn btn-link'
+          %p{:class => "small"}
+            %span{:class => "label notice"}= n.note
         %td
           - if signed_in?
             - if current_user.courses.include?(n)
