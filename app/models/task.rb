@@ -1,6 +1,5 @@
 class Task < ActiveRecord::Base
   include TaskRepository
-
   belongs_to :course
 
   has_many :files

@@ -1,6 +1,5 @@
 class Material < ActiveRecord::Base
   include MaterialRepository
-
   belongs_to :course
 
   has_many :files

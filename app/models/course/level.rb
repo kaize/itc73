@@ -1,7 +1,7 @@
 class Course::Level < ActiveRecord::Base
   include Course::LevelRepository
 
-  has_many :courses
+  has_many :courses, :dependent => :restrict
 
   attr_accessible :name, :order_at
 
