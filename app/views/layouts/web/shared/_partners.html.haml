@@ -1,7 +1,9 @@
 %hr
   %h3= t '.org'
-  .row
-    - Organizer.asc_by_order_at.each do |org|
-      = link_to org.url do
-        = image_tag org.image.url
+  .org
+    .row
+      - Organizer.asc_by_order_at.each do |org|
+        = link_to org.url do
+          = image_tag org.image.url,
+          class: 'org-image'
 

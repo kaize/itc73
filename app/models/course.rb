@@ -17,8 +17,7 @@ class Course < ActiveRecord::Base
   has_many :users, :through => :course_users
 
   attr_accessible :description, :kind, :kind_id, :level, :level_id, :name, 
-    :state, :state_event, :subscribe_state
-
+    :state_event, :subscribe_state
   validates :name, presence: true, length: { maximum: 255 }
   state_machine :state, initial: :new do
     state :new
