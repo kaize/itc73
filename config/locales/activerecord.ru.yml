@@ -3,6 +3,7 @@ ru:
     attributes:
       course:
         name: "Название"
+        note: "Примечание"
         description: "Описание"
         kind: "Тип"
         level: "Уровень"

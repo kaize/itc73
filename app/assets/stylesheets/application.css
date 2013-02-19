@@ -29,7 +29,11 @@
 .org-image {
   margin: 10px
 }
-
+.label.notice {
+  background-color: #62cffc;
+  font-style: cursive;
+  margin-left: 20px;
+}
 .footer {
   margin-bottom: 50px; /* Отступ снизу */
 }
