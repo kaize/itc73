@@ -4,7 +4,7 @@ class Web::UsersController < Web::ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id]).decorate
+    @user = current_user
     add_breadcrumb @user, edit_admin_user_path(@user)
   end
 
