@@ -3,6 +3,6 @@ class Web::Account::CoursesController < Web::ApplicationController
   
   def index
     @q = Course.ransack("course_users_user_id_eq" => current_user.id) 
-    @course = @q.result.page(params[:page])
+    @courses = @q.result.page(params[:page])
   end
 end

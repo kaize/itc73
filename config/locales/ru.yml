@@ -65,6 +65,14 @@ ru:
       sign_in:
         forgot_password: "Забыли пароль?"
         save: "Войти"
+    accounts: 
+      edit:
+        info: "Личная информация"
+        education: "Образование"
+        contacts: "Контактная информация"
+        redact_profile: "Изменить профиль"
+        subscribe: "Подписаться на рассылку событий НП"
+        cancel: "Отмена"
     users:
       new:
         sign_up: "Регииирация"
@@ -76,13 +84,6 @@ ru:
         subscribe: "Подписаться на рассылку событий НП"
         personal_data_processing: "Даю согласие на обработку персональных данных"
         reg: "Зарегистрироваться"
-        cancel: "Отмена"
-      edit:
-        info: "Личная информация"
-        education: "Образование"
-        contacts: "Контактная информация"
-        redact_profile: "Изменить профиль"
-        subscribe: "Подписаться на рассылку событий НП"
         cancel: "Отмена"
     welcome:
       show:
