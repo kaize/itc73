@@ -1,6 +1,9 @@
 ru:
   breadcrumbs:
     web:
+      account:
+        courses:
+          index: "Мои курсы"
       admin:
         application:
           index: "Админка"

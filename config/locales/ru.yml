@@ -44,7 +44,6 @@ ru:
         slash: " / "
       index:
         index_header: "Доступные курсы"
-        own_courses: "Мои курсы"
         subscribe: "Записаться" 
         unscribe: "Отписаться"
         subscribe_confirm: "Вы уверены, что хотите записаться на данный курс?"
@@ -96,6 +95,11 @@ ru:
         edit:
           password_reset: "Изменение пароля"
           reset: "Изменить"
+      courses:
+        index:
+          own_courses: "Мои курсы"
+          unscribe: "Отписаться"
+          unscribe_confirm: "Вы уверены, что хотите отписаться от данного курса?"
     remind_passwords:
       new:
         password_recovery: "Восстановление пароля"
