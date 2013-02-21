@@ -3,7 +3,7 @@
   %time
     = @news.date
 
-- if @news.image && !empty_image?(@news)
+- if @news.image?
   .page-image
     = image_tag @news.image.url
 
