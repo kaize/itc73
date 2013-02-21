@@ -27,14 +27,4 @@ module ApplicationHelper
     hash = send "hash_for_#{h}_path"
     params[:controller] == hash[:controller]
   end
-  def form_attributes(course)
-    action = "unscribe" 
-    style = 'btn btn-danger pull-right'
-    unless (current_user.courses.include?(course)) then
-      action = "subscribe"
-      style = 'btn btn-info pull-right'
-    end
-    path = send "#{action}_course_user_path"
-    {:action => action, :style => style, :path => path}
-  end
 end
