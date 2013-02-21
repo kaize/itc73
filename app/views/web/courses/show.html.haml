@@ -1,6 +1,6 @@
 .page-header
   %h1= @course.name
-  -if @course.note != nil
+  -if @course.note?
     %hr
     %h4{class: 'alert alert-info'}= @course.note
 
