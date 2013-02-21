@@ -18,8 +18,8 @@ class Course < ActiveRecord::Base
 
   attr_accessible :description, :note, :kind, :kind_id, :level, :level_id, :name, 
     :state_event, :subscribe_state
-  validates :name, presence: true, length: { maximum: 100 }
-  validates :note, length: {maximum: 255}
+  validates :name, presence: true, length: { maximum: 255 }
+  validates :note, length: {maximum: 100}
   state_machine :state, initial: :new do
     state :new
     state :published

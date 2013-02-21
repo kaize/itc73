@@ -21,6 +21,7 @@ class Material < ActiveRecord::Base
       transition any - :published => :published
     end
 
+
     event :unpublish do
       transition published: :unpublished
     end

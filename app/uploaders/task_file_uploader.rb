@@ -9,6 +9,6 @@ class TaskFileUploader < CarrierWave::Uploader::Base
   end
 
   def extension_white_list
-   %w(zip 7z rar tar gz bz2 doc docx xls xlsx odt ods txt rtf pdf jpg jpeg gif png)
+    %w(zip 7z rar tar gz bz2 doc docx xls xlsx odt ods txt rtf pdf ppt pptx pages key odp jpg jpeg gif png) 
   end
 end
