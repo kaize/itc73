@@ -21,9 +21,7 @@ Itc73::Application.routes.draw do
     resource :account, only: [:edit, :update] do
       scope :module => :account do  
         resource :password, only: [:edit, :update]
-        resource :courses do
-          get :index
-        end
+        resources :courses, only: [:index]
         resource :user do
           get :activate
         end

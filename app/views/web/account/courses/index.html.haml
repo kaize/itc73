@@ -6,12 +6,10 @@
     - if c.visible?
       %tr
         %td 
-          = link_to c.name, course_path(c), class: 'btn btn-link'
+          = link_to c, course_path(c), class: 'btn btn-link'
         %td
-          - attrs = form_attributes(c)
-          = simple_form_for c, url: attrs[:path] do |f|
+          = simple_form_for c, url: unscribe_course_user_path do |f|
             = f.input :id, :as => :hidden
-            = f.button :submit, value: t(".#{attrs[:action]}"),  class: attrs[:style], :confirm => t(".#{attrs[:action]}_confirm")
-
+            = f.button :submit, value: t('.unscribe'),  class: 'btn btn-danger pull-right', :confirm => t(".unscribe_confirm")
 .pagination
   = paginate @courses
