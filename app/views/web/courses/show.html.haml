@@ -1,6 +1,6 @@
 .page-header
-  %h1= @course.name
-  -if @course.note != nil
+  %h1= @course
+  -if @course.note?
     %hr
     %h4{class: 'alert alert-info'}= @course.note
 
@@ -20,14 +20,12 @@
     %li= link_to t('.tasks'), '#tasks', data: { toggle: 'tab' }
 
   - if signed_in?
-    - if current_user.courses.include?(@course)
-      = simple_form_for @course, url: unscribe_course_user_path do |f|
+      - action = current_user.courses.include?(@course) ? "unscribe" : "subscribe"
+      = simple_form_for @course, :url => send("#{action}_course_user_path") do |f|
         = f.input :id, :as => :hidden
-        = f.button :submit, value: t('.unscribe'),  class: 'btn btn-danger pull-right', :confirm => t(".unscribe_confirm")
-    - else
-      = simple_form_for @course, url: subscribe_course_user_path do |f|
-        = f.input :id, :as => :hidden
-        = f.button :submit, value: t('.subscribe'),  class: 'btn btn-info pull-right', :confirm => t(".subscribe_confirm")
+        = f.button :submit, value: t(".#{action}"),
+          class: "#{(current_user.courses.include?(c)) ? 'btn btn-danger pull-right' : 'btn btn-info pull-right' }",
+          :confirm => t(".#{action}_confirm")
   - else
     = link_to t('.subscribe'), '#', class: 'btn btn-info pull-right disabled'
 

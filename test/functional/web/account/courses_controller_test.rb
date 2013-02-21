@@ -7,7 +7,7 @@ class Web::Account::CoursesControllerTest < ActionController::TestCase
     user.activate
     sign_in user
     course = create :course
-    user.courses = [].push course 
+    user.courses << course 
   end
 
   test "should get index" do

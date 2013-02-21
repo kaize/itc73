@@ -2,20 +2,14 @@
   %h1= t('.own_courses') 
 
 %table{:class => "table table-striped"}
-  - @course.each do |n|
-    - if n.published? && n.allowed?
+  - @courses.each do |c|
+    - if c.visible?
       %tr
         %td 
-          = link_to n.name, course_path(n), class: 'btn btn-link'
+          = link_to c, course_path(c), class: 'btn btn-link'
         %td
-          - if current_user.courses.include?(n)
-            = simple_form_for n, url: unscribe_course_user_path do |f|
-              = f.input :id, :as => :hidden
-              = f.button :submit, value: t('.unscribe'),  class: 'btn btn-danger pull-right', :confirm => t(".unscribe_confirm")
-          - else
-            = simple_form_for n, url: subscribe_course_user_path do |f|
-              = f.input :id, :as => :hidden
-              = f.button :submit, value: t('.subscribe'),  class: 'btn btn-info pull-right', :confirm => t(".subscribe_confirm")
-
+          = simple_form_for c, url: unscribe_course_user_path do |f|
+            = f.input :id, :as => :hidden
+            = f.button :submit, value: t('.unscribe'),  class: 'btn btn-danger pull-right', :confirm => t(".unscribe_confirm")
 .pagination
-  = paginate @course
+  = paginate @courses

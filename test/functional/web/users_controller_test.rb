@@ -4,7 +4,6 @@ class Web::UsersControllerTest < ActionController::TestCase
   setup do
     graduate = create :graduate
     @attrs = attributes_for :user, :reg
-    #raise @attrs.inspect
     @attrs.merge! graduate_id: graduate.id, password_confirmation: @attrs[:password]
     @course = create :course
     @course_two = create :course
@@ -23,14 +22,6 @@ class Web::UsersControllerTest < ActionController::TestCase
     assert_response :redirect
     @test_user = User.find_by_email(@attrs[:email])
     assert_not_nil @test_user
-  end
-  test "should get edit" do 
-    get :edit, id: @user.id 
-    assert_response :success
-  end
-  test "should put update" do
-    put :update, id: @user.id, user: @attrs.delete_if{|key, value| key == :personal_data_processing}
-    assert_response :redirect
   end
   test "should scribe course" do
     set_http_referer courses_path
