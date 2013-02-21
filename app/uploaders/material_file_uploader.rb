@@ -2,6 +2,7 @@
 class MaterialFileUploader < CarrierWave::Uploader::Base
 
   CarrierWave::SanitizedFile.sanitize_regexp = /[^a-zA-Zа-яА-ЯёЁ0-9\.\-\+_]/u
+  
   storage :file
 
   def store_dir
@@ -9,6 +10,6 @@ class MaterialFileUploader < CarrierWave::Uploader::Base
   end
 
   def extension_white_list
-   %w(zip 7z rar tar gz bz2 doc docx xls xlsx odt ods txt rtf pdf ppt pptx pages key odp)
+    %w(zip 7z rar tar gz bz2 doc docx xls xlsx odt ods txt rtf pdf ppt pptx pages key odp jpg jpeg gif png) 
   end
 end
