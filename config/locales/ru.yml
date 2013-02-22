@@ -5,8 +5,6 @@ ru:
     courses: "Курсы"
     news: "Новости"
     contacts: "Контакты"
-    about: "О проекте"
-    schedule: "Расписание"
   layouts:
     web:
       application:
