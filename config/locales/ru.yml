@@ -1,5 +1,12 @@
 ru:
   base_title: "ITC"
+  pages_in_titles:
+    main: "Главная"
+    courses: "Курсы"
+    news: "Новости"
+    contacts: "Контакты"
+    about: "О проекте"
+    schedule: "Расписание"
   layouts:
     web:
       application:
@@ -76,7 +83,7 @@ ru:
         cancel: "Отмена"
     users:
       new:
-        sign_up: "Регииирация"
+        sign_up: "Региcтрация"
       sign_up:
         info: "Личная информация"
         education: "Образование"
