@@ -2,6 +2,8 @@
   = link_to_remove_association f, class: 'close' do
     %i.icon-trash
   = f.input :name, input_html: { class: 'input-xxlarge' }
+  = f.input :description, as: :ckeditor,
+    input_html: { class: 'input-block-level' }
   = f.input :url, input_html: { class: 'input-xxlarge' }
   = f.input :state_event, as: :state_event, wrapper: :state
 

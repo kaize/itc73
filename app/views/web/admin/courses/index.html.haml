@@ -1,3 +1,4 @@
+%h4= t('.list')
 %table.table.table-striped
   %thead
     %tr
@@ -17,8 +18,8 @@
       %td= n.human_subscribe_state_name
       %td
         .pull-right.btn-group
-          = link_to '#', 
-            title: t('.title_users'),
+          = link_to admin_users_path(:course_id => n), 
+            title:  t('.title_users'),
             class: 'btn btn-mini' do
             %i.icon-user
           = link_to edit_admin_course_path(n),

@@ -6,4 +6,4 @@
       %li.divider
       - current_user.courses.each do |course|
         - if course.published?
-          %li= link_to course, course_path(course)
+          %li{class: "#{'active' if course == @course}"}= link_to course, course_path(course)

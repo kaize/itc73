@@ -6,6 +6,7 @@ ru:
         title: "ITC"
         admin: "Админка"
         profile: "Профиль"
+        my_courses: "Мои курсы"
         sign_out: "Выход"
         sign_in: "Вход"
       shared:
@@ -43,6 +44,7 @@ ru:
         slash: " / "
       index:
         index_header: "Доступные курсы"
+        own_courses: "Мои курсы"
         subscribe: "Записаться" 
         unscribe: "Отписаться"
         subscribe_confirm: "Вы уверены, что хотите записаться на данный курс?"
@@ -64,9 +66,10 @@ ru:
       sign_in:
         forgot_password: "Забыли пароль?"
         social_networks: "Вы также можете использовать для входа такие учетные записи:"
+        save: "Войти"
     users:
       new:
-        sign_up: "Регистрация"
+        sign_up: "Регииирация"
       sign_up:
         info: "Личная информация"
         education: "Образование"
@@ -75,6 +78,14 @@ ru:
         subscribe: "Подписаться на рассылку событий НП"
         personal_data_processing: "Даю согласие на обработку персональных данных"
         reg: "Зарегистрироваться"
+        cancel: "Отмена"
+      edit:
+        info: "Личная информация"
+        education: "Образование"
+        contacts: "Контактная информация"
+        redact_profile: "Изменить профиль"
+        subscribe: "Подписаться на рассылку событий НП"
+        cancel: "Отмена"
     welcome:
       show:
         join: "Записаться на курсы"

@@ -1,11 +1,16 @@
 = simple_form_for @page, url: url do |f|
-  = f.input :name, input_html: { class: 'input-xxlarge' }
-  = f.input :slug, as: :system_slug, input_html: { class: 'input-xxlarge' }
-  = f.input :body, as: :ckeditor,
-    input_html: { class: 'input-block-level' }
-  .form-actions
-    = f.button :submit, class: 'btn-primary'
-    = link_to t('.cancel'), admin_pages_path, class: 'btn'
-    - if @page.can_destroy?
-      = link_to t('.delete'), admin_page_path(@page), method: :delete, class: 'btn btn-danger pull-right',
-        data: { confirm: t('.delete_confirm') }
+  .span6 
+    .pull-left
+      = f.input :state_event, as: :state_event, wrapper: :state
+  .span6
+    = f.input :name, input_html: { class: 'input-xxlarge' }
+    = f.input :slug, as: :system_slug, input_html: { class: 'input-xxlarge' }
+  .span8  
+    = f.input :body, as: :ckeditor,
+      input_html: { class: 'input-block-level' }
+    .form-actions
+      = f.button :submit, class: 'btn-primary'
+      = link_to t('.cancel'), admin_pages_path, class: 'btn'
+      - if @page.can_destroy?
+        = link_to t('.delete'), admin_page_path(@page), method: :delete, class: 'btn btn-danger pull-right',
+          data: { confirm: t('.delete_confirm') }

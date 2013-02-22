@@ -22,6 +22,14 @@
   background-color: #f5f5f5;
 }
 
+.org {
+  text-align: center;
+}
+
+.org-image {
+  margin: 10px
+}
+
 .footer {
   margin-bottom: 50px; /* Отступ снизу */
 }
