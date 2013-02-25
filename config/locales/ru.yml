@@ -5,6 +5,9 @@ ru:
     courses: "Курсы"
     news: "Новости"
     contacts: "Контакты"
+    search: "Поиск"
+    registration: "Регистрация"
+    authorization: "Авторизация"
   layouts:
     web:
       application:
