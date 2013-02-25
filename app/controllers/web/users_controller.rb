@@ -1,6 +1,7 @@
 class Web::UsersController < Web::ApplicationController
   def new
     @user = UserRegistrationType.new
+    title t('.pages_in_titles.registration') 
   end
 
   def create

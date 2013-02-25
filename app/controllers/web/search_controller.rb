@@ -3,5 +3,6 @@ class Web::SearchController < Web::ApplicationController
   	@query = params[:term] 
   	@results = []
     @results = Course.search @query
+    title t('.pages_in_titles.search') 
   end
 end
