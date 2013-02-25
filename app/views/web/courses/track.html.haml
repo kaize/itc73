@@ -1,0 +1,26 @@
+.page-header
+  %h1= t('.header')
+    
+- course_kinds.each do |kind|
+  %h2= kind
+
+  %table.table.table-striped
+    %thead
+      %tr
+        - levels_for_kind(kind).each do |level|
+          %th= level
+
+    %tbody
+      - courses_table(kind).each do |level|
+        %tr
+        - level.each do |c|
+          -unless c.nil?
+            %td
+              %p= link_to c.first, '#',
+                rel: "popover",
+                class: 'btn btn-success',
+                data: {:content => (c.last.nil?) ? "" : c.last, :placement => 'bottom', :'original-title' => t('.popover_title')}
+          -else
+            %td 
+              %hr
+

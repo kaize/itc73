@@ -4,7 +4,7 @@
       %li
         %h4= kind
       %li.divider
-      - courses_for_level(kind).each do |level|
+      - levels_for_kind(kind).each do |level|
         - if header_needed?(level)
           %li.nav-header= level.name
         - level.courses.each do |c|

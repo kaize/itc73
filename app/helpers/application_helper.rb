@@ -12,11 +12,27 @@ module ApplicationHelper
   def course_kinds
     Course::Kind.with_courses
   end
-  def courses_for_level(kind)
+  def levels_for_kind(kind)
     Course::Level.with_kind(kind)
   end
   def courses_in_main_list(level)
     level.courses - current_user.courses
+  end
+  def safe_transpose(arr)
+    result = []
+    max_size = arr.max{ |a,b| a.size <=> b.size }.size
+    max_size.times do |i|
+      result[i] = Array.new(arr.first.size)
+      arr.each_with_index { |r,j| result[i][j] = r[i] }
+    end
+    result
+  end
+  def courses_table(kind)
+    table = Array.new
+    levels_for_kind(kind).each do |level|
+      table << level.courses.map{|el| [el.name, el.description, el.note]}
+    end
+    safe_transpose table
   end
   def header_needed?(level) 
     signed_in? && courses_in_main_list(level).any? || !signed_in? && level.courses.any?
