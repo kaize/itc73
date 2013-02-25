@@ -15,4 +15,8 @@ class Web::CoursesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "should track courses" do
+    get :track
+    assert_response :success
+  end
 end

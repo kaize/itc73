@@ -1,0 +1,16 @@
+!!! 5
+%html(lang = "ru")
+  %head
+    = render 'layouts/web/shared/head'
+    = stylesheet_link_tag 'application'
+    = javascript_include_tag 'application'
+  %body
+    .hero-unit
+      %h1!= t '.hero_unit_title'
+      .lead
+        %h2!= t '.error_status'
+        %h3!= t '.error_text'
+        %h4!= t '.message'
+      %ul
+        %li{class: 'btn btn-link'}= link_to t('.back'), "javascript:window.history.back()"
+        %li{class: 'btn btn-link'}= link_to t('.home'), root_path

@@ -11,4 +11,8 @@ class Web::CoursesController < Web::ApplicationController
     @course = Course.find params[:id]
     add_breadcrumb @course.name, course_path(@course)
   end
+
+  def track
+    render :track
+  end
 end
