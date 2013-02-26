@@ -2,25 +2,16 @@
   %h1= t('.header')
     
 - course_kinds.each do |kind|
-  %h2= kind
+  %h4{class: 'org'}= kind
 
-  %table.table.table-striped
-    %thead
-      %tr
-        - levels_for_kind(kind).each do |level|
-          %th= level
-
-    %tbody
-      - courses_table(kind).each do |level|
-        %tr
-        - level.each do |c|
-          -unless c.nil?
-            %td
-              %p= link_to c.first, '#',
-                rel: "popover",
-                class: 'btn btn-success',
-                data: {:content => (c.last.nil?) ? "" : c.last, :placement => 'bottom', :'original-title' => t('.popover_title')}
-          -else
-            %td 
-              %hr
-
+  .container
+    - levels_for_kind(kind).each do |level|
+      .span3
+        .row-fluid
+          =level
+          - level.courses.each do |c|
+            .row
+              .helper-button
+                %p{style:"background-color:##{level.color};", class: 'btn active', rel: 'popover', 
+                  data: {:content => (c.note?) ? c.note : "", :placement => 'bottom'}}
+                  =c.name

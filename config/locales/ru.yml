@@ -25,6 +25,7 @@ ru:
           contacts: "Контакты"
           news: "Новости"
           schedule: "Расписание"
+          track: "Помощь"
           query_placeholder: "Поиск по курсам"
         my_courses_nav:
           my_course: "Мои курсы"
