@@ -14,14 +14,15 @@ Itc73::Application.routes.draw do
     end
 
     resources :news, only: [:index, :show]
-    resources :users, only: [:new, :create, :edit, :update] 
+    resources :users, only: [:new, :create] 
     resource :session, only: [:new, :create, :destroy]
     resource :remind_password, only: [:new, :create]
-
-    namespace :account do
-      resource :password, only: [:edit, :update]
-      resource :user, only: [] do
-        collection do
+    
+    resource :account, only: [:edit, :update] do
+      scope :module => :account do  
+        resource :password, only: [:edit, :update]
+        resources :courses, only: [:index]
+        resource :user do
           get :activate
         end
       end
@@ -29,8 +30,8 @@ Itc73::Application.routes.draw do
 
     resource :user, only: [:index, :new, :create] do
       member do
-          put :subscribe_course
-          put :unscribe_course
+        put :subscribe_course
+        put :unscribe_course
       end
     end
 

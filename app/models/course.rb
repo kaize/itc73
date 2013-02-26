@@ -49,7 +49,9 @@ class Course < ActiveRecord::Base
   def can_destroy?
     persisted?
   end
-
+  def visible?
+    allowed? && published?  
+  end
   def to_s
     name
   end

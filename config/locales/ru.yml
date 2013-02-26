@@ -1,5 +1,13 @@
 ru:
   base_title: "ITC"
+  pages_in_titles:
+    main: "Главная"
+    courses: "Курсы"
+    news: "Новости"
+    contacts: "Контакты"
+    search: "Поиск"
+    registration: "Регистрация"
+    authorization: "Авторизация"
   layouts:
     web:
       application:
@@ -44,7 +52,6 @@ ru:
         slash: " / "
       index:
         index_header: "Доступные курсы"
-        own_courses: "Мои курсы"
         subscribe: "Записаться" 
         unscribe: "Отписаться"
         subscribe_confirm: "Вы уверены, что хотите записаться на данный курс?"
@@ -66,9 +73,17 @@ ru:
       sign_in:
         forgot_password: "Забыли пароль?"
         save: "Войти"
+    accounts: 
+      edit:
+        info: "Личная информация"
+        education: "Образование"
+        contacts: "Контактная информация"
+        redact_profile: "Изменить профиль"
+        subscribe: "Подписаться на рассылку событий НП"
+        cancel: "Отмена"
     users:
       new:
-        sign_up: "Регииирация"
+        sign_up: "Региcтрация"
       sign_up:
         info: "Личная информация"
         education: "Образование"
@@ -77,13 +92,6 @@ ru:
         subscribe: "Подписаться на рассылку событий НП"
         personal_data_processing: "Даю согласие на обработку персональных данных"
         reg: "Зарегистрироваться"
-        cancel: "Отмена"
-      edit:
-        info: "Личная информация"
-        education: "Образование"
-        contacts: "Контактная информация"
-        redact_profile: "Изменить профиль"
-        subscribe: "Подписаться на рассылку событий НП"
         cancel: "Отмена"
     welcome:
       show:
@@ -95,6 +103,11 @@ ru:
         edit:
           password_reset: "Изменение пароля"
           reset: "Изменить"
+      courses:
+        index:
+          own_courses: "Мои курсы"
+          unscribe: "Отписаться"
+          unscribe_confirm: "Вы уверены, что хотите отписаться от данного курса?"
     remind_passwords:
       new:
         password_recovery: "Восстановление пароля"

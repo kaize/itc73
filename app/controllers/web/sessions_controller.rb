@@ -1,6 +1,9 @@
 class Web::SessionsController < Web::ApplicationController
   add_breadcrumb :index, :new_session_path
- 
+  def new
+    title t('.pages_in_titles.authorization') 
+    render :new
+  end 
   def create
     @email = params[:session][:email]
     user = ::User.active.find_by_email(@email)

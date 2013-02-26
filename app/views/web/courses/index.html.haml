@@ -1,5 +1,5 @@
 .page-header
-  %h1= (@user_name_presence) ? t('.own_courses') : t('.index_header')
+  %h1= t('.index_header')
 
 %table{:class => "table table-striped"}
   - if !signed_in?
@@ -10,23 +10,21 @@
         = t('.slash')
         = link_to t('.registration'), new_user_path
 
-  - @course.each do |n|
-    - if n.published? && n.allowed?
+  - @courses.each do |c|
+    - if c.visible?
       %tr
         %td 
-          = link_to n.name, course_path(n), class: 'btn btn-link'
+          = link_to c, course_path(c), class: 'btn btn-link'
         %td
           - if signed_in?
-            - if current_user.courses.include?(n)
-              = simple_form_for n, url: unscribe_course_user_path do |f|
-                = f.input :id, :as => :hidden
-                = f.button :submit, value: t('.unscribe'),  class: 'btn btn-danger pull-right', :confirm => t(".unscribe_confirm")
-            - else
-              = simple_form_for n, url: subscribe_course_user_path do |f|
-                = f.input :id, :as => :hidden
-                = f.button :submit, value: t('.subscribe'),  class: 'btn btn-info pull-right', :confirm => t(".subscribe_confirm")
+            - action = (current_user.courses.include?(c)) ? "unscribe" : "subscribe"
+            = simple_form_for c, :url => send("#{action}_course_user_path") do |f|
+              = f.input :id, :as => :hidden
+              = f.button :submit, value: t(".#{action}"),
+                class: "#{(current_user.courses.include?(c)) ? 'btn btn-danger pull-right' : 'btn btn-info pull-right' }",
+                :confirm => t(".#{action}_confirm")
           - else 
             = link_to t('.subscribe'), '#', class: 'btn btn-info pull-right disabled'
 
 .pagination
-  = paginate @course
+  = paginate @courses
