@@ -12,7 +12,4 @@ class Web::CoursesController < Web::ApplicationController
     title @course.name
   end
 
-  def track
-    render :track
-  end
 end
