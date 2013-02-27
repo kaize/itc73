@@ -26,6 +26,11 @@
   margin: 5px;
 }
 
+.course-kind {
+  margin: 30px;
+  text-align: center;
+}
+
 .org {
   text-align: center;
 }
