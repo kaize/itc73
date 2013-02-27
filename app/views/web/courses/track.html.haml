@@ -7,14 +7,13 @@
   %table.table.table-striped
     %thead 
       %tr
-        %th
-          -levels_for_kind(kind).each do |level|
-            .span2
-              =level
+        -levels_for_kind(kind).each do |level|
+          %th
+            =level
     %tbody
       %tr
-        %td
-          -levels_for_kind(kind).each do |level|
+        -levels_for_kind(kind).each do |level|
+          %td
             .span2
               - level.courses.each do |c|
                 .row
