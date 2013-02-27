@@ -15,11 +15,8 @@ class ApplicationController < ActionController::Base
   end
 
   include AuthHelper
+  include SocNetworkHelper
 
   helper_method :signed_in?, :current_user
-
-  #before_filter do
-    #basic_auth if Rails.env.staging?
-  #end
 
 end
