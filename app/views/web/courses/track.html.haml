@@ -2,16 +2,23 @@
   %h1= t('.header')
     
 - course_kinds.each do |kind|
-  %h4{class: 'org'}= kind
+  %h4{class: 'course-kind'}= kind
 
-  .container
-    - levels_for_kind(kind).each do |level|
-      .span3
-        .row-fluid
-          =level
-          - level.courses.each do |c|
-            .row
-              .helper-button
-                %p{style:"background-color:##{level.color};", class: 'btn active', rel: 'popover', 
-                  data: {:content => (c.note?) ? c.note : "", :placement => 'bottom'}}
-                  =c.name
+  %table.table.table-striped
+    %thead 
+      %tr
+        %th
+          -levels_for_kind(kind).each do |level|
+            .span2
+              =level
+    %tbody
+      %tr
+        %td
+          -levels_for_kind(kind).each do |level|
+            .span2
+              - level.courses.each do |c|
+                .row
+                  .helper-button
+                    %p{style:"background-color:##{level.color};", class: 'btn active', rel: 'popover', 
+                      data: {:content => (c.note?) ? c.note : "", :placement => 'bottom'}}
+                      =c.name
