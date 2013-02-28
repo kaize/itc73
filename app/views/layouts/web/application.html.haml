@@ -4,6 +4,7 @@
     = render 'layouts/web/shared/head'
     = stylesheet_link_tag 'application'
     = javascript_include_tag 'application'
+    = analytics_init :local => Rails.env.production?
   %body
     .navbar.navbar-fixed-top
       .navbar-inner
