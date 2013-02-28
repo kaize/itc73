@@ -3,7 +3,7 @@ class Web::SocialNetworkController < Web::ApplicationController
   def authorization
     authorization = Authorization.find_by_provider_and_uid(auth_hash[:provider], auth_hash[:uid])
 
-    if authorization
+    if authorization && authorization.user
       sign_in authorization.user
       flash_success
     else
