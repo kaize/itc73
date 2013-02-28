@@ -1,5 +1,7 @@
 .page-header
   %h1= t '.sign_up'
+  %h4= t(".social_networks")
+  = link_to image_tag('auth_providers/facebook.png'), sign_in_via_social_network_cpath(:facebook)
 
 = render 'web/shared/user_tabs'
 
