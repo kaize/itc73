@@ -27,6 +27,7 @@ gem 'whenever'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'validates'
+gem 'google-analytics-rails'
 
 group :assets do
   gem 'coffee-rails', '~> 3.2.1'
