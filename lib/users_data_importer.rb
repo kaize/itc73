@@ -8,7 +8,7 @@ class UsersDataImporter
   end
 
   def prepare_json(row)
-    unless(row.nil?) 
+    if row.present?
       ActiveSupport::JSON.decode row.gsub('{', '{"').gsub(': "', '": "').gsub('", ', '", "').gsub('user', 'user"')
     end
   end
@@ -18,7 +18,7 @@ class UsersDataImporter
     @last_name = row[2]
     @phone = row[4]
     extra_fields = prepare_json(row[3])
-    if(extra_fields.nil?) then
+    if extra_fields.nil?
       @user_info = extra_fields
     else
       @user_info = extra_fields["user"]
@@ -33,13 +33,13 @@ class UsersDataImporter
     @user.last_name = @last_name
     @user.phone = @phone
     @user.created_at = @created_at
-    unless (@user_info.nil?)
+    if @user_info.present?
       @user.university = @user_info["Учебное заведение"]
-      unless (@user_info["Курс"].nil?)
+      if @user_info["Курс"].present?
         courses = @user_info["Курс"].split(", ")
         courses.each do |course_name| 
           course = Course.find_by_name(course_name) 
-          @user.courses << course unless course.nil? 
+          @user.courses << course if course.present? 
         end
       end
     end
