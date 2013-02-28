@@ -29,7 +29,10 @@ class Web::UsersControllerTest < ActionController::TestCase
     assert_response :success
   end
   test "should put update" do
-    put :update, id: @user.id, user: @attrs.delete_if{|key, value| key == :personal_data_processing}
+    @attrs = @attrs.delete_if do |key, value| 
+      key == :personal_data_processing 
+    end
+    put :update, id: @user.id, user: @attrs
     assert_response :redirect
   end
   test "should scribe course" do
