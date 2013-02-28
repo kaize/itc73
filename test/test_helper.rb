@@ -17,11 +17,12 @@ class ActiveSupport::TestCase
   include SocNetworkHelper
 
   # Setup all fixtures in test/fixtures/*.(yml|csv) for all tests in alphabetical order.
+  include ActionDispatch::TestProcess
+  #Setup all fixtures in test/fixtures/*.(yml|csv) for all tests in alphabetical order.
   #
   # Note: You'll currently still have to declare fixtures explicitly in integration tests
   # -- they do not yet inherit this setting
-  # fixtures :all
-
+  fixtures :all
   require 'factory_girl'
   FactoryGirl.reload
 
