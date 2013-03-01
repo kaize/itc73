@@ -1,8 +1,6 @@
 class User < ActiveRecord::Base
   include UserRepository
 
-  has_secure_password
-
   has_many :auth_tokens
   has_many :authorizations  
   has_many :course_users
@@ -14,7 +12,7 @@ class User < ActiveRecord::Base
 
 
   validates :email, presence: true, email: true, uniqueness: { case_sensitive: false }
-  validates :password, length: { minimum: 6 }, allow_blank: true
+  validates :password, length: { minimum: 6 }, allow_blank: true, confirmation: true
   validates :first_name, presence: true, length: { maximum: 255 }
   validates :last_name, presence: true, length: { maximum: 255 }
   validates :patronymic, length: { maximum: 255 }
@@ -43,6 +41,19 @@ class User < ActiveRecord::Base
     token = SecureHelper.generate_token
     expired_at = Time.current + configus.token.lifetime
     auth_tokens.build :authentication_token => token, :expired_at => expired_at
+  end
+
+  def authenticate(password)
+    self.password_digest == Digest::MD5.hexdigest(password)
+  end
+
+  def password=(password)
+    @real_password = password
+    self.password_digest = Digest::MD5.hexdigest(password)
+  end
+
+  def password
+    @real_password
   end
 
   class << self
