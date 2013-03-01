@@ -1,3 +1,3 @@
-class Web::User::ApplicationController < Web::ApplicationController
+class Web::Account::ApplicationController < Web::ApplicationController
 
 end
