@@ -3,14 +3,13 @@ class Web::Admin::UsersController < Web::Admin::ApplicationController
 
   add_breadcrumb :index, :admin_users_path
   def index
-    @course_name_presence = params.include?(:course_id)
+    @course_name_presence = params.include?(:course)
+    query = { s: 'created_at desc' }.merge(params[:q] || {})
     if @course_name_presence
-      @q = User.ransack("course_users_course_id_eq" => params[:course_id])
-      @course_name = Course.ransack("id_eq_all" => params[:course_id]).result.first_or_initialize.name
-    else 
-      query = { s: 'created_at desc' }.merge(params[:q] || {})
-      @q = User.ransack(query)
-    end  
+      query = {"course_users_course_id_eq" => params[:course]}
+      @course_name = Course.find_by_id(params[:course]).name
+    end
+    @q = User.ransack(query)
     @users = @q.result.page(params[:page])
   end
   def new
