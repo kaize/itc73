@@ -24,6 +24,7 @@ gem 'usefull_scopes', git: 'https://github.com/kaize/usefull_scopes.git'
 gem 'coveralls', require: false
 gem 'thinking-sphinx', '2.0.10'
 gem 'whenever'
+gem 'google-analytics-rails'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'validates'
