@@ -4,6 +4,11 @@
       = f.input :email, input_html: { class: 'input-xlarge', value: @email }
       = f.input :password, input_html: { class: 'input-xlarge' }
       = link_to(t(".forgot_password"), new_remind_password_path)
+    .span4
+      %h4= t(".social_networks")
+      = link_to image_tag('auth_providers/facebook.png'), sign_in_via_social_network_cpath(:facebook)
+
   .form-actions
-    = f.button :submit, t(".save"), class: 'btn-primary'
+    .button
+      = f.button :submit, t(".save"), class: 'btn-primary'
 

@@ -1,5 +1,13 @@
 ru:
   base_title: "ITC"
+  pages_in_titles:
+    main: "Главная"
+    courses: "Курсы"
+    news: "Новости"
+    contacts: "Контакты"
+    search: "Поиск"
+    registration: "Регистрация"
+    authorization: "Авторизация"
   layouts:
     web:
       application:
@@ -64,6 +72,7 @@ ru:
         sign_in: "Вход"
       sign_in:
         forgot_password: "Забыли пароль?"
+        social_networks: "Вы можете использовать для входа социальные сети:"
         save: "Войти"
     accounts: 
       edit:
@@ -75,7 +84,8 @@ ru:
         cancel: "Отмена"
     users:
       new:
-        sign_up: "Регииирация"
+        sign_up: "Региcтрация"
+        social_networks: "Вы можете использовать для входа социальные сети: "
       sign_up:
         info: "Личная информация"
         education: "Образование"
