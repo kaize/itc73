@@ -8,7 +8,7 @@ gem 'configus'
 gem 'ckeditor'
 gem 'draper'
 gem 'haml-rails'
-#gem 'jbuilder'
+gem 'jbuilder'
 gem 'kaminari'
 gem 'mini_magick'
 gem 'pg'
@@ -28,6 +28,7 @@ gem 'whenever'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'axlsx_rails'
+gem 'timepad'
 
 group :assets do
   gem 'coffee-rails', '~> 3.2.1'
@@ -56,6 +57,7 @@ group :test do
   gem 'simplecov', require: false
   gem 'tconsole'
   gem 'turn'
+  gem "mocha", :require => false
 end
 
 # gem 'ruby-debug19', :require => 'ruby-debug'

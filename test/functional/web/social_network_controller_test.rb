@@ -8,7 +8,6 @@ class Web::SocialNetworkControllerTest < ActionController::TestCase
   end
 
   test "should get authorization with facebook" do    
-    @user.activate
     @user.authorizations << build_authorization(@auth_hash)
     @user.save
 

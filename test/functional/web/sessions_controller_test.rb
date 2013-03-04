@@ -3,7 +3,6 @@ require 'test_helper'
 class Web::SessionsControllerTest < ActionController::TestCase
   def setup
     @user = create :user
-    @user.activate
   end
 
   test "should authenticate" do

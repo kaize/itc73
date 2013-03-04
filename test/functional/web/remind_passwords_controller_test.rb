@@ -3,7 +3,6 @@ require 'test_helper'
 class Web::RemindPasswordsControllerTest < ActionController::TestCase
   setup do
     @user = create :user
-    @user.activate
   end
 
   test "should get new" do
