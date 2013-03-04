@@ -9,7 +9,7 @@
     = simple_form_for :timepad_maillists, url: export_admin_timepad_items_path, method: :put,
       html: {class: 'form-inline'} do |f|
       .controls
-        =f.input :id, collection: TimepadMaillist.all, wrapper: :inline,
+        =f.input :original_id, collection: TimepadMaillist.all.map{|list| [list.name, list.original_id]}, wrapper: :inline,
           prompt: t('.timepad'), input_html: { class: 'span3'}
         .pull-right
           =link_to import_api_timepad_maillists_path,

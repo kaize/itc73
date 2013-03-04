@@ -10,7 +10,7 @@ $(function() {
 
         select.find('option + option').remove();
         for (i in data.items)
-          select.append('<option value=' + data.items[i].id + '>' + data.items[i].name 
+          select.append('<option value=' + data.items[i].original_id + '>' + data.items[i].name 
                         + ' (' + data.items[i].items_count + ')' + '</option>');
 
         icon.removeAttr('class').addClass('icon-refresh');
