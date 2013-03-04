@@ -75,6 +75,11 @@ Itc73::Application.routes.draw do
           put :publish_state_event
         end
       end
+      resources :timepad_items, only: [] do
+        collection do
+          put :export
+        end
+      end
     end
   end
 
@@ -109,6 +114,13 @@ Itc73::Application.routes.draw do
         put :mass_update_order
       end
     end
+
+    resources :timepad_maillists, only: [] do
+      collection do
+        put :import
+      end
+    end
+
   end
 
 end

@@ -3,7 +3,6 @@ require 'test_helper'
 class Web::Admin::TasksControllerTest < ActionController::TestCase
   setup do
     admin = create :user, :admin
-    admin.activate
     sign_in admin
 
     @task = create :task
