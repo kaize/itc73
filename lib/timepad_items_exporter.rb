@@ -2,7 +2,7 @@
 
 class TimepadItemsExporter
   def self.run(maillist_id)
-    users = User.where(subscribe: true)
+    users = User.active.where(subscribe: true)
     subscribers = []
     response = []
 

@@ -1,30 +1,28 @@
 - content_for :sidebar do
+
   %ul.nav.nav-tabs.nav-stacked
     %li
       = link_to new_admin_graduate_path, class: 'close' do
         %i.icon-plus
       = link_to t('.graduates'), admin_graduates_path
 
+  %p
+    = link_to new_admin_user_path, class: 'btn btn-block btn-success' do
+      %i.icon-plus
+      = t('.new_user')
+  %p
+    = link_to api_users_path(format: :xlsx, :course => params[:course]), target: :_blank, class: 'btn btn-block btn-success' do
+      %i.icon-download-alt
+      = t('.xls')
   %p 
     = simple_form_for :timepad_maillists, url: export_admin_timepad_items_path, method: :put,
       html: {class: 'form-inline'} do |f|
       .controls
         =f.input :original_id, collection: TimepadMaillist.all.map{|list| [list.name, list.original_id]}, wrapper: :inline,
-          prompt: t('.timepad'), input_html: { class: 'span3'}
-        .pull-right
+          prompt: t('.timepad'), input_html: { class: 'span3', id: 'maillists'}
+        .pull-left
           =link_to import_api_timepad_maillists_path,
             class: 'btn refresh-timepad-maillists',
             title: t('.refresh_timepad') do
             %i.icon-refresh
           =f.button :submit, class: 'btn-primary'
-      %hr
-  %p
-    = link_to api_users_path(format: :xlsx, :course => params[:course]), target: :_blank, class: 'btn btn-success' do
-      %i.icon-download-alt
-      = t('.xls')
-
-  %p
-    = link_to new_admin_user_path, class: 'btn btn-block btn-success' do
-      %i.icon-plus
-      = t('.new_user')
-

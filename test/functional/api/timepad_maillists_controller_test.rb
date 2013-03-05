@@ -16,5 +16,8 @@ class Api::TimepadMaillistsControllerTest < ActionController::TestCase
   test "should import list" do
     put :import, format: :json
     assert_response :success
+    lists_ids_from_timepad = TimepadMaillistsImporter.run.map{|list| list[:id]}
+    local_lists_ids = TimepadMaillist.all.map{|list| list.original_id}
+    assert_equal lists_ids_from_timepad, local_lists_ids
   end
 end
