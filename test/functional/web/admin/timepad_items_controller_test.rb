@@ -6,7 +6,6 @@ class Web::Admin::TimepadItemsControllerTest < ActionController::TestCase
 
     @maillist = create :timepad_maillist
 
-    result = TimepadItemsExporter.run(@maillist.id)
     TimepadItemsExporter.stubs(:run).returns({result: 'ok'})
   end
 

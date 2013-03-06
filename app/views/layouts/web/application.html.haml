@@ -35,8 +35,8 @@
               - else
                 %li{class: "#{'active' if current_page?(new_session_path)}"}
                   = link_to t('.sign_in'), new_session_path
-    .container
-      .row
+    .container-fluid
+      .row-fluid
         .span3
           = yield :sidebar_top
           = render 'layouts/web/shared/my_courses_nav'

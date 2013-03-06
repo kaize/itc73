@@ -1,12 +1,11 @@
 # encoding utf-8
 
 class TimepadItemsExporter
-  def self.run(maillist_id)
-    users = User.active.where(subscribe: true)
+  def self.run(maillist_id, users)
     subscribers = []
     response = []
 
-    users.find_each do |u|
+    users.each do |u|
       subscriber = {
         email: u.email,
         name: u.first_name,

@@ -83,6 +83,10 @@ ru:
           attributes:
             email:
               email: "некорректный адрес"
+        page: 
+          attributes:
+            slug:
+              slug: "некорректный псевдоним"
     state_machines:
       course: &publish_state
         state:

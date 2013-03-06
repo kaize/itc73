@@ -2,6 +2,9 @@
   %h1= t('.own_courses') 
 
 %table{:class => "table table-striped"}
+  -if @courses.empty?
+    .alert.alert-info
+      #{t('.advice')} #{link_to t('.here'), courses_path} 
   - @courses.each do |c|
     - if c.visible?
       %tr
