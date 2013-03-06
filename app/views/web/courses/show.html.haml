@@ -19,9 +19,9 @@
   - if @course.tasks.published.any?
     %li= link_to t('.tasks'), '#tasks', data: { toggle: 'tab' }
 
-  - if signed_in? && @course.published?
+  - if signed_in?
     - action = current_user.courses.include?(@course) ? "unscribe" : "subscribe"
-    - if @course.allowed? && action.eql?("unscribe")
+    - if @course.published? && (@course.allowed? || @course.denied? && action.eql?("unscribe"))
       = simple_form_for @course, :url => send("#{action}_course_user_path") do |f|
         = f.input :id, :as => :hidden
         = f.button :submit, value: t(".#{action}"),
