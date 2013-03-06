@@ -27,10 +27,12 @@ gem 'whenever'
 gem 'google-analytics-rails'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'omniauth-vkontakte'
 gem 'validates'
 gem 'google-analytics-rails'
 gem 'axlsx_rails'
 gem 'timepad'
+
 
 group :assets do
   gem 'coffee-rails', '~> 3.2.1'
