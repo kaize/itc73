@@ -1,17 +1,17 @@
 class Web::AccountsController < Web::ApplicationController
   def edit
     @user = current_user
-    add_breadcrumb @user, edit_admin_user_path(@user)
+    add_breadcrumb :edit, edit_account_path(@user)
   end
 
   def update
-    @user = User.find params[:id]
+    @user = current_user
     if @user.update_attributes params[:user]
       flash_success
       redirect_to root_path
     else
-      flash_error
-      add_breadcrumb :edit, edit_user_path(@user)
+      flash_error now: true
+      add_breadcrumb :edit, account_path(@user)
       render :edit
     end
   end

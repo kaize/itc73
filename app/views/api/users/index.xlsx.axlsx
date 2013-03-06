@@ -1,4 +1,4 @@
-attrs = [:birthday, :university, :edu_year_end, :graduate, :email, :first_name, :last_name, :patronymic, :phone, :workplace, :subscribe, :state, :courses]
+attrs = [:first_name, :last_name, :patronymic, :email, :phone, :courses, :university, :birthday, :edu_year_end, :graduate, :workplace, :subscribe]
 xlsx_package.workbook.add_worksheet(name: 'sheet1') do |sheet|
   style_th = sheet.workbook.styles.add_style b: true
   style_td = sheet.workbook.styles.add_style alignment: { horizontal: :left }

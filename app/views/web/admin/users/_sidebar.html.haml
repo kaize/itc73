@@ -15,7 +15,7 @@
       %i.icon-download-alt
       = t('.xls')
   %p 
-    = simple_form_for :timepad_maillists, url: export_admin_timepad_items_path, method: :put,
+    = simple_form_for :timepad_maillists, url: export_admin_timepad_items_path(:course => params[:course]), method: :put,
       html: {class: 'form-inline'} do |f|
       .controls
         =f.input :original_id, collection: TimepadMaillist.all.map{|list| [list.name, list.original_id]}, wrapper: :inline,

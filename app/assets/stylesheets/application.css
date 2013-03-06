@@ -31,6 +31,12 @@
   text-align: center;
 }
 
+.nav-list li{
+  display: block; 
+  margin-right: 30px;
+  word-wrap: break-word; 
+}
+
 .org {
   text-align: center;
 }
@@ -46,6 +52,47 @@
 .label.notice {
   background-color: #3a87ad;
   margin-left: 13px;
+}
+.social-share-links {
+  float: right;
+  height: 36px;
+  padding-top: 24px;
+}
+
+.social-share-links li {
+  float: left;
+  margin-left: 10px;
+  height: 20px;
+}
+
+.counter-links { 
+  padding-top: 22px;
+  margin-left: 30px;
+}
+.counter-links li {
+  display: inline;
+  width: 31px;
+  height: 31px;
+  overflow: hidden;
+}
+.counter-links ul{
+  display:inline;
+  margin: 0;
+}
+.social-share-links ul {
+  list-style:none;
+  margin: 0;
+}
+.social-public-links ul {
+  list-style: none;
+  margin: 0;
+}
+.social-public-links list {
+  float: left;
+  margin-right: 10px;
+}
+.social-public-links li{
+  font-size: 18px !important;
 }
 
 .footer {

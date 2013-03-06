@@ -19,15 +19,16 @@
   - if @course.tasks.published.any?
     %li= link_to t('.tasks'), '#tasks', data: { toggle: 'tab' }
 
-  - if signed_in?
+  - if signed_in? && @course.published?
     - action = current_user.courses.include?(@course) ? "unscribe" : "subscribe"
-    = simple_form_for @course, :url => send("#{action}_course_user_path") do |f|
-      = f.input :id, :as => :hidden
-      = f.button :submit, value: t(".#{action}"),
-        class: "#{(current_user.courses.include?(@course)) ? 'btn btn-danger pull-right' : 'btn btn-info pull-right' }",
-        :confirm => t(".#{action}_confirm")
-  - else
-    = link_to t('.subscribe'), '#', class: 'btn btn-info pull-right disabled'
+    - if @course.allowed? && action.eql?("unscribe")
+      = simple_form_for @course, :url => send("#{action}_course_user_path") do |f|
+        = f.input :id, :as => :hidden
+        = f.button :submit, value: t(".#{action}"),
+          class: "#{(current_user.courses.include?(@course)) ? 'btn btn-danger pull-right' : 'btn btn-info pull-right' }",
+          :confirm => t(".#{action}_confirm")
+    - else
+      = link_to t('.subscribe'), '#', class: 'btn btn-info pull-right disabled'
 
 .tab-content
   .tab-pane.active#main

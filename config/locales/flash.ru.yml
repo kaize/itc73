@@ -14,7 +14,7 @@ ru:
             destroy:
               success: "Курс удален"
             subscribe_state_event:
-              success: "Курс успешно обнавлен"
+              success: "Курс успешно обновлен"
           course_kinds:
             create:
               error: "При добавлении типа курса возникли ошибки"
@@ -124,6 +124,13 @@ ru:
           update:
             error: 'Изменить запись не удалось'
             success: 'Запись успешно обновлена'
+        accounts:
+          update:
+            error: 'Ошибка при обновлении профиля. Проверьте введенные данные'
+            success: 'Ваш профиль успешно обновлен'
+          edit: 
+            error: "Проверьте правильность введеных данных"
+            success: "Отредактируйте данные"
         account: 
           passwords:
             update:

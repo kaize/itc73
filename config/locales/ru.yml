@@ -135,6 +135,8 @@ ru:
           own_courses: "Мои курсы"
           unscribe: "Отписаться"
           unscribe_confirm: "Вы уверены, что хотите отписаться от данного курса?"
+          advice: "У вас еще нет курсов. Перечень доступных курсов можно посмотреть"
+          here: "тут"
     remind_passwords:
       new:
         password_recovery: "Восстановление пароля"

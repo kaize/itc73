@@ -89,6 +89,10 @@ ru:
           attributes:
             url:
               url: "некорректный адрес"
+        page: 
+          attributes:
+            slug:
+              slug: "некорректный псевдоним"
     state_machines:
       course: &publish_state
         state:
