@@ -1,7 +1,7 @@
 - course_kinds.each do |kind|
   .well.sidebar-nav
     %ul.nav.nav-list
-      %li.nav-header
+      %li
         %h4= kind
       %li.divider
       - courses_for_level(kind).each do |level|
