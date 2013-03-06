@@ -27,8 +27,10 @@ gem 'thinking-sphinx', '2.0.10'
 gem 'whenever'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'omniauth-vkontakte'
 gem 'axlsx_rails'
 gem 'timepad'
+
 
 group :assets do
   gem 'coffee-rails', '~> 3.2.1'
