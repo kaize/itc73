@@ -1,30 +1,30 @@
 require 'test_helper'
 
-class Web::SocialNetworkControllerTest < ActionController::TestCase
+class Web::Social::VkontakteControllerTest < ActionController::TestCase
 
   setup do
-    @auth_hash = generate(:facebook_auth_hash)
+    @auth_hash = generate(:vkontakte_auth_hash)
     @user = create :user
   end
 
-  test "should get authorization with facebook" do    
+  test "should get authorization with vkontakte" do    
     @user.authorizations << build_authorization(@auth_hash)
     @user.save
 
     request.env['omniauth.auth'] = @auth_hash
-    get :authorization
+    get :callback
 
     assert signed_in?
     assert_equal current_user, @user
     assert_response :redirect
   end
 
-  test "should get authorization with facebook on existing user" do
+  test "should get authorization with vkontakte on existing user" do
     @user.email = @auth_hash[:info][:email] 
     @user.save
 
     request.env['omniauth.auth'] = @auth_hash
-    get :authorization
+    get :callback
 
     @user.reload
     assert @user.active?
@@ -33,9 +33,9 @@ class Web::SocialNetworkControllerTest < ActionController::TestCase
     assert_response :redirect
   end
 
-  test "should get authorization with facebook on new user" do
+  test "should get authorization with vkontakte on new user" do
     request.env['omniauth.auth'] = @auth_hash
-    get :authorization
+    get :callback
 
     assert User.find_by_email(auth_hash[:info][:email])
     assert current_user.active?
@@ -43,11 +43,5 @@ class Web::SocialNetworkControllerTest < ActionController::TestCase
     assert current_user.authorizations
     assert_response :redirect
   end
-
-  test "should get failure" do
-    get :failure
-    assert_response :redirect
-  end
-
 
 end

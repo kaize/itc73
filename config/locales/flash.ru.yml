@@ -113,6 +113,20 @@ ru:
               success: 'Данные пользователя были успешно обновлены'
             trigger_state_event:
               success: "Состояние пользователя изменено"
+        social:
+          network:
+            authorization_finish: &auth
+              success: "Вы успешно авторизованы через социальную сеть"
+              error: "Заполните недостающие поля"
+          github: &social_networks
+            callback:
+              <<: *auth 
+          facebook:
+            <<: *social_networks
+          vkontakte:
+            <<: *social_networks
+          twitter:
+            <<: *social_networks
         sessions:
           create:
             error: 'Неправильный email или пароль'

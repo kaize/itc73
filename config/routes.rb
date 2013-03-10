@@ -4,12 +4,28 @@ Itc73::Application.routes.draw do
   match "/500", :to => "web/errors#internal_error"
   mount Ckeditor::Engine => '/ckeditor'
 
-  # omniauth-facebook
-  get '/auth/facebook/callback' => 'web/social_network#authorization'
-  get '/auth/facebook/failure' => 'web/social_network#failure'
-
   scope module: :web do
     root to: 'welcome#show'
+    resource :social, only: [] do
+      scope :module => :social do
+        resource :network, :controller => "network", :only => [] do
+          get :failure, :on => :member
+          put :authorization_finish, :on => :member
+        end
+        resource :facebook, :controller => "facebook", :only => [] do
+          get :callback, :on => :member
+        end
+        resource :vkontakte, :controller => "vkontakte", :only => [] do
+          get :callback, :on => :member
+        end
+        resource :twitter, :controller => "twitter", :only => [] do
+          get :callback, :on => :member
+        end
+        resource :github, :controller => "github", :only => [] do
+          get :callback, :on => :member
+        end
+      end
+    end
 
     resources :search, :only => [:index]
     resources :courses, only: [:index, :show] do

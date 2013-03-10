@@ -1,7 +1,6 @@
 module SocNetworkHelper
-
   def auth_hash
-    request.env['omniauth.auth']    
+    request.env['omniauth.auth']
   end
 
   def build_authorization(auth_hash)

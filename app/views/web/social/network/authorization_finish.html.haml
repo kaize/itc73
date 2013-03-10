@@ -1,0 +1,25 @@
+.page-header
+  %h1= t '.auth_step'
+  %p= t'.additional_info'
+= simple_form_for @user, :method => :put, url: authorization_finish_social_network_path do |f|
+  .row-fluid
+    .span4
+      %h4= t '.info'
+      %hr
+      = f.input :first_name, input_html: { class: 'input-xlarge' }
+      = f.input :last_name, input_html: { class: 'input-xlarge' }
+      = f.input :patronymic, input_html: { class: 'input-xlarge' }
+      = f.input :birthday, as: :datepicker,
+        input_html: { class: 'input-xlarge', data: { 'year-min' => User.birthday_year_min, 'year-max' => User.birthday_year_max }}
+      = f.input :email, input_html: { class: 'input-xlarge', placeholder: '' }
+    .span4
+      %h4= t '.education'
+      %hr
+      = f.input :university, input_html: { class: 'input-xlarge' }
+      = f.input :edu_year_end, as: :edu_year_end, include_blank: false,
+        input_html: { class: 'input-medium' }
+
+  .form-actions
+    = f.button :submit, t('.auth'), class: 'btn-primary'
+    = link_to t('.cancel'), root_path, class: 'btn'
+
