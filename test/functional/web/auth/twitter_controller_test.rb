@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class Web::Social::TwitterControllerTest < ActionController::TestCase
+class Web::Auth::TwitterControllerTest < ActionController::TestCase
 
   setup do
     @auth_hash = generate(:twitter_auth_hash)
@@ -13,10 +13,10 @@ class Web::Social::TwitterControllerTest < ActionController::TestCase
 
     request.env['omniauth.auth'] = @auth_hash
     get :callback
+    assert_response :redirect
 
     assert signed_in?
     assert_equal current_user, @user
-    assert_response :redirect
   end
 
   test "should get authorization with twitter on existing user" do
@@ -25,23 +25,17 @@ class Web::Social::TwitterControllerTest < ActionController::TestCase
 
     request.env['omniauth.auth'] = @auth_hash
     get :callback
+    assert_response :redirect
 
     @user.reload
     assert @user.active?
     assert signed_in?
-    assert current_user.authorizations
-    assert_response :redirect
   end
 
   test "should get authorization with twitter on new user" do
     request.env['omniauth.auth'] = @auth_hash
     get :callback
-
-    assert User.find_by_email(auth_hash[:info][:email])
-    assert current_user.active?
-    assert signed_in?
-    assert current_user.authorizations
-    assert_response :redirect
+    assert_template :authorization_finish
   end
 
 end

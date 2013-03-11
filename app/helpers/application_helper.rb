@@ -18,6 +18,9 @@ module ApplicationHelper
   def courses_in_main_list(level)
     level.courses - current_user.courses
   end
+  def can_interact_with_course(course, action)
+    (course.published? && (course.allowed? || course.denied? && action.eql?("unscribe")))
+  end
   def header_needed?(level) 
     signed_in? && courses_in_main_list(level).any? || !signed_in? && level.courses.any?
   end

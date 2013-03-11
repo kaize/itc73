@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
    :first_name, :last_name, :patronymic, :password, :password_confirmation, :phone, :workplace, :subscribe, :state
 
 
-  validates :email, presence: true, email: true, uniqueness: { case_sensitive: false }
+  validates :email, presence: true, email: true, uniqueness: { case_sensitive: true }
   validates :password, length: { minimum: 6 }, allow_blank: true, confirmation: true
   validates :first_name, presence: true, length: { maximum: 255 }
   validates :last_name, presence: true, length: { maximum: 255 }

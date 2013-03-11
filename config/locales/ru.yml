@@ -120,7 +120,7 @@ ru:
         error_status: "500"
         error_text: "Внутренняя ошибка сервера"
         message: "Возникла ошибка на сервере"
-    social:
+    auth:
       network:
         authorization_finish:
           auth_step: "Авторизация через социальные сети"
