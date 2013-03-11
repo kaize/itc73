@@ -1,25 +1,25 @@
 require 'test_helper'
 
-class Web::Auth::VkontakteControllerTest < ActionController::TestCase
+class Web::TwitterControllerTest < ActionController::TestCase
 
   setup do
-    @auth_hash = generate(:vkontakte_auth_hash)
+    @auth_hash = generate(:twitter_auth_hash)
     @user = create :user
   end
 
-  test "should get authorization with vkontakte" do    
+  test "should get authorization with twitter" do    
     @user.authorizations << build_authorization(@auth_hash)
     @user.save
 
     request.env['omniauth.auth'] = @auth_hash
     get :callback
     assert_response :redirect
-    assert signed_in?
 
+    assert signed_in?
     assert_equal current_user, @user
   end
 
-  test "should get authorization with vkontakte on existing user" do
+  test "should get authorization with twitter on existing user" do
     @user.email = @auth_hash[:info][:email] 
     @user.save
 
@@ -32,7 +32,7 @@ class Web::Auth::VkontakteControllerTest < ActionController::TestCase
     assert signed_in?
   end
 
-  test "should get authorization with vkontakte on new user" do
+  test "should get authorization with twitter on new user" do
     request.env['omniauth.auth'] = @auth_hash
     get :callback
     assert_template :authorization_finish

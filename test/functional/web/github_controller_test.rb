@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class Web::Auth::GithubControllerTest < ActionController::TestCase
+class Web::GithubControllerTest < ActionController::TestCase
 
   setup do
     @auth_hash = generate(:github_auth_hash)

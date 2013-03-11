@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class Web::Auth::FacebookControllerTest < ActionController::TestCase
+class Web::FacebookControllerTest < ActionController::TestCase
 
   setup do
     @auth_hash = generate(:facebook_auth_hash)
