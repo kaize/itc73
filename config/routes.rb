@@ -1,28 +1,26 @@
 Itc73::Application.routes.draw do
 
   mount Ckeditor::Engine => '/ckeditor'
-
+  get '/failure' => 'web/networks#failure'
   scope module: :web do
     root to: 'welcome#show'
-    scope :module => :auth do
-      resource :network, :only => [] do
-        member do
-          get :failure
-          put :authorization_finish
-        end
+    resource :network, :only => [] do
+      member do 
+        get :failure
+        get :authorization_finish
       end
-      resource :facebook, :only => [] do
-        get :callback, :on => :member
-      end
-      resource :vkontakte, :only => [] do
-        get :callback, :on => :member
-      end
-      resource :twitter, :only => [] do
-        get :callback, :on => :member
-      end
-      resource :github, :only => [] do
-        get :callback, :on => :member
-      end
+    end
+    resource :facebook, :only => [] do
+      get :callback, :on => :member
+    end
+    resource :vkontakte, :only => [] do
+      get :callback, :on => :member
+    end
+    resource :twitter, :only => [] do
+      get :callback, :on => :member
+    end
+    resource :github, :only => [] do
+      get :callback, :on => :member
     end
 
     resources :search, :only => [:index]

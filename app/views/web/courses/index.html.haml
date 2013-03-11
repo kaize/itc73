@@ -18,7 +18,7 @@
         %td
           - if signed_in?
             - action = (current_user.courses.include?(c)) ? "unscribe" : "subscribe"
-            - if can_interact_with_course(c, action)
+            - if can_interact_with_course?(c, action)
               = simple_form_for c, :url => send("#{action}_course_user_path") do |f|
                 = f.input :id, :as => :hidden
                 = f.button :submit, value: t(".#{action}"),
