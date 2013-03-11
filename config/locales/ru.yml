@@ -95,7 +95,7 @@ ru:
         personal_data_processing: "Даю согласие на обработку персональных данных"
         reg: "Зарегистрироваться"
         cancel: "Отмена"
-    social:
+    auth:
       network:
         authorization_finish:
           auth_step: "Авторизация через социальные сети"

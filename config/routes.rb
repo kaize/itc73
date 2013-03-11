@@ -4,24 +4,24 @@ Itc73::Application.routes.draw do
 
   scope module: :web do
     root to: 'welcome#show'
-    resource :social, only: [] do
-      scope :module => :social do
-        resource :network, :controller => "network", :only => [] do
-          get :failure, :on => :member
-          put :authorization_finish, :on => :member
+    scope :module => :auth do
+      resource :network, :only => [] do
+        member do
+          get :failure
+          put :authorization_finish
         end
-        resource :facebook, :controller => "facebook", :only => [] do
-          get :callback, :on => :member
-        end
-        resource :vkontakte, :controller => "vkontakte", :only => [] do
-          get :callback, :on => :member
-        end
-        resource :twitter, :controller => "twitter", :only => [] do
-          get :callback, :on => :member
-        end
-        resource :github, :controller => "github", :only => [] do
-          get :callback, :on => :member
-        end
+      end
+      resource :facebook, :only => [] do
+        get :callback, :on => :member
+      end
+      resource :vkontakte, :only => [] do
+        get :callback, :on => :member
+      end
+      resource :twitter, :only => [] do
+        get :callback, :on => :member
+      end
+      resource :github, :only => [] do
+        get :callback, :on => :member
       end
     end
 

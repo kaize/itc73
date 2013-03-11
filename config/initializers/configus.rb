@@ -1,7 +1,7 @@
 Configus.build Rails.env do
   env :production do
     omniauth do
-      path_prefix '/social'
+      path_prefix ''
     end
     admin do
       email 'admin@np.kaize.ru'
@@ -83,6 +83,18 @@ Configus.build Rails.env do
     facebook do
       app_id '106746716171244'
       app_secret '74d7290db6060d909dbccb70c29d907e'
+    end
+    vkontakte do
+      app_id '3484081'
+      app_secret '8VgqkjhO8Pw9Zxonv9zi'
+    end
+    twitter do
+      app_id 'iBLmyTHI45Q9fC8g1mXUeg'
+      app_secret 'agnRiL1gUhHl9OmNNHUrkTLKsvw9TxN7RiwJ0CHaJg'
+    end
+    github do
+      app_id '870a8bd1f1535a4f3c98'
+      app_secret '9ec8618f3acfc50fd80899e02c786c499ad6b8a5'
     end
 
   end
