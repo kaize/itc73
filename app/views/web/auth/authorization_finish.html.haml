@@ -2,7 +2,7 @@
   %h1= t '.auth_step'
   .alert.alert-block
     %h5= t'.additional_info'
-= simple_form_for @user, :method => :put, url: authorization_finish_network_path do |f|
+= simple_form_for @user, :method => :put, url: authorization_finish_auth_path do |f|
   .row-fluid
     .span4
       %h4= t '.info'

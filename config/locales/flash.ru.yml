@@ -113,21 +113,20 @@ ru:
               success: 'Данные пользователя были успешно обновлены'
             trigger_state_event:
               success: "Состояние пользователя изменено"
-        networks:
+        auth:
           authorization_finish: &auth
             success: "Вы успешно авторизованы через социальную сеть"
             error: "Заполните недостающие поля"
           failure:
             error: "Авторизации не завершена"
-        github: &social_networks
-          callback:
+          github: 
             <<: *auth 
-        facebook:
-          <<: *social_networks
-        vkontakte:
-          <<: *social_networks
-        twitter:
-          <<: *social_networks
+          facebook:
+            <<: *auth 
+          vkontakte:
+            <<: *auth 
+          twitter:
+            <<: *auth 
         sessions:
           create:
             error: 'Неправильный email или пароль'
@@ -162,9 +161,3 @@ ru:
           create:
             success: "Письмо с инструкцией по восстановлению пароля успешно отправлено на указанный адрес"
             error: "Пользователь с данным email не найден"
-        social_network:
-          authorization:
-            error: "Вход через социальную сеть не произведен"
-            success: "Вход через социальную сеть успешно произведен"
-          failure:
-            error: 'Не предоставлено необходимых разрешений на доступ к аккаунту'

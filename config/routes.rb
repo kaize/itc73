@@ -1,26 +1,21 @@
 Itc73::Application.routes.draw do
 
   mount Ckeditor::Engine => '/ckeditor'
-  get '/failure' => 'web/networks#failure'
+  get '/auth/facebook/callback' => 'web/auth#facebook'
+  get '/auth/github/callback' => 'web/auth#github'
+  get '/auth/vkontakte/callback' => 'web/auth#vkontakte'
+  get '/auth/twitter/callback' => 'web/auth#twitter'
   scope module: :web do
     root to: 'welcome#show'
-    resource :network, :only => [] do
+    resource :auth, :only => [] do
       member do 
         get :failure
-        get :authorization_finish
+        put :authorization_finish
+        get :facebook
+        get :twitter
+        get :vkontakte
+        get :github
       end
-    end
-    resource :facebook, :only => [] do
-      get :callback, :on => :member
-    end
-    resource :vkontakte, :only => [] do
-      get :callback, :on => :member
-    end
-    resource :twitter, :only => [] do
-      get :callback, :on => :member
-    end
-    resource :github, :only => [] do
-      get :callback, :on => :member
     end
 
     resources :search, :only => [:index]
@@ -35,7 +30,6 @@ Itc73::Application.routes.draw do
     resources :users, only: [:new, :create] 
     resource :session, only: [:new, :create, :destroy]
     resource :remind_password, only: [:new, :create]
-    
     resource :account, only: [:edit, :update] do
       scope :module => :account do  
         resource :password, only: [:edit, :update]

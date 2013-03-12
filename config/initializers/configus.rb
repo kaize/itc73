@@ -1,8 +1,5 @@
 Configus.build Rails.env do
   env :production do
-    omniauth do
-      path_prefix ''
-    end
     admin do
       email 'admin@np.kaize.ru'
       password 'fPl7d9'
