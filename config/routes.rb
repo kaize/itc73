@@ -3,10 +3,7 @@ Itc73::Application.routes.draw do
   match "/404", :to => "web/errors#not_found"
   match "/500", :to => "web/errors#internal_error"
   mount Ckeditor::Engine => '/ckeditor'
-  get '/auth/facebook/callback' => 'web/auth#facebook'
-  get '/auth/github/callback' => 'web/auth#github'
-  get '/auth/vkontakte/callback' => 'web/auth#vkontakte'
-  get '/auth/twitter/callback' => 'web/auth#twitter'
+  get '/auth/:action/callback' => 'web/auth'
   scope module: :web do
     root to: 'welcome#show'
     resource :auth, :only => [] do
