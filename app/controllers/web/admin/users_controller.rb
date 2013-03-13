@@ -10,6 +10,7 @@ class Web::Admin::UsersController < Web::Admin::ApplicationController
       @course_name = Course.find_by_id(params[:course]).name
     end
     @q = User.ransack(query)
+    @users_count = @q.result.count.to_s
     @users = @q.result.page(params[:page])
   end
   def new
