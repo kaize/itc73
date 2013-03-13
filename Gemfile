@@ -25,6 +25,7 @@ gem 'validates'
 gem 'coveralls', require: false
 gem 'thinking-sphinx', '2.0.10'
 gem 'whenever'
+gem 'google-analytics-rails'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'axlsx_rails'
