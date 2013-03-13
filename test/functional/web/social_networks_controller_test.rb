@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class Web::AuthControllerTest < ActionController::TestCase
+class Web::SocialNetworksControllerTest < ActionController::TestCase
 
   setup do
     admin = create :user, :admin
@@ -19,18 +19,13 @@ class Web::AuthControllerTest < ActionController::TestCase
     assert_response :redirect
   end
 
-  test "should authorization finish" do
-    get :authorization_finish, user: @attrs
-    assert_response :redirect
-    assert signed_in? 
-  end
 
   test "should get authorization with facebook" do    
     @user.authorizations << build_authorization(@facebook_auth_hash)
     @user.save
 
     request.env['omniauth.auth'] = @facebook_auth_hash
-    get :facebook
+    get :authorization
     assert_response :redirect
 
     assert signed_in?
@@ -42,7 +37,7 @@ class Web::AuthControllerTest < ActionController::TestCase
     @user.save
 
     request.env['omniauth.auth'] = @facebook_auth_hash
-    get :facebook
+    get :authorization
     assert_response :redirect
 
     @user.reload
@@ -52,8 +47,8 @@ class Web::AuthControllerTest < ActionController::TestCase
 
   test "should get authorization with facebook on new user" do
     request.env['omniauth.auth'] = @facebook_auth_hash
-    get :facebook
-    assert_response :success
+    get :authorization
+    assert_response :redirect
   end
 
   test "should get authorization with github" do
@@ -61,7 +56,7 @@ class Web::AuthControllerTest < ActionController::TestCase
     @user.save
 
     request.env['omniauth.auth'] = @github_auth_hash
-    get :github
+    get :authorization
     assert_response :redirect
 
     assert signed_in?
@@ -73,7 +68,7 @@ class Web::AuthControllerTest < ActionController::TestCase
     @user.save
 
     request.env['omniauth.auth'] = @github_auth_hash
-    get :github
+    get :authorization
     assert_response :redirect
 
     @user.reload
@@ -83,8 +78,8 @@ class Web::AuthControllerTest < ActionController::TestCase
 
   test "should get authorization with github on new user" do
     request.env['omniauth.auth'] = @github_auth_hash
-    get :github
-    assert_response :success
+    get :authorization
+    assert_response :redirect
   end
 
   test "should get authorization with twitter" do
@@ -92,7 +87,7 @@ class Web::AuthControllerTest < ActionController::TestCase
     @user.save
 
     request.env['omniauth.auth'] = @twitter_auth_hash
-    get :twitter
+    get :authorization
     assert_response :redirect
 
     assert signed_in?
@@ -104,7 +99,7 @@ class Web::AuthControllerTest < ActionController::TestCase
     @user.save
 
     request.env['omniauth.auth'] = @twitter_auth_hash
-    get :twitter
+    get :authorization
     assert_response :redirect
 
     @user.reload
@@ -114,8 +109,8 @@ class Web::AuthControllerTest < ActionController::TestCase
 
   test "should get authorization with twitter on new user" do
     request.env['omniauth.auth'] = @twitter_auth_hash
-    get :twitter
-    assert_response :success
+    get :authorization
+    assert_response :redirect
   end
 
   test "should get authorization with vkontakte" do
@@ -123,7 +118,7 @@ class Web::AuthControllerTest < ActionController::TestCase
     @user.save
 
     request.env['omniauth.auth'] = @vkontakte_auth_hash
-    get :vkontakte
+    get :authorization
     assert_response :redirect
     assert signed_in?
 
@@ -135,7 +130,7 @@ class Web::AuthControllerTest < ActionController::TestCase
     @user.save
 
     request.env['omniauth.auth'] = @vkontakte_auth_hash
-    get :vkontakte
+    get :authorization
     assert_response :redirect
 
     @user.reload
@@ -145,8 +140,8 @@ class Web::AuthControllerTest < ActionController::TestCase
 
   test "should get authorization with vkontakte on new user" do
     request.env['omniauth.auth'] = @vkontakte_auth_hash
-    get :vkontakte
-    assert_response :success
+    get :authorization
+    assert_response :redirect
   end
 end
 
