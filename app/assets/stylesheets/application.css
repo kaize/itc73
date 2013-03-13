@@ -36,6 +36,19 @@
   word-wrap: break-word; 
 }
 
+.sidebar-nav-fixed {
+  width:250px;
+}
+
+.nav-list li{
+  display: block; 
+  word-wrap: break-word; 
+}
+
+.fixed-sidebar{
+  margin-left:50px;
+}
+
 .org {
   text-align: center;
 }

@@ -2,7 +2,7 @@
   %h4= t '.list_of_current_users', :name_course => @course_name
 - else
   %h4= t('.list_of_all_users')
-
+%h5= "#{t('.all')}#{@users.count.to_s}"
 %table.table.table-striped
   %thead
     %tr
