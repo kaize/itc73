@@ -1,5 +1,7 @@
 Itc73::Application.routes.draw do
 
+  match "/404", :to => "web/errors#not_found"
+  match "/500", :to => "web/errors#internal_error"
   mount Ckeditor::Engine => '/ckeditor'
 
   # omniauth-facebook
@@ -10,7 +12,11 @@ Itc73::Application.routes.draw do
     root to: 'welcome#show'
 
     resources :search, :only => [:index]
-    resources :courses, only: [:index, :show]
+    resources :courses, only: [:index, :show] do
+      collection do
+        get :track
+      end
+    end
     resources :pages, only: [:show] do
       collection do
         get :contacts

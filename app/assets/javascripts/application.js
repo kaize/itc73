@@ -5,7 +5,8 @@
 //= require jquery.ui.datepicker
 //= require jquery.ui.datepicker-ru
 //= require sortable
-
+//= require bootstrap
+//= require jscolor
 (function($) { $(function() {
 
   $('form').on('focusin', 'input.datepicker', function() {

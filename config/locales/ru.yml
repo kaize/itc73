@@ -25,6 +25,7 @@ ru:
           contacts: "Контакты"
           news: "Новости"
           schedule: "Расписание"
+          track: "Помощь в выборе курсов"
           query_placeholder: "Поиск по курсам"
         my_courses_nav:
           my_course: "Мои курсы"
@@ -60,6 +61,9 @@ ru:
         authorization: "авторизоваться"
         registration: "зарегистрироваться"
         slash: " / "
+      track:
+        header: "Помощь в выборе курсов"
+        popover_title: "Информация о курсе"
     news:
       index:
         news: "Новости"
@@ -95,6 +99,27 @@ ru:
         personal_data_processing: "Даю согласие на обработку персональных данных"
         reg: "Зарегистрироваться"
         cancel: "Отмена"
+      edit:
+        info: "Личная информация"
+        education: "Образование"
+        contacts: "Контактная информация"
+        redact_profile: "Изменить профиль"
+        subscribe: "Подписаться на рассылку событий НП"
+        cancel: "Отмена"
+    errors:
+      not_found: &error_content
+        title: "ITC"
+        hero_unit_title: "Центр обучения IT-специалистов!"
+        home: "Перейти на домашнюю страницу"
+        back: "Назад"
+        error_status: "404"
+        error_text: "Страница не найдена"
+        message: "Запрашиваемая страница не может быть найдена"
+      internal_error:
+        <<: *error_content
+        error_status: "500"
+        error_text: "Внутренняя ошибка сервера"
+        message: "Возникла ошибка на сервере"
     welcome:
       show:
         join: "Записаться на курсы"

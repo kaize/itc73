@@ -12,7 +12,7 @@ module ApplicationHelper
   def course_kinds
     Course::Kind.with_courses
   end
-  def courses_for_level(kind)
+  def levels_for_kind(kind)
     Course::Level.with_kind(kind)
   end
   def courses_in_main_list(level)

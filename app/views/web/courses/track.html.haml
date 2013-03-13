@@ -1,0 +1,23 @@
+.page-header
+  %h1= t('.header')
+    
+- course_kinds.each do |kind|
+  %h4{class: 'course-kind'}= kind
+
+  %table.table.table-striped
+    %thead 
+      %tr
+        -levels_for_kind(kind).each do |level|
+          %th
+            =level
+    %tbody
+      %tr
+        -levels_for_kind(kind).each do |level|
+          %td
+            .span2
+              - level.courses.each do |c|
+                .row
+                  .helper-button
+                    %p{style:"background-color:##{level.color};", class: 'btn active', rel: 'popover', 
+                      data: {:content => (c.note?) ? c.note : "", :placement => 'bottom'}}
+                      =c.name

@@ -11,4 +11,5 @@ class Web::CoursesController < Web::ApplicationController
     add_breadcrumb @course.name, course_path(@course)
     title @course.name
   end
+
 end
