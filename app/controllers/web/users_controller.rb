@@ -1,15 +1,28 @@
 class Web::UsersController < Web::ApplicationController
   def new
-    @user = UserRegistrationType.new
-    title t('.pages_in_titles.registration') 
+    title t('.pages_in_titles.registration')
+    if registration_by_soc_network?
+      @user = UserAuthType.new
+      provider = session_auth_hash[:provider]
+      @user = UserPopulator.method("via_#{provider}").call(@user, session_auth_hash)
+    else
+      @user = UserRegistrationType.new
+    end
   end
 
   def create
-    @user = UserRegistrationType.new params[:user]
+    @user = (registration_by_soc_network?) ? UserAuthType.new(params[:user]) : UserRegistrationType.new(params[:user])
     if @user.save
-      token = @user.build_auth_token
-      token.save!
-      UserMailer.confirm_registration(@user, token).deliver
+      if registration_by_soc_network?
+        @user.authorizations << build_authorization(session_auth_hash)
+        clear_session_auth_hash
+        @user.activate
+        sign_in @user
+      else
+        token = @user.build_auth_token
+        token.save!
+        UserMailer.confirm_registration(@user, token).deliver
+      end
       flash_success
       redirect_to root_path
     else

@@ -1,17 +1,13 @@
 Itc73::Application.routes.draw do
 
   mount Ckeditor::Engine => '/ckeditor'
-  get '/auth/:action/callback' => 'web/auth'
+  get '/auth/:provider/callback' => 'web/social_networks#authorization'
   scope module: :web do
     root to: 'welcome#show'
-    resource :auth, :only => [] do
+    resource :social_network, :only => [] do
       member do 
         get :failure
-        put :authorization_finish
-        get :facebook
-        get :twitter
-        get :vkontakte
-        get :github
+        get :authorization
       end
     end
 

@@ -1,6 +1,5 @@
 module ApplicationHelper
   include CustomUrlHelper
-
   def user_state_label(user)
     cls = "label label-user-#{user.state_name}"
     content_tag(:span, user.human_state_name, { class: cls })
@@ -31,4 +30,7 @@ module ApplicationHelper
     hash = send "hash_for_#{h}_path"
     params[:controller] == hash[:controller]
   end
+  def registration_by_soc_network?
+    session[:auth_hash] ? true : false
+  end 
 end
