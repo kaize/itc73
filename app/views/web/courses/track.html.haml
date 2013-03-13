@@ -16,7 +16,7 @@
           %td
             .span2
               - level.courses.each do |c|
-                .row
+                .row-fluid
                   .helper-button
                     %p{style:"background-color:##{level.color};", class: 'btn active', rel: 'popover', 
                       data: {:content => (c.note?) ? c.note : "", :placement => 'bottom'}}
