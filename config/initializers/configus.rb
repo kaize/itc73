@@ -48,8 +48,8 @@ Configus.build Rails.env do
       app_secret '904b7c96c0042a5548b9ae85e0382591'
     end
     vkontakte do
-      app_id '3482595'
-      app_secret 'PtTG18Tfck9UZxCY9k31'
+      app_id '3488742'
+      app_secret '2fKcIKZEHCFUrfJdP5ph'
     end
     twitter do
       app_id 'OlzSS51rkR5RSYDtH3EUmQ'

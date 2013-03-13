@@ -18,12 +18,13 @@ class Web::UsersController < Web::ApplicationController
         clear_session_auth_hash
         @user.activate
         sign_in @user
+        flash_notice
       else
         token = @user.build_auth_token
         token.save!
         UserMailer.confirm_registration(@user, token).deliver
+        flash_success
       end
-      flash_success
       redirect_to root_path
     else
       flash_error now: true
