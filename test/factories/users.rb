@@ -18,5 +18,9 @@ FactoryGirl.define do
     trait :reg do
       personal_data_processing "1"
     end
+
+    after(:create) do |u|
+      u.activate
+    end
   end
 end

@@ -18,13 +18,14 @@
 
   - if signed_in?
     - action = current_user.courses.include?(@course) ? "unscribe" : "subscribe"
-    = simple_form_for @course, :url => send("#{action}_course_user_path") do |f|
-      = f.input :id, :as => :hidden
-      = f.button :submit, value: t(".#{action}"),
-        class: "#{(current_user.courses.include?(@course)) ? 'btn btn-danger pull-right' : 'btn btn-info pull-right' }",
-        :confirm => t(".#{action}_confirm")
-  - else
-    = link_to t('.subscribe'), '#', class: 'btn btn-info pull-right disabled'
+    - if can_interact_with_course?(@course, action)
+      = simple_form_for @course, :url => send("#{action}_course_user_path") do |f|
+        = f.input :id, :as => :hidden
+        = f.button :submit, value: t(".#{action}"),
+          class: "#{(current_user.courses.include?(@course)) ? 'btn btn-danger pull-right' : 'btn btn-info pull-right' }",
+          :confirm => t(".#{action}_confirm")
+    - else
+      = link_to t('.subscribe'), '#', class: 'btn btn-info pull-right disabled'
 
 .tab-content
   .tab-pane.active#main

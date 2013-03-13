@@ -9,6 +9,10 @@ SimpleForm.setup do |config|
       ba.use :error, :wrap_with => { :tag => 'span', :class => 'help-inline' }
       ba.use :hint,  :wrap_with => { :tag => 'p', :class => 'help-block' }
     end
+    config.wrappers :inline, :tag => 'span', class: 'conrol-group', :error_class => 'error' do |b| 
+      b.use :input
+      b.use :error, :wrap_with => {:tag => 'span', :class => 'help-inline'}
+    end 
   end
 
   config.wrappers :state, :tag => 'div', :class => 'control-group', :error_class => 'error' do |b|

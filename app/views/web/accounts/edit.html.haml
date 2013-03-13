@@ -1,5 +1,5 @@
-= simple_form_for @user, url: user_path(@user.id) do |f|
-  .row
+= simple_form_for @user, url: account_path(@user) do |f|
+  .row-fluid
     .span4
       %h4= t '.info'
       %hr
@@ -17,13 +17,13 @@
       = f.input :edu_year_end, as: :edu_year_end, include_blank: false,
         input_html: { class: 'input-medium' }
       = f.input :workplace, input_html: { class: 'input-xlarge' }
-  .row
+  .row-fluid
     .span4
       %h4= t '.contacts'
       %hr
       = f.input :phone, input_html: { class: 'input-xlarge' }
     .span4
-  .row
+  .row-fluid
     .span8
       = f.input :subscribe, label: false, inline_label: t('.subscribe')
   

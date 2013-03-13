@@ -1,6 +1,5 @@
 module ApplicationHelper
   include CustomUrlHelper
-
   def user_state_label(user)
     cls = "label label-user-#{user.state_name}"
     content_tag(:span, user.human_state_name, { class: cls })
@@ -18,6 +17,9 @@ module ApplicationHelper
   def courses_in_main_list(level)
     level.courses - current_user.courses
   end
+  def can_interact_with_course?(course, action)
+    (course.published? && (course.allowed? || course.denied? && action.eql?("unscribe")))
+  end
   def header_needed?(level) 
     signed_in? && courses_in_main_list(level).any? || !signed_in? && level.courses.any?
   end
@@ -28,4 +30,7 @@ module ApplicationHelper
     hash = send "hash_for_#{h}_path"
     params[:controller] == hash[:controller]
   end
+  def registration_by_soc_network?
+    session[:auth_hash] ? true : false
+  end 
 end

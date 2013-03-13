@@ -26,3 +26,5 @@ ru:
         <<: *create_and_save
       user:
         <<: *create_and_save
+      timepad_maillists:
+        submit: "Отправить"

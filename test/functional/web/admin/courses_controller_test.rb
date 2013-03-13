@@ -3,7 +3,6 @@ require 'test_helper'
 class Web::Admin::CoursesControllerTest < ActionController::TestCase
   setup do
     admin = create :user, :admin
-    admin.activate
     sign_in admin
     @course = create :course
     @attrs = attributes_for :course

@@ -3,11 +3,9 @@ class Web::Admin::UsersControllerTest < ActionController::TestCase
 
   def setup
     admin = create :user, :admin
-    admin.activate
     sign_in admin
     @course = create :course
     @user = create :user
-    @user.activate
     @attrs = attributes_for :user
   end
 

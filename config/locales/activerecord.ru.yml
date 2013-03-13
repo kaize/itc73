@@ -71,6 +71,7 @@ ru:
         state_event: 'Действие'
         created_at: 'Дата создания'
         updated_at: 'Дата обновления'
+        courses: "Курсы"
     errors:
       models:
         material: &url_valid
@@ -83,6 +84,10 @@ ru:
           attributes:
             email:
               email: "некорректный адрес"
+        page: 
+          attributes:
+            slug:
+              slug: "некорректный псевдоним"
     state_machines:
       course: &publish_state
         state:

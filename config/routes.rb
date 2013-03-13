@@ -3,13 +3,15 @@ Itc73::Application.routes.draw do
   match "/404", :to => "web/errors#not_found"
   match "/500", :to => "web/errors#internal_error"
   mount Ckeditor::Engine => '/ckeditor'
-
-  # omniauth-facebook
-  get '/auth/facebook/callback' => 'web/social_network#authorization'
-  get '/auth/facebook/failure' => 'web/social_network#failure'
-
+  get '/auth/:provider/callback' => 'web/social_networks#authorization'
   scope module: :web do
     root to: 'welcome#show'
+    resource :social_network, :only => [] do
+      member do 
+        get :failure
+        get :authorization
+      end
+    end
 
     resources :search, :only => [:index]
     resources :courses, only: [:index, :show] do
@@ -27,7 +29,6 @@ Itc73::Application.routes.draw do
     resources :users, only: [:new, :create] 
     resource :session, only: [:new, :create, :destroy]
     resource :remind_password, only: [:new, :create]
-    
     resource :account, only: [:edit, :update] do
       scope :module => :account do  
         resource :password, only: [:edit, :update]
@@ -75,6 +76,11 @@ Itc73::Application.routes.draw do
           put :publish_state_event
         end
       end
+      resources :timepad_items, only: [] do
+        collection do
+          put :export
+        end
+      end
     end
   end
 
@@ -109,6 +115,13 @@ Itc73::Application.routes.draw do
         put :mass_update_order
       end
     end
+
+    resources :timepad_maillists, only: [] do
+      collection do
+        put :import
+      end
+    end
+
   end
 
 end

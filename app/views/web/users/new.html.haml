@@ -1,11 +1,19 @@
 .page-header
+-if registration_by_soc_network? 
+  %h1= t '.auth_step'
+  .alert.alert-block
+    %h5= t'.additional_info'
+-else
   %h1= t '.sign_up'
   %h4= t(".social_networks")
   = link_to image_tag('auth_providers/facebook.png'), sign_in_via_social_network_cpath(:facebook)
+  = link_to image_tag('auth_providers/twitter.png'), sign_in_via_social_network_cpath(:twitter)
+  = link_to image_tag('auth_providers/vkontakte.png'), sign_in_via_social_network_cpath(:vkontakte)
+  = link_to image_tag('auth_providers/github.png'), sign_in_via_social_network_cpath(:github)
 
-= render 'web/shared/user_tabs'
+  = render 'web/shared/user_tabs'
 
-.tab-content
-  .tab-pane.active#sign-up
-    = render 'sign_up'
+  .tab-content
+    .tab-pane.active#sign-up
+= render 'sign_up'
 

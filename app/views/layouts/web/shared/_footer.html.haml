@@ -1,9 +1,10 @@
 %hr
-.row
-  .footer
-    .span3
-      %p
-        &copy;
-        = t '.copyright'
-
-    = render 'layouts/web/shared/social'
+.footer
+  .container
+    .row
+      .span3
+        %p
+          &copy;
+          = t '.copyright'
+      .span9
+        = render 'layouts/web/shared/social'

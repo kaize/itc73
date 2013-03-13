@@ -1,6 +1,8 @@
 ru:
   breadcrumbs:
     web:
+      accounts:
+        edit: "Редактирование профиля"
       account:
         courses:
           index: "Мои курсы"

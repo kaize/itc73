@@ -1,4 +1,5 @@
 module CustomUrlHelper
+  extend ActiveSupport::Concern
 
   def sign_in_via_social_network_cpath(provider)
     "/auth/#{provider}"
