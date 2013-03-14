@@ -4,6 +4,7 @@ ru:
       course:
         name: "Название"
         note: "Примечание"
+        annotation: "Аннотация"
         description: "Описание"
         kind: "Тип"
         level: "Уровень"

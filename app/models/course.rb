@@ -20,6 +20,7 @@ class Course < ActiveRecord::Base
     :state_event, :subscribe_state
   validates :name, presence: true, length: { maximum: 255 }
   validates :note, length: {maximum: 100}
+  validates :annotation, length: { maximum: 255 }
   state_machine :state, initial: :new do
     state :new
     state :published
