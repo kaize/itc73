@@ -19,5 +19,5 @@
                 .row-fluid
                   .helper-button
                     %p{style:"background-color:##{level.color};", class: 'btn active', rel: 'popover', 
-                      data: {:content => (c.note?) ? c.note : "", :placement => 'bottom'}}
+                      data: {:content => (c.annotation?) ? c.annotation : "", :placement => 'bottom'}}
                       =c.name
