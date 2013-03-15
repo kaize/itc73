@@ -31,7 +31,6 @@ class Web::UsersController < Web::ApplicationController
       render :new
     end
   end
-
   def subscribe_course
     course = Course.find(params[:course][:id])
     current_user.courses << course

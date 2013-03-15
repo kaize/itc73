@@ -13,8 +13,7 @@
       %hr
       = f.association :graduate, collection: Graduate.asc_by_order_at,
         input_html: { class: 'input-xlarge'}, :include_blank => t('.please_select')
-      = f.input :university, collection: universities,
-        input_html: { class: 'input-xlarge' }, :include_blank => t('.please_select')
+      = f.input :university, input_html: { class: 'input-xlarge' }
       = f.input :edu_year_end, as: :edu_year_end, :include_blank => t('.select'),
         input_html: { class: 'input-medium' }
       = f.input :workplace, input_html: { class: 'input-xlarge' }

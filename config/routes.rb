@@ -90,6 +90,7 @@ Itc73::Application.routes.draw do
 
   namespace :api do
     resources :users, only: [:index]
+    resources :universities, only: [:index]
     resources :course_levels, only: [] do
       collection do
         put :mass_update_order
