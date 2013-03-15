@@ -1,7 +1,7 @@
 class Api::UniversitiesController < Api::ApplicationController
-  respond_to :json
   def index
-    @universities = User.universities_by_term params[:term]
+    users = User.like_by_university params[:term]
+    @universities = users.map(&:university).uniq
     respond_with(@universities)
   end
 end
