@@ -3,4 +3,7 @@ jQuery ->
   $(".tooltip").tooltip()
   $("a[rel=tooltip]").tooltip()
   $("p[rel=popover]").popover()
-  $(".popover-content").css({'width':'29px'})
+  $('input#user_university').autocomplete
+    source: Routes.api_universities_path()
+    minLength: 2
+

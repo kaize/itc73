@@ -8,9 +8,6 @@ module ApplicationHelper
     page = Page.find_by_slug("course_descriptions")
     page.present? ? page.body : nil
   end
-  def universities
-    User.asc_by_university.map(&:university).uniq
-  end
   def system_pages
     Page.where(slug: configus.page_slugs).asc_by_name
   end
