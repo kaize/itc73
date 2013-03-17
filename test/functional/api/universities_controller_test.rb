@@ -2,8 +2,7 @@ require 'test_helper'
 
 class Api::UniversitiesControllerTest < ActionController::TestCase
   setup do 
-    admin = create :user, :admin
-    sign_in admin
+    admin = create :user
   end
 
   test "should get index" do

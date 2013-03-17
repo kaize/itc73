@@ -1,4 +1,5 @@
 class Api::GraduatesController < Api::ApplicationController
+  before_filter :api_authenticate!
   def mass_update_order
     graduate_ids = params[:ids]
     graduates = Graduate.find(graduate_ids)
