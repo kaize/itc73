@@ -16,7 +16,7 @@ class Course < ActiveRecord::Base
   has_many :course_users
   has_many :users, :through => :course_users
 
-  attr_accessible :description, :note, :kind, :kind_id, :level, :level_id, :name, 
+  attr_accessible :description, :annotation, :note, :kind, :kind_id, :level, :level_id, :name, 
     :state_event, :subscribe_state
   validates :name, presence: true, length: { maximum: 255 }
   validates :note, length: {maximum: 100}
