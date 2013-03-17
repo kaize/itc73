@@ -106,6 +106,14 @@
 .social-public-links li{
   font-size: 18px !important;
 }
+.ui-menu{
+  width: 250px!important;
+  list-style: none;
+  a {
+    color: #000 !important;
+    text-decoration: none !important;
+  }
+}
 
 .footer {
   margin-bottom: 50px; /* Отступ снизу */

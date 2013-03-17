@@ -1,4 +1,5 @@
 class Api::CourseLevelsController < Api::ApplicationController
+  before_filter :api_authenticate!
   def mass_update_order
     level_ids = params[:ids]
     levels = Course::Level.find(level_ids)

@@ -49,6 +49,7 @@ class Web::SocialNetworksControllerTest < ActionController::TestCase
     request.env['omniauth.auth'] = @facebook_auth_hash
     get :facebook
     assert_response :redirect
+    assert session_auth_hash
   end
 
   test "should get authorization with github" do
@@ -80,6 +81,7 @@ class Web::SocialNetworksControllerTest < ActionController::TestCase
     request.env['omniauth.auth'] = @github_auth_hash
     get :github
     assert_response :redirect
+    assert session_auth_hash
   end
 
   test "should get authorization with twitter" do
@@ -111,6 +113,7 @@ class Web::SocialNetworksControllerTest < ActionController::TestCase
     request.env['omniauth.auth'] = @twitter_auth_hash
     get :twitter
     assert_response :redirect
+    assert session_auth_hash
   end
 
   test "should get authorization with vkontakte" do
@@ -142,6 +145,7 @@ class Web::SocialNetworksControllerTest < ActionController::TestCase
     request.env['omniauth.auth'] = @vkontakte_auth_hash
     get :vkontakte
     assert_response :redirect
+    assert session_auth_hash
   end
 end
 
