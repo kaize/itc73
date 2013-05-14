@@ -3,6 +3,6 @@ set :branch, :staging
 set :user, 'itc73_staging'
 set :keep_releases, 5
 
-role :web, "85.143.166.207"
-role :app, "85.143.166.207"
-role :db,  "85.143.166.207", primary: true
+role :web, "62.76.190.226"
+role :app, "62.76.190.226"
+role :db,  "62.76.190.226", primary: true
