@@ -4,7 +4,10 @@ module ApplicationHelper
     cls = "label label-user-#{user.state_name}"
     content_tag(:span, user.human_state_name, { class: cls })
   end
-
+  def course_descriptions_body
+    page = Page.find_by_slug("course_descriptions")
+    page.present? ? page.body : nil
+  end
   def system_pages
     Page.where(slug: configus.page_slugs).asc_by_name
   end

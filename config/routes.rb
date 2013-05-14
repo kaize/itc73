@@ -3,13 +3,17 @@ Itc73::Application.routes.draw do
   match "/404", :to => "web/errors#not_found"
   match "/500", :to => "web/errors#internal_error"
   mount Ckeditor::Engine => '/ckeditor'
-  get '/auth/:provider/callback' => 'web/social_networks#authorization'
+  get '/auth/:action/callback' => 'web/social_networks'
+  get '/auth/failure' => 'web/social_networks#failure'
   scope module: :web do
     root to: 'welcome#show'
     resource :social_network, :only => [] do
       member do 
         get :failure
-        get :authorization
+        get :facebook
+        get :vkontakte
+        get :twitter
+        get :github
       end
     end
 
@@ -86,6 +90,7 @@ Itc73::Application.routes.draw do
 
   namespace :api do
     resources :users, only: [:index]
+    resources :universities, only: [:index]
     resources :course_levels, only: [] do
       collection do
         put :mass_update_order

@@ -1,12 +1,12 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
-//= require jquery.ui.sortable
-//= require jquery.ui.datepicker
-//= require jquery.ui.datepicker-ru
+//= require jquery.ui.all
 //= require sortable
 //= require bootstrap
 //= require jscolor
+//= require js-routes
+
 (function($) { $(function() {
 
   $('form').on('focusin', 'input.datepicker', function() {

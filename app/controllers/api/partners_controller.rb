@@ -1,6 +1,6 @@
 class Api::PartnersController < Api::ApplicationController
   def mass_update_order
-    partners_ids = params[:ids]
+    partner_ids = params[:ids]
     partners = Partner.find(partner_ids)
 
     partner_ids.map!(&:to_i);

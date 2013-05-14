@@ -33,7 +33,7 @@ gem 'omniauth-github'
 gem 'omniauth-vkontakte'
 gem 'axlsx_rails'
 gem 'timepad'
-
+gem 'js-routes'
 
 group :assets do
   gem 'coffee-rails', '~> 3.2.1'

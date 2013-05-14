@@ -1,5 +1,4 @@
 class Api::TimepadMaillistsController < Api::ApplicationController
-  respond_to :json
 
   def import
     TimepadMaillistsImporter.run

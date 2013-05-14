@@ -206,6 +206,7 @@ ru:
           edit: "Редактировать"
           list_of_all_users: "Список всех пользователей"
           list_of_current_users: "Список пользователей по курсу '%{name_course}'"
+          all: "Всего: %{users_count}"
         form:
           activate_confirm: "Вы уверены, что хотите активировать пользователя?"
           cancel: "Отмена"
