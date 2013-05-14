@@ -1,5 +1,4 @@
 class Api::OrganizersController < Api::ApplicationController
-  before_filter :api_authenticate!
   def mass_update_order
     organizer_ids = params[:ids]
     organizers = Organizer.find(organizer_ids)

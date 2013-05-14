@@ -1,5 +1,4 @@
 class Api::UsersController < Api:: ApplicationController
-  before_filter :api_authenticate!
   respond_to :xlsx
   def index
     @users = User.active

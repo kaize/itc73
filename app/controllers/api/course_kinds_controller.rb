@@ -1,5 +1,4 @@
 class Api::CourseKindsController < Api::ApplicationController
-  before_filter :api_authenticate!
   def mass_update_order
     kind_ids = params[:ids]
     kinds = Course::Kind.find(kind_ids)
