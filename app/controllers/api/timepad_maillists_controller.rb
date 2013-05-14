@@ -1,5 +1,4 @@
 class Api::TimepadMaillistsController < Api::ApplicationController
-  before_filter :api_authenticate!
 
   def import
     TimepadMaillistsImporter.run

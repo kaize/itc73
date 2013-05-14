@@ -1,5 +1,4 @@
 class Api::PartnersController < Api::ApplicationController
-  before_filter :api_authenticate!
   def mass_update_order
     partner_ids = params[:ids]
     partners = Partner.find(partner_ids)
