@@ -1,4 +1,3 @@
-require 'thinking_sphinx/capistrano'
 set :rvm_type, :system
 set :stages, %w(production staging)
 set :default_stage, "staging"
