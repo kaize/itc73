@@ -10,6 +10,12 @@ module AuthHelper
     session[:user_id] = user.id
   end
 
+  def basic_auth
+    authenticate_or_request_with_http_basic do |user, password|
+      user == configus.basic_auth.username && password == configus.basic_auth.password
+    end
+  end
+
   def sign_in_by_token
     if params[:auth_token]
       token = User::AuthToken.find_by_authentication_token params[:auth_token]
