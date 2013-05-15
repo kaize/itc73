@@ -1,0 +1,17 @@
+attrs = [:first_name, :last_name, :patronymic, :email, :phone, :courses, :university, :birthday, :edu_year_end, :graduate, :workplace, :subscribe]
+xlsx_package.workbook.add_worksheet(name: 'sheet1') do |sheet|
+  style_th = sheet.workbook.styles.add_style b: true
+  style_td = sheet.workbook.styles.add_style alignment: { horizontal: :left }
+  sheet.add_row attrs.map { |c| User.human_attribute_name(c) }, style: style_th
+  @users.each do |user|
+    attrs_values = attrs.map do |a| 
+      if(a == :courses)
+        user.send(a).map(&:name).join(", ")
+      else    
+        user.send(a).to_s
+      end
+    end
+    row = sheet.add_row attrs_values, style: style_td
+  end
+end
+

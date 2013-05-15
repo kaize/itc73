@@ -9,18 +9,18 @@ FactoryGirl.define do
     edu_year_end { generate :year }
     graduate
     phone { generate :string }
-
-    trait :active do
-      state :active
-    end
+    subscribe true 
 
     trait :admin do
-      state :active
       admin true
     end
 
     trait :reg do
-      personal_data_processing true
+      personal_data_processing "1"
+    end
+
+    after(:create) do |u|
+      u.activate
     end
   end
 end

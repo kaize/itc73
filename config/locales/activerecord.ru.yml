@@ -3,15 +3,18 @@ ru:
     attributes:
       course:
         name: "Название"
+        annotation: "Аннотация"
         description: "Описание"
         kind: "Тип"
         level: "Уровень"
         state: "Состояние"
         state_event: "Изменить состояние"
+        subscribe_state: "Запись"
       course/kind:
         name: "Тип"
       course/level:
         name: "Уровень"
+        color: "Цвет"
       graduate:
         name: "Степень"
       material:
@@ -29,14 +32,18 @@ ru:
         state_event: "Изменить состояние"
         image: "Изображение"
         published_at: "Дата публикации"
-      organizer:
+      organizer: &firm
         name: "Название"
         url: "URL"
         image: "Логотип"
+      partner:
+        <<: *firm
       page:
         name: "Заголовок"
-        slug: "Алиас"
+        slug: "Slug"
         body: "Содержание"
+        state_event: "Сменить статус"
+        state: "Статус"
       task:
         description: "Описание"
         name: "Название"
@@ -46,8 +53,10 @@ ru:
       task/file:
         file: "Файл"
       user:
+        id: 'id '
         first_name: 'Имя'
         last_name: 'Фамилия'
+        patronymic: 'Отчество'
         password: 'Пароль'
         password_confirmation: 'Подтверждение пароля'
         email: "Адрес эл. почты"
@@ -56,28 +65,32 @@ ru:
         birthday: "Дата рождения"
         university: "Учебное заведение"
         edu_year_end: "Год окончания"
+        workplace: "Место работы"
         phone: "Номер телефона"
         graduate: "Уровень образования"
         state: 'Состояние'
         state_event: 'Действие'
         created_at: 'Дата создания'
         updated_at: 'Дата обновления'
+        courses: "Курсы"
     errors:
       models:
-        material:
+        material: &url_valid
           attributes:
             url:
               url: "некорректный адрес"
         task:
-          attributes:
-            url:
-              url: "некорректный адрес"
+          <<: *url_valid
         user:
           attributes:
             email:
               email: "некорректный адрес"
+        page: 
+          attributes:
+            slug:
+              slug: "некорректный псевдоним"
     state_machines:
-      course:
+      course: &publish_state
         state:
           states:
             new: "Новый"
@@ -85,25 +98,27 @@ ru:
             unpublished: "Скрыт"
           events:
             publish: "Опубликовать"
+            unpublish: "Скрыть"
+        subscribe_state:
+          states:
+            allowed: "Открыта"
+            denied: "Закрыта"
+          events:
+            allow: "Открыть"
+            deny: "Закрыть"
+      page:
+        state:
+          states:
+            new: "Новая"
+            published: "Показана"
+            unpublished: "Скрыта"
+          events:
+            publish: "Показать"
             unpublish: "Скрыть"
       material:
-        state:
-          states:
-            new: "Новый"
-            published: "Опубликован"
-            unpublished: "Скрыт"
-          events:
-            publish: "Опубликовать"
-            unpublish: "Скрыть"
+        <<: *publish_state
       task:
-        state:
-          states:
-            new: "Новый"
-            published: "Опубликован"
-            unpublished: "Скрыт"
-          events:
-            publish: "Опубликовать"
-            unpublish: "Скрыть"
+        <<: *publish_state
       news:
         state:
           states:

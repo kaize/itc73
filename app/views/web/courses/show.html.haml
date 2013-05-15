@@ -1,12 +1,31 @@
-%ul.nav.nav-pills.pull-right
+.page-header
+  %h1= @course
+
+%ul.nav.nav-tabs
+  - if !signed_in?    
+    .pagination-centered
+      %h5
+        = t('.need_authorization')
+        = link_to t('.authorization'), new_session_path
+        = t('.slash')
+        = link_to t('.registration'), new_user_path
+  
   %li.active= link_to t('.main'), '#main', data: { toggle: 'tab' }
   - if @course.materials.published.any?
     %li= link_to t('.materials'), '#materials', data: { toggle: 'tab' }
   - if @course.tasks.published.any?
     %li= link_to t('.tasks'), '#tasks', data: { toggle: 'tab' }
 
-.page-header
-  %h1= @course.name
+  - if signed_in?
+    - action = current_user.courses.include?(@course) ? "unscribe" : "subscribe"
+    - if can_interact_with_course?(@course, action)
+      = simple_form_for @course, :url => send("#{action}_course_user_path") do |f|
+        = f.input :id, :as => :hidden
+        = f.button :submit, value: t(".#{action}"),
+          class: "#{(current_user.courses.include?(@course)) ? 'btn btn-danger pull-right' : 'btn btn-info pull-right' }",
+          :confirm => t(".#{action}_confirm")
+    - else
+      = link_to t('.subscribe'), '#', class: 'btn btn-info pull-right disabled'
 
 .tab-content
   .tab-pane.active#main

@@ -1,6 +1,11 @@
 ru:
   breadcrumbs:
     web:
+      accounts:
+        edit: "Редактирование профиля"
+      account:
+        courses:
+          index: "Мои курсы"
       admin:
         application:
           index: "Админка"
@@ -35,6 +40,10 @@ ru:
           index: "Организаторы"
           new: "Добавление организатора"
           edit: "Редактирование организатора"
+        partners:
+          index: "Партнеры"
+          new: "Добавление партнера"
+          edit: "Редактирование партнера"
         pages:
           index: "Страницы сайта"
           edit: "Редактирование страницы"
@@ -53,6 +62,5 @@ ru:
         index: "Курсы"
       news:
         index: "Новости"
-      user:
-        sessions:
-          index: "Вход"
+      sessions:
+        index: "Вход"

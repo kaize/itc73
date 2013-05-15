@@ -1,5 +1,7 @@
 = simple_form_for @level, url: url do |f|
   = f.input :name, input_html: { class: 'input-xxlarge' }
+  = f.input :color, input_html: { class: 'color' }
+  #colorpicker
   .form-actions
     = f.button :submit, class: 'btn btn-primary'
     = link_to t('.cancel'), admin_course_levels_path, class: 'btn'

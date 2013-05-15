@@ -2,7 +2,7 @@ class Web::Admin::PagesController < Web::Admin::ApplicationController
   add_breadcrumb :index, :admin_pages_path
 
   def index
-    query = params[:q] || { s: 'slug' }
+    query = params[:q] || { s: 'name' }
     @q = Page.ransack(query)
     @pages = @q.result.page(params[:page])
   end
@@ -56,4 +56,11 @@ class Web::Admin::PagesController < Web::Admin::ApplicationController
     end
   end
 
+  def publish_state_event
+    @page = Page.find(params[:id])
+    @page.fire_state_event(params[:event])
+
+    flash_success
+    redirect_to action: :index
+  end
 end

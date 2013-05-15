@@ -1,8 +1,0 @@
-= simple_form_for :session, url: user_session_path do |f|
-  .row
-    .span4
-      = f.input :email, input_html: { class: 'input-xlarge', value: @email }
-      = f.input :password, input_html: { class: 'input-xlarge' }
-  .form-actions
-    = f.button :submit, class: 'btn-primary'
-

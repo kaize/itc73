@@ -54,4 +54,11 @@ class Web::Admin::PagesControllerTest < ActionController::TestCase
 
     assert Page.exists?(page)
   end
+  test "should put publish_state_event" do
+    put :publish_state_event, id: @page.id, event: :publish
+    assert_response :redirect
+
+    @page.reload
+    assert @page.published?
+  end
 end

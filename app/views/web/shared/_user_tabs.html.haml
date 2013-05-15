@@ -1,5 +1,5 @@
 %ul.nav.nav-tabs
-  - [:new_user_session, :new_user].each do |h|
+  - ["new_session", "new_user"].each do |h|
     - path = send "#{h}_path"
-    %li{class: "#{'active' if current_page?(path)}"}= link_to t(".#{h}"), path
+    %li{class: "#{'active' if active_item?(h)}"}= link_to t(".#{h}"), path
 

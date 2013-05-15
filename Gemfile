@@ -8,11 +8,11 @@ gem 'configus'
 gem 'ckeditor'
 gem 'draper'
 gem 'haml-rails'
-#gem 'jbuilder'
+gem 'jbuilder'
 gem 'kaminari'
 gem 'mini_magick'
 gem 'pg'
-gem 'rails', '3.2.9'
+gem 'rails'
 gem 'ransack'
 gem 'russian'
 gem 'sanitize'
@@ -22,6 +22,18 @@ gem 'twitter-bootstrap-rails'
 gem 'unicorn'
 gem 'usefull_scopes', git: 'https://github.com/kaize/usefull_scopes.git'
 gem 'validates'
+gem 'coveralls', require: false
+gem 'thinking-sphinx', '2.0.10'
+gem 'whenever'
+gem 'google-analytics-rails'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+gem 'omniauth-github'
+gem 'omniauth-vkontakte'
+gem 'axlsx_rails'
+gem 'timepad'
+gem 'js-routes'
 
 group :assets do
   gem 'coffee-rails', '~> 3.2.1'
@@ -36,10 +48,11 @@ end
 
 group :development do
   gem 'capi'
-  gem 'capistrano'
+  gem 'capistrano', '2.13.5'
   gem 'capistrano-ext'
   gem 'quiet_assets'
   gem 'rvm-capistrano'
+  gem "better_errors"
 end
 
 group :test do
@@ -49,6 +62,7 @@ group :test do
   gem 'simplecov', require: false
   gem 'tconsole'
   gem 'turn'
+  gem "mocha", :require => false
 end
 
 # gem 'ruby-debug19', :require => 'ruby-debug'

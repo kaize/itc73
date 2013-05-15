@@ -4,6 +4,7 @@
     = render 'layouts/web/shared/head'
     = stylesheet_link_tag 'application'
     = javascript_include_tag 'application'
+    = analytics_init :local => Rails.env.production?
   %body
     .navbar.navbar-fixed-top
       .navbar-inner
@@ -24,19 +25,22 @@
                     %i.icon-user
                     = current_user.first_name
                     %b.caret
-                  - if current_user.admin?
+                  - if signed_in?
                     %ul.dropdown-menu
-                      = render 'layouts/web/admin/shared/nav'
-                      %li.divider
-                      %li= link_to t('.profile'), '#'
-                      %li= link_to t('.sign_out'), user_session_path, method: :delete
+                      - if current_user.admin? 
+                        = render 'layouts/web/admin/shared/nav'
+                        %li.divider
+                      %li= link_to t('.my_courses'), account_courses_path
+                      %li= link_to t('.profile'),  edit_account_path
+                      %li= link_to t('.sign_out'), session_path, method: :delete
               - else
-                %li{class: "#{'active' if current_page?(new_user_session_path)}"}
-                  = link_to t('.sign_in'), new_user_session_path
+                %li{class: "#{'active' if current_page?(new_session_path)}"}
+                  = link_to t('.sign_in'), new_session_path
     .container
-      .row
+      .row-fluid
         .span3
           = yield :sidebar_top
+          = render 'layouts/web/shared/my_courses_nav'
           = render 'layouts/web/shared/courses_nav'
           = yield :sidebar_bottom
         .span9
@@ -45,4 +49,4 @@
           = yield
       = render 'layouts/web/shared/partners'
       = render 'layouts/web/shared/footer'
-  = render 'layouts/web/shared/reformal'
+  = render 'layouts/web/shared/feedbacks'

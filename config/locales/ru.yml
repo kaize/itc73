@@ -1,11 +1,20 @@
 ru:
   base_title: "ITC"
+  pages_in_titles:
+    main: "Главная"
+    courses: "Курсы"
+    news: "Новости"
+    contacts: "Контакты"
+    search: "Поиск"
+    registration: "Регистрация"
+    authorization: "Авторизация"
   layouts:
     web:
       application:
         title: "ITC"
         admin: "Админка"
         profile: "Профиль"
+        my_courses: "Мои курсы"
         sign_out: "Выход"
         sign_in: "Вход"
       shared:
@@ -13,9 +22,13 @@ ru:
           copyright: "2012 НП «Содействие развитию ИТ»"
         nav:
           about: "О проекте"
-          contacts_pages: "Контакты"
-          news_index: "Новости"
+          contacts: "Контакты"
+          news: "Новости"
           schedule: "Расписание"
+          track: "Помощь в выборе курсов"
+          query_placeholder: "Поиск по курсам"
+        my_courses_nav:
+          my_course: "Мои курсы"
         partners:
           org: "Организаторы"
           partners: "Партнеры"
@@ -30,21 +43,58 @@ ru:
         main: "Описание"
         materials: "Материалы"
         tasks: "Задания"
+        subscribe: "Записаться"
+        unscribe: "Отписаться"
+        subscribe_confirm: "Вы уверены, что хотите записаться на данный курс?"
+        unscribe_confirm: "Вы уверены, что хотите отписаться от данного курса?"
+        need_authorization: "Для записи на курсы необходимо"
+        authorization: "авторизоваться"
+        registration: "зарегистрироваться"
+        slash: " / "
+      index:
+        index_header: "Доступные курсы"
+        subscribe: "Записаться" 
+        unscribe: "Отписаться"
+        subscribe_confirm: "Вы уверены, что хотите записаться на данный курс?"
+        unscribe_confirm: "Вы уверены, что хотите отписаться от данного курса?"
+        need_authorization: "Для записи на курсы необходимо"
+        authorization: "авторизоваться"
+        registration: "зарегистрироваться"
+        slash: " / "
+      track:
+        header: "Помощь в выборе курсов"
+        popover_title: "Информация о курсе"
     news:
       index:
         news: "Новости"
     shared:
       user_tabs:
-        new_user_session: "Войти на сайт"
+        new_session: "Войти на сайт"
         new_user: "Зарегистрироваться"
-    user:
-      sessions:
-        new:
-          sign_in: "Вход"
+    sessions:
+      new:
+        sign_in: "Вход"
+      sign_in:
+        forgot_password: "Забыли пароль?"
+        social_networks: "Вы можете использовать для входа социальные сети:"
+        save: "Войти"
+    accounts: 
+      edit:
+        info: "Личная информация"
+        education: "Образование"
+        contacts: "Контактная информация"
+        redact_profile: "Изменить профиль"
+        subscribe: "Подписаться на рассылку событий НП"
+        cancel: "Отмена"
     users:
       new:
-        sign_up: "Регистрация"
+        sign_up: "Региcтрация"
+        social_networks: "Вы можете использовать для входа социальные сети: "
+        additional_info: "Уважаемый пользователь. Остался всего один шаг, заполните недостающие поля."
+        auth_step: "Авторизация через социальные сети"
       sign_up:
+        please_select: "Пожалуйста выберите"
+        select: "Выберите"
         info: "Личная информация"
         education: "Образование"
         contacts: "Контактная информация"
@@ -52,8 +102,56 @@ ru:
         subscribe: "Подписаться на рассылку событий НП"
         personal_data_processing: "Даю согласие на обработку персональных данных"
         reg: "Зарегистрироваться"
+        authentificate: "Авторизоваться"
+        cancel: "Отмена"
+      edit:
+        info: "Личная информация"
+        education: "Образование"
+        contacts: "Контактная информация"
+        redact_profile: "Изменить профиль"
+        subscribe: "Подписаться на рассылку событий НП"
+        cancel: "Отмена"
+    errors:
+      not_found: &error_content
+        title: "ITC"
+        hero_unit_title: "Центр обучения IT-специалистов!"
+        home: "Перейти на домашнюю страницу"
+        back: "Назад"
+        error_status: "404"
+        error_text: "Страница не найдена"
+        message: "Запрашиваемая страница не может быть найдена"
+      internal_error:
+        <<: *error_content
+        error_status: "500"
+        error_text: "Внутренняя ошибка сервера"
+        message: "Возникла ошибка на сервере"
     welcome:
       show:
         join: "Записаться на курсы"
         hero_unit_title: "Центр обучения<br>IT-специалистов!"
         hero_unit_content: "<br>Хочешь работать и зарабатывать в IT? Пройди обучение на курсах повышения IT-компетенции! Повышай свой профессиональный уровень!"
+    account:
+      passwords:
+        edit:
+          password_reset: "Изменение пароля"
+          reset: "Изменить"
+      courses:
+        index:
+          own_courses: "Мои курсы"
+          unscribe: "Отписаться"
+          unscribe_confirm: "Вы уверены, что хотите отписаться от данного курса?"
+          advice: "У вас еще нет курсов. Перечень доступных курсов можно посмотреть"
+          here: "тут"
+    remind_passwords:
+      new:
+        password_recovery: "Восстановление пароля"
+        recovery: "Восстановить"
+    search:
+      index:
+        search_title: "Результат поиска по запросу '%{query}'"
+        nothing_result: "По запросу '%{query}' ничего не найдено"
+  user_mailer:
+    confirm_registration:
+      subject: "Подтверждение регистрации"
+    remind_password:
+      subject: "Восстановление пароля"

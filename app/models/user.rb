@@ -1,19 +1,23 @@
 class User < ActiveRecord::Base
   include UserRepository
 
-  has_secure_password
-
+  has_many :auth_tokens
+  has_many :authorizations  
+  has_many :course_users
+  has_many :courses, :through => :course_users
   belongs_to :graduate
 
   attr_accessible :birthday, :university, :edu_year_end, :graduate, :graduate_id, :email,
-    :first_name, :last_name, :password, :phone, :state, :subscribe, :admin
+   :first_name, :last_name, :patronymic, :password, :password_confirmation, :phone, :workplace, :subscribe, :state
 
-  validates :email, presence: true, email: true, uniqueness: { case_sensitive: false }
-  validates :password, length: { minimum: 6 }, allow_blank: true
-  validates :password, presence: true, on: :create
+
+  validates :email, presence: true, email: true, uniqueness: { case_sensitive: true }
+  validates :password, length: { minimum: 6 }, allow_blank: true, confirmation: true
   validates :first_name, presence: true, length: { maximum: 255 }
   validates :last_name, presence: true, length: { maximum: 255 }
+  validates :patronymic, length: { maximum: 255 }
   validates :education, length: { maximum: 255 }
+  validates :workplace, length: { maximum: 255 }
 
   state_machine :state, initial: :new do
     state :new
@@ -31,6 +35,25 @@ class User < ActiveRecord::Base
 
   def guest?
     false
+  end
+
+  def build_auth_token
+    token = SecureHelper.generate_token
+    expired_at = Time.current + configus.token.lifetime
+    auth_tokens.build :authentication_token => token, :expired_at => expired_at
+  end
+
+  def authenticate(password)
+    self.password_digest == Digest::MD5.hexdigest(password)
+  end
+
+  def password=(password)
+    @real_password = password
+    self.password_digest = Digest::MD5.hexdigest(password)
+  end
+
+  def password
+    @real_password
   end
 
   class << self

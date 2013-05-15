@@ -18,6 +18,90 @@
 }
 
 .hero-unit {
-  padding: 40px; 60px;
+  padding: 40px 60px;
   background-color: #f5f5f5;
+}
+
+.helper-button {
+  margin: 5px;
+}
+
+.course-kind {
+  margin: 30px;
+  text-align: center;
+}
+
+.sidebar-nav-fixed {
+  width:250px;
+}
+
+.nav-list li{
+  display: block; 
+  word-wrap: break-word; 
+}
+
+.fixed-sidebar{
+  margin-left:50px;
+}
+
+.org {
+  text-align: center;
+}
+
+.org-image {
+  margin: 10px
+}
+
+.social-share-links {
+  float: right;
+  height: 36px;
+  padding-top: 24px;
+}
+
+.social-share-links li {
+  float: left;
+  margin-left: 10px;
+  height: 20px;
+}
+
+.counter-links { 
+  padding-top: 22px;
+  margin-left: 30px;
+}
+.counter-links li {
+  display: inline;
+  width: 31px;
+  height: 31px;
+  overflow: hidden;
+}
+.counter-links ul{
+  display:inline;
+  margin: 0;
+}
+.social-share-links ul {
+  list-style:none;
+  margin: 0;
+}
+.social-public-links ul {
+  list-style: none;
+  margin: 0;
+}
+.social-public-links list {
+  float: left;
+  margin-right: 10px;
+}
+.social-public-links li{
+  font-size: 18px !important;
+}
+.ui-menu{
+  width: 250px!important;
+  list-style: none;
+  a {
+    color: #000 !important;
+    text-decoration: none !important;
+  }
+}
+
+.footer {
+  margin-bottom: 50px; /* Отступ снизу */
 }

@@ -7,11 +7,16 @@ ru:
           title: "Админка"
           index: "На главную"
           sign_out: "Выйти"
+          directory: "Справочники"
+          course_levels: "Уровни сложности курсов"
+          course_kinds: "Типы курсов"
+          graduates: "Уровни образования"
         shared:
           nav:
             courses: "Курсы"
             materials: "Материалы"
             organizers: "Организаторы"
+            partners: "Партнеры"
             pages: "Страницы сайта"
             tasks: "Задания"
             users: "Пользователи"
@@ -29,8 +34,16 @@ ru:
           materials: "Материалы"
           tasks: "Задания"
         index:
+          list: "Список курсов"
           delete: "Удалить"
           delete_confirm: "Вы уверены, что хотите удалить курс?"
+          deny_confirm: "Вы уверены, что хотите закрыть запись на курс?"
+          allow_confirm: "Вы уверены, что хотите открыть запись на курс?"
+          title_allow_confirm: "Открыть запись на курс"
+          title_deny_confirm: "Закрыть запись на курс"
+          title_users: "Список пользователей курса"
+          title_edit: "Редактировать курс"
+          title_delete: "Удалить курс"
         sidebar:
           new_course: "Добавить курс"
           kinds: "Типы курсов"
@@ -39,24 +52,42 @@ ru:
           add_file: "Добавить файл"
         task_fields:
           add_file: "Добавить файл"
+        edit:
+          title_edit: "Редактирование курса"
+        new:
+          title_new: "Создание курса"
+        file_fields:
+          white_list_formats: "Разрешенные расширения файлов: zip, 7z, rar, tar, gz, bz2, doc, docx, xls, xlsx, odt, ods, txt, rtf, pdf, jpg, jpeg, gif, png"
       course_kinds:
         form:
           delete: "Удалить"
           cancel: "Отмена"
           delete_confirm: "Вы уверены, что хотите удалить тип?"
         index:
-          delete: "Удалить"
+          list: "Список типов курсов"
+          title_edit: "Редактировать виды курсов"
           delete_confirm: "Вы уверены, что хотите удалить тип?"
+        edit:
+          title_edit: "Редактирование типов курсов"
+        new:
+          title_new: "Создание типов курса"
         sidebar:
           new: "Добавить тип курса"
       course_levels:
         form:
           delete: "Удалить"
+          delete: "Удалить"
           cancel: "Отмена"
           delete_confirm: "Вы уверены, что хотите удалить уровень сложности?"
         index:
+          list: "Список уровней курсов"
+          title_edit: "Редактировать уровни"
           delete: "Удалить"
           delete_confirm: "Вы уверены, что хотите удалить уровень сложности?"
+        edit:
+          title_edit: "Редактирование уровней курсов"
+        new:
+          title_new: "Создание уровней курса"
         sidebar:
           new: "Добавить уровень"
       graduates:
@@ -65,8 +96,14 @@ ru:
           cancel: "Отмена"
           delete_confirm: "Вы уверены, что хотите удалить степень?"
         index:
+          list: "Список уровней образования"
+          title_edit: "Редактировать обучающихся"
           delete: "Удалить"
           delete_confirm: "Вы уверены, что хотите удалить степень?"
+        edit:
+          title_edit: "Редактирование уровня образования"
+        new:
+          title_new: "Создание уровня образования"
         sidebar:
           new: "Добавить степень"
       materials:
@@ -75,8 +112,14 @@ ru:
           cancel: "Отмена"
           delete_confirm: "Вы уверены, что хотите удалить материал?"
         index:
+          list: "Список материалов"
+          title_edit: "Редактировать материалы"
           delete: "Удалить"
           delete_confirm: "Вы уверены, что хотите удалить материал?"
+        edit:
+          title_edit: "Редактирование материалов"
+        new:
+          title_new: "Создание материалов"
         sidebar:
           new: "Добавить материал"
       news:
@@ -85,8 +128,14 @@ ru:
           cancel: "Отмена"
           delete_confirm: "Вы уверены, что хотите удалить новость?"
         index:
+          list: "Список новостей"
+          title_edit: "Редактировать новости"
           delete: "Удалить"
           delete_confirm: "Вы уверены, что хотите удалить новость?"
+        edit:
+          title_edit: "Редактирование новости"
+        new:
+          title_new: "Создание новости"
         sidebar:
           new_news: "Добавить новость"
       organizers:
@@ -95,10 +144,28 @@ ru:
           cancel: "Отмена"
           delete_confirm: "Вы уверены, что хотите удалить организатора?"
         index:
+          list: "Список организаторов"
+          title_edit: "Редактировать организаторов"
           delete: "Удалить"
           delete_confirm: "Вы уверены, что хотите удалить организатора?"
+        edit:
+          title_edit: "Редактирование организатора"
+        new:
+          title_new: "Создание организатора"
         sidebar:
           new: "Добавить организатора"
+      partners:
+        form:
+          delete: "Удалить"
+          cancel: "Отмена"
+          delete_confirm: "Вы уверены, что хотите удалить партнера?"
+        index:
+          list: "Список партнеров"
+          title_edit: "Редактировать партнеров"
+          delete: "Удалить"
+          delete_confirm: "Вы уверены, что хотите удалить партнера?"
+        sidebar:
+          new: "Добавить партнера"
       pages:
         sidebar:
           new_page: "Добавить страницу"
@@ -107,7 +174,13 @@ ru:
           delete: "Удалить"
           cancel: "Отмена"
           delete_confirm: "Вы уверены, что хотите удалить страницу?"
+        edit:
+          title_edit: "Редактирование страницы"
+        new:
+          title_new: "Создание страницы"
         index:
+          list: "Список Страниц"
+          title_edit: "Редактировать страницы"
           delete_confirm: "Вы уверены, что хотите удалить страницу?"
       tasks:
         form:
@@ -115,19 +188,36 @@ ru:
           cancel: "Отмена"
           delete_confirm: "Вы уверены, что хотите удалить задание?"
         index:
+          list: "Список заданий"
+          titke_edit: "Редактировать задания"
           delete: "Удалить"
           delete_confirm: "Вы уверены, что хотите удалить задание?"
+        edit:
+          title_edit: "Редактирование задания" 
+        new:
+          title_new: "Создание  задания"
         sidebar:
           new: "Добавить задание"
       users:
         index:
+          title_edit: "Редактировать пользователей"
           activate_confirm: "Вы уверены, что хотите активировать пользователя?"
           delete_confirm: "Вы уверены, что хотите дизактивировать пользователя?"
           edit: "Редактировать"
+          list_of_all_users: "Список всех пользователей"
+          list_of_current_users: "Список пользователей по курсу '%{name_course}'"
+          all: "Всего: %{users_count}"
         form:
           activate_confirm: "Вы уверены, что хотите активировать пользователя?"
           cancel: "Отмена"
           delete_confirm: "Вы уверены, что хотите дизактивировать пользователя?"
+        edit:
+          title_edit: "Редактирование пользователя" 
+        new:
+          title_new: "Создание пользователя"
         sidebar:
+          refresh_timepad: "Обновить меню списков"
+          timepad: "Экспортировать в список рассылки"
+          xls: "Экспортировать в xlsx"
           new_user: "Добавить пользователя"
-
+          graduates: "Уровни образования"

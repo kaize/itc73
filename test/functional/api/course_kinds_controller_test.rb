@@ -3,6 +3,7 @@ require 'test_helper'
 class Api::CourseKindsControllerTest < ActionController::TestCase
   setup do
     admin = create :user, :admin
+    admin.activate
     sign_in admin
 
     @kind = create :course_kind

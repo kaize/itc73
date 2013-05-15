@@ -1,4 +1,9 @@
 %ul.nav
-  - [:about, :schedule, :news_index, :contacts_pages].each do |h|
-    - path = send "#{h}_path"
-    %li{class: "#{'active' if current_page?(path)}"}= link_to t(".#{h}"), path
+  %li= link_to t(".about"), page_path(:about)
+  %li= link_to t(".schedule"), page_path(:schedule)
+  %li= link_to t(".news"), news_index_path
+  %li= link_to t(".contacts"), contacts_pages_path
+  %li= link_to t(".track"), track_courses_path
+
+  = form_tag search_index_path, :method => :get, :id => 'search', :class => 'navbar-search pull-left' do
+    = search_field_tag 'term', '', :placeholder => t('.query_placeholder'), :class => 'search-query span3'

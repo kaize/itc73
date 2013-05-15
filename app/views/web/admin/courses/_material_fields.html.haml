@@ -1,7 +1,9 @@
 .nested-fields.well
   = link_to_remove_association f, class: 'close' do
     %i.icon-trash
-  = f.input :name, input_html: { class: 'input-xxlarge' }
+  = f.input :name, input_html: { class: 'input-xxlarge' } 
+  = f.input :description, as: :ckeditor,
+    input_html: { class: 'input-block-level' }
   = f.input :url, input_html: { class: 'input-xxlarge' }
   .row
     .span5
@@ -12,5 +14,4 @@
   .links
     = link_to_add_association f, :files, class: 'btn btn-info' do
       %i.icon-plus
-      = t '.add_file'
-
+      = t '.add_file' 

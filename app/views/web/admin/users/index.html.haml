@@ -1,6 +1,12 @@
+- if @course_name_presence
+  %h4= t '.list_of_current_users', :name_course => @course_name
+- else
+  %h4= t('.list_of_all_users')
+%h5=  t '.all', :users_count => @users_count
 %table.table.table-striped
   %thead
     %tr
+      %th= sort_link @q, :id
       %th= sort_link @q, :email
       %th= sort_link @q, :first_name
       %th= sort_link @q, :last_name
@@ -10,6 +16,7 @@
   %tbody
     - @users.each do |u|
       %tr
+        %td= u.id
         %td= u.email
         %td= u.first_name
         %td= u.last_name
@@ -17,9 +24,10 @@
         %td= l u.created_at, format: :only_date
         %td
           .pull-right.btn-group
-            = link_to edit_admin_user_path(u), class: 'btn btn-mini' do
+            = link_to edit_admin_user_path(u), 
+              title: t('.title_edit'),
+              class: 'btn btn-mini' do
               %i.icon-pencil
-              = t(:edit)
             - if u.can_activate?
               = link_to trigger_state_event_admin_user_path(u, event: :activate),
                 data: { method: :put, confirm: t('.activate_confirm') },
