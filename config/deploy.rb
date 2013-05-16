@@ -1,5 +1,6 @@
 set :stages, %w(production staging)
 set :default_stage, "staging"
+set :whenever_command, "bundle exec whenever"
 
 require 'capistrano/ext/multistage'
 require 'airbrake/capistrano'
@@ -35,7 +36,7 @@ namespace :sphinx do
 end
 
 before 'deploy:finalize_update', 'deploy:symlink_db'
-#before 'deploy:update_code', 'thinking_sphinx:stop'
+before 'deploy:update_code', 'thinking_sphinx:stop'
 after "deploy:restart", "thinking_sphinx:index", :roles => [:app]
 after 'deploy:finalize_update', 'sphinx:symlink_indexes'
 after 'deploy:update_code', 'thinking_sphinx:start'
