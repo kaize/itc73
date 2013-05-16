@@ -2,7 +2,6 @@ set :rvm_bin_path, "/usr/local/rvm/bin"
 set :rvm_type, :user
 set :stages, %w(production staging)
 set :default_stage, "staging"
-set :rvm_ruby_string, '1.9.3'
 set :whenever_command, "bundle exec whenever" # update crontab
 
 set :use_sudo, false
