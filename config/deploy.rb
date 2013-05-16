@@ -1,3 +1,4 @@
+set :rvm_bin_path, "/usr/local/rvm/bin"
 set :rvm_type, :user
 set :stages, %w(production staging)
 set :default_stage, "staging"
