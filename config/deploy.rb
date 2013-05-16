@@ -1,5 +1,6 @@
 set :stages, %w(production staging)
 set :default_stage, "staging"
+set :whenever_command, "bundle exec whenever"
 
 require 'capistrano/ext/multistage'
 require 'airbrake/capistrano'
