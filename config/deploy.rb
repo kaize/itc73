@@ -1,19 +1,20 @@
-set :rvm_bin_path, "/usr/local/rvm/bin"
-set :rvm_type, :user
 set :stages, %w(production staging)
 set :default_stage, "staging"
-set :rvm_ruby_string, '1.9.3'
-set :whenever_command, "bundle exec whenever" # update crontab
 
-set :use_sudo, false
-
-set :ssh_options, :forward_agent => true
-default_run_options[:pty] = true
+require 'capistrano/ext/multistage'
+require 'airbrake/capistrano'
 
 set :application, "itc73"
+set :rvm_type, :system
 
 set :scm, :git
 set :repository,  "git@github.com:kaize/itc73.git"
+
+set :use_sudo, false
+set :ssh_options, :forward_agent => true
+set :rake, "#{rake} --trace"
+
+default_run_options[:pty] = true
 
 namespace :deploy do
   desc "Symlinks the database.yml"
@@ -40,5 +41,4 @@ after 'deploy:finalize_update', 'sphinx:symlink_indexes'
 after 'deploy:update_code', 'thinking_sphinx:start'
 after 'deploy:restart', 'unicorn:stop'
 after 'deploy:update', 'deploy:cleanup'
-        require './config/boot'
-        require 'airbrake/capistrano'
+require './config/boot'
